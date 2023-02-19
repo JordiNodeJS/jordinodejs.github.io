@@ -1,0 +1,111 @@
+
+.skill-tag {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background 0.2s ease-in-out;
+
+}
+
+
+.skill-tag:hover {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+
+
+.skill-tag-nodejs {
+  background-color: #68A063;
+  color: #fff;
+}
+
+.skill-tag-javascript {
+  background-color: #F7DF1E;
+  color: #333;
+}
+.skill-tag {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.skill-tag-tailwindcss {
+  background-color: #06B6D4;
+  color: #fff;
+}
+
+.skill-tag-materialui {
+  background-color: #0081CB;
+  color: #fff;
+}
+
+.skill-tag-typescript {
+  background-color: #007ACC;
+  color: #fff;
+}
+
+.skill-tag-css {
+  background-color: #264DE4;
+  color: #fff;
+}
+
+.skill-tag-html {
+  background-color: #E34F26;
+  color: #fff;
+}
+
+.skill-tag-npm {
+  background-color: #CB3837;
+  color: #fff;
+}
+
+.skill-tag-pnpm {
+  background-color: #F69220;
+  color: #fff;
+}
+
+.skill-tag-sass {
+  background-color: #CD6799;
+  color: #fff;
+}
+
+.skill-tag-vite {
+  background-color: #646CFF;
+  color: #fff;
+}
+
+.skill-tag-nodejs {
+  background-color: #68A
+}
+.skill-tag-reactjs {
+  background-color: #61DAFB;
+  color: #000;
+}
+
+.skill-tag-git {
+  background-color: #F05032;
+  color: #fff;
+}
+
+.skill-tag-github {
+  background-color: #24292E;
+  color: #fff;
+}
+
+.skill-tag-vercel {
+  background-color: #000;
+  color: #fff;
+}
+
+.skill-tag-netlify {
+  background-color: #00C7B7;
+  color: #fff;
+}
