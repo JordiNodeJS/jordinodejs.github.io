@@ -31,7 +31,7 @@ body {
 }
 
 body {
-  font: 16px/1.6 'Raleway', Arial, Helvetica, sans-serif;
+  font: 16px/1.6 "Raleway", Arial, Helvetica, sans-serif;
   color: #fff;
   text-align: center;
   background: #222;
@@ -152,7 +152,7 @@ video {
 }
 
 #video:after {
-  content: '';
+  content: "";
   opacity: 0.75;
   background: #4096ee;
 
@@ -401,7 +401,7 @@ a#logo {
 }
 
 .navbar-nav li a:after {
-  content: '';
+  content: "";
   display: block;
   height: 2px;
   background: #fff;
@@ -702,6 +702,7 @@ a#logo {
 
 .portfolio-item img {
   max-width: 100%;
+  object-fit: cover;
   overflow: hidden;
   position: relative;
   z-index: 9;
@@ -746,7 +747,7 @@ a#logo {
 .portfolio-item:hover .thumb-inner {
   border-radius: 10px;
   height: 100%;
-  background-color: rgba(250, 250, 250, 0.9);
+  background-color: #84b7ece1;
 }
 
 .portfolio-item:hover .thumb-inner h4 {
@@ -755,6 +756,34 @@ a#logo {
   margin-bottom: 20px;
 }
 
+/*
+github button
+*/
+
+.github-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 2px;
+  background-color: #24292e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.github-btn:hover {
+  background-color: #1c2023;
+}
+
+.github-btn img {
+  max-width: 18px;
+  margin-right: 10px;
+}
 /* ==============================================
 08. CONTACT BLOCK CSS
 ================================================ */
@@ -876,7 +905,7 @@ textarea.form-control {
 }
 
 .contact-box h4:after {
-  content: '';
+  content: "";
   display: block;
   width: 50px;
   height: 2px;
