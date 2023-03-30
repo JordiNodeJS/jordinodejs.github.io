@@ -11,7 +11,17 @@
       "imgCover": "img-project/itacademy.png",
       "description": "Working under agile methodologies such as SCRUM, fixing bugs, testing, new functionalities, documentation in conjunction with backend.",
       "link": "https://github.com/IT-Academy-BCN/ita-directory",
-      "tags": ["javascript", "react", "tailwindcss", "vite", "Redux Toolkit", "Vitest/Jest", "React Testing Library", "Styled Components", "UseForms"]
+      "tags": [
+        "javascript",
+        "react",
+        "tailwindcss",
+        "vite",
+        "Redux Toolkit",
+        "Vitest/Jest",
+        "React Testing Library",
+        "Styled Components",
+        "UseForms"
+      ]
     },
     {
       "id": "9b68cc3d",
@@ -41,7 +51,7 @@
       "id": "d4613430",
       "title": "App sobre el tiempo",
       "imgCover": "img-project/weather.png",
-      "description": "La finalidad de esta app era la construcción de un interface entre el cliente y una API de terceros.",
+      "description": "The purpose of this app was to build an interface between the client and a third-party API.",
       "link": "https://github.com/JordiNodeJS/weather-app",
       "tags": ["html", "javascript", "css", "api"]
     },
@@ -57,7 +67,7 @@
       "id": "a3203cfa",
       "title": "Image Slideshow Effect Only JS",
       "imgCover": "img-project/slider.png",
-      "description": "Un botón de muestra de un slider automático",
+      "description": "A sample button of an automatic slider.",
       "link": "https://jordinodejs.github.io/Image-Slideshow-Effect-OnlyJS/",
       "tags": ["html", "javascript", "css"]
     },
@@ -67,7 +77,15 @@
       "imgCover": "img-project/slider.png",
       "description": "UX/UI and functionalities to architecture.",
       "link": "https://github.com/JordiNodeJS/freeforever",
-      "tags": ["html", "javascript", "css", "React", "tailwind", "Firebase", "Firestore"]
+      "tags": [
+        "html",
+        "javascript",
+        "css",
+        "React",
+        "tailwind",
+        "Firebase",
+        "Firestore"
+      ]
     }
   ],
   "education": [
