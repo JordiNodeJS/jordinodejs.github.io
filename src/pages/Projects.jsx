@@ -51,7 +51,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <SwiperSlide key={project.id} tabIndex={index} className="p-4 px-4 md:px-16 lg:px-16 xl:px-[20rem]">
               <Article
-                className="transition-transform border-pink-400 border border-opacity-60 ease-linear hover:scale-105"
+                className="transition-all border-pink-400 border border-opacity-60 ease-linear hover:brightness-110"
                 project={project}
               />
             </SwiperSlide>
