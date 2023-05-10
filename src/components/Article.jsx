@@ -11,11 +11,11 @@ const Image = ({ project, ...rest }) =>
 export default function Article({ project, className, ...rest }) {
   return (
     <article
-      className={`${className} flex flex-col items-center rounded-3xl pb-12 bg-primary-focus bg-opacity-30`}
+      className={`${className} flex flex-col items-center rounded-3xl pb-12 bg-primary-focus bg-opacity-30 max-w-screen-sm mx-auto`}
       {...rest}
     >
       <div className="w-48 h-48 object-cover">
-        <Image project={project} className="rounded-t-lg mt-6" />
+        <Image project={project} className="rounded-3xl mt-6" />
       </div>
       <div className="p-4 text-slate-400">
         <h2 className="font-bold text-slate-200 text-3xl mb-4">

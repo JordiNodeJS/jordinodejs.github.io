@@ -6,12 +6,12 @@ export default function ContactForm() {
     return <p>Thanks for joining!</p>
   }
   return (
-    <form className="form-control" onSubmit={handleSubmit}>
+    <form className="form-control w-full" onSubmit={handleSubmit}>
       <label className="label" htmlFor="email">
         <span className="label-text-alt">Email</span>
       </label>
       <input
-        className="input input-bordered w-full max-w-xs"
+        className="input input-bordered"
         id="email"
         type="email"
         name="email"
@@ -21,7 +21,7 @@ export default function ContactForm() {
         <span className="label-text-alt">Subject</span>
       </label>
       <input
-        className="input input-bordered w-full max-w-xs mb-8"
+        className="input input-bordered mb-8"
         id="asunto"
         type="text"
         name="asunto"
