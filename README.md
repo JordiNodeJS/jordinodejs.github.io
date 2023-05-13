@@ -11,6 +11,23 @@ Para desplegar una página hecha con React JS en GitHub Pages, hay varios pasos 
 - Segundo, debes instalar el paquete gh-pages como una dependencia de desarrollo en tu proyecto. Puedes hacerlo con el comando `npm i -D gh-pages` o `pnpm add -D gh-pages`.
 - Tercero, debes agregar una propiedad llamada homepage en tu archivo `package.json`, con el valor de la URL donde se va a desplegar tu página. Por ejemplo: 
 ```json
+{
+  ...
+  "homepage": "https://jordinodejs.github.io/",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+  ..
+  },
+  "dependencies": {
+            ...
+  },
+  "devDependencies": {
+            ...
+  }
+}
+
 "homepage": "https://<username>.github.io"
 ```
 - Cuarto, debes agregar dos scripts en tu archivo package.json, uno para precompilar tu proyecto y otro para desplegarlo en GitHub Pages. Por ejemplo, `"predeploy": "npm run build"` y `"deploy": "gh-pages -d dist"`.
