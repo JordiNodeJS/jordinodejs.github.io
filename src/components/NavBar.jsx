@@ -1,6 +1,6 @@
 import NavLinks from './NavLinks'
 
-export default function NavBar() {
+export default function NavBar({ links }) {
   return (
     <div className="sticky top-0 navbar backdrop-blur-sm bg-neutral-800 bg-opacity-40 z-10">
       <div className="flex-1">
@@ -33,7 +33,7 @@ export default function NavBar() {
       </div>
       <div className="flex-none hidden md:block">
         <ul className="menu menu-horizontal bg-base-100 rounded-box">
-          <NavLinks />
+          <NavLinks links={links} />
         </ul>
       </div>
     </div>
