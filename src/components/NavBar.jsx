@@ -26,7 +26,7 @@ export default function NavBar({ links }) {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 backdrop-blur-sm bg-neutral-800 bg-opacity-40 "
             >
-              <NavLinks />
+              <NavLinks links={links} />
             </ul>
           </div>
         </div>

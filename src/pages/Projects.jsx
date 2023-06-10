@@ -34,7 +34,7 @@ export default function Projects() {
           enabled: true
         }}
         scrollbar={false}
-        navigation={false}
+        navigation={true}
         pagination={{
           clickable: true
         }}
