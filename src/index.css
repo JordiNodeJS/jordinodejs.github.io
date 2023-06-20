@@ -44,6 +44,15 @@
     width: 100%;
     height: 100%;
   }
+  .background-svg-react {
+    background-image: url('/assets/react-logo.svg');
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }
 @layer utilities {
   .height-min {

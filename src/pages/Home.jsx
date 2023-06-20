@@ -8,6 +8,7 @@ export default function Home() {
   //  max-w-sm md:max-w-md lg:max-w-2xl
   return (
     <Container>
+      <div className='-z-10 opacity-20 -left-10 w-80 h-80 background-svg-react' />
       <div className="flex flex-col justify-center items-center">
         <div className='max-w-sm md:max-w-md lg:max-w-2xl'>
           <h2 className="mt-36 mb-5 text-accent font-bold">{title}</h2>
