@@ -11,15 +11,15 @@ module.exports = {
       // 'dark',
       {
         porfolio: {
-          primary: '#FF79C6',
-          secondary: '#BD93F9',
-          accent: '#FFB86C',
-          neutral: '#414558',
-          'base-100': '#282A36',
-          info: '#8BE9FD',
-          success: '#50FA7B',
-          warning: '#F1FA8C',
-          error: '#FF5555'
+          primary: '#5890d8',
+          secondary: '#f4d7b7',
+          accent: '#69b2d3',
+          neutral: '#2b1c31',
+          'base-100': '#363a3f',
+          info: '#98b7f0',
+          success: '#51e1c7',
+          warning: '#f8ab59',
+          error: '#e8554a'
         }
       }
     ]
