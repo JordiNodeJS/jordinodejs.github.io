@@ -2,16 +2,13 @@ function Home() {
   return (
     <>
       <section className="h-screen relative flex items-center max-w-[1000px] mx-auto">
-        <div className="p-0 h-full text-center max-w-full page_center max-[700px]:after:hidden">
-          <div className="flex flex-col items-center justify-center w-full gap-4">
-            <figure className="-mb-4 scale-150 opacity-90 w-36 h-36">
+        <div className="p-0 h-full text-center max-w-full page_header max-[700px]:after:hidden">
+          <div className="flex items-center justify-center w-full border-2 max-sm:flex-col border-cyan-700">
+            <figure className="w-2/5 border-2 sm:order-2 lg:w-4/5 border-cyan-600">
               <picture>
                 <img
                   src="assets/avatar-square-padding.png"
                   alt="Avatar"
-                  width={150}
-                  height={150}
-                  className="w-full h-full"
                 />
               </picture>
             </figure>
@@ -31,8 +28,8 @@ function Home() {
                 </span>
                 <span>{' Front-End React Developer'}</span>
               </h1>
-              <h2 className="dark:text-[#cecece] text-neutral-700 tracking-tight font-semibold text-2xl">
-                {'Software Engineer & Music Producer'}
+              <h2 className="dark:text-[#cecece] text-amber-700 tracking-tight font-semibold text-2xl">
+                {'Software Engineer'}
               </h2>
             </div>
           </div>

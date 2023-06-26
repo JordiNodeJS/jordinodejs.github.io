@@ -265,7 +265,7 @@ body {
 }
 
 /* my styles */
-.page_center {
+.page_header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -273,7 +273,7 @@ body {
   padding: 4rem 0;
 }
 
-.page_center::before {
+.page_header::before {
   content: '';
   left: 50%;
   position: absolute;
@@ -286,7 +286,7 @@ body {
   margin-left: -400px;
 }
 
-.page_center::after {
+.page_header::after {
   content: '';
   left: 50%;
   position: absolute;
