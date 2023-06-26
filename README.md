@@ -34,3 +34,34 @@ Para desplegar una página hecha con React JS en GitHub Pages, hay varios pasos 
 - Quinto, debes ejecutar el comando `npm run deploy` o `pnpm deploy` para enviar tu proyecto a una rama llamada gh-pages en tu repositorio de GitHub.
 - Sexto, debes ir a la configuración de tu repositorio en GitHub y habilitar la opción de GitHub Pages, seleccionando la rama gh-pages como fuente.
 - Séptimo, debes esperar unos minutos a que GitHub Pages publique tu página y luego podrás acceder a ella desde la URL que especificaste en el paso tres.
+
+## dev config
+` nano ~/.profile `
+
+```bash
+
+  GNU nano 5.8                 /c/Users/neo/.profile
+
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit -m"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gb="git branch"
+alias gba="git branch -a"
+alias gbvva="git branch -vva"
+alias gm="git merge"
+alias gbd="git branch -d"
+alias gbD="git branch -D"
+alias gpush="git push"
+alias gpull="git pull"
+alias gpusho="git push origin"
+alias gl="git log --oneline --graph"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Crese>
+alias dev="npm run dev"
+alias gcamend="git commit --amend -m"
+alias grm="git remote remove origin"
+alias gremote="git remote -vv"
+alias gset="git remote set-url origin git:" #url here
+
+```
