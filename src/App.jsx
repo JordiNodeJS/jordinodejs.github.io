@@ -40,10 +40,10 @@ function App() {
           id="content"
           className="px-8 relative flex items-center max-w-[1100px] mx-auto"
         >
-          <div className="h-full text-left max-w-full">
-            <div className="grid grid-cols-2 gap-2 h-full w-full ">
+          <div className="h-full max-w-full text-left">
+            <div className="grid w-full h-full grid-cols-2 gap-2 ">
               <Header />
-              <div className="col-span-1 max-[800px]:col-span-2 flex flex-col">
+              <div className="flex flex-col col-span-1 max-[800px]:col-span-2">
                 <AboutSection />
                 <ExperiencesSection />
                 <ProjectsSection />
