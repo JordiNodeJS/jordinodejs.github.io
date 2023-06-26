@@ -20,7 +20,7 @@ import {
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-24 max-[800px]:pt-5">
+    <section id="skills" className="py-24 max-lg:pt-5">
       <h3 className="text-2xl font-semibold tracking-tight mb-3 pb-4 dark:text-orange-100/90 text-black/80">
         Skills
       </h3>

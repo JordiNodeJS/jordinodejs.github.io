@@ -33,8 +33,8 @@ export default function NavBar({ links }) {
           </ul>
         </div>
       </div>
-      <div className="h-full py-24 px-14 max-[800px]:px-2 flex-col flex">
-        <nav className="my-10 max-[800px]:hidden">
+      <div className="h-full py-24 px-14 max-lg:px-2 flex-col flex">
+        <nav className="my-10 max-lg:hidden">
           <ul
             tabIndex={0}
             className="flex flex-col gap-1 text-base font-semibold"

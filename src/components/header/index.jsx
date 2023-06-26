@@ -3,8 +3,8 @@ import FooterHeader from './footer'
 
 export default function Header() {
   return (
-    <header className="flex col-span-1 max-[800px]:col-span-2 top-0 h-screen max-[800px]:h-auto min-[800px]:sticky  gap-3">
-      <div className="h-full py-24 px-14 max-[800px]:px-2 flex-col  flex">
+    <header className="flex h-screen col-span-1 gap-3 lg:top-0 max-ls:col-span-2 max-lg:h-auto lg:sticky">
+      <div className="flex flex-col h-full py-24 px-14 max-lg:px-2">
         <div className="flex flex-col gap-3">
           <h1 className="font-bold text-[#1f1c19] dark:text-[#cdbead] relative item-s text-transparent text-6xl bg-clip-text inline-block text-gradient tracking-tighter">
             Daustinn
