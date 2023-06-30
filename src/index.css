@@ -19,7 +19,11 @@ html {
   --primary-glow: radial-gradient(rgba(255, 128, 1, 0.3), rgba(255, 175, 1, 0));
   --scrollbar-tumbl: #b3b3b369;
   --gradient-title-custom: linear-gradient(#151414, #5e0c7300);
-  --shadow-cursor: 216, 144, 29, 0.15;
+  --shadow-cursor: 231, 155, 243, 0.25;
+}
+
+h3 {
+  color: rgb(var(--shadow-cursor));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,7 +32,7 @@ html {
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
     --body-background: #040404;
-    --shadow-cursor: 216, 144, 29, 0.058;
+    --shadow-cursor: 216, 144, 29, 0.95;
     --gradient-title-custom: linear-gradient(#fff0e1, #5e0c7300);
     color-scheme: dark;
   }
@@ -265,12 +269,13 @@ body {
 }
 
 /* my styles */
-.page_header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }
 
 .shake-left-right:hover {
