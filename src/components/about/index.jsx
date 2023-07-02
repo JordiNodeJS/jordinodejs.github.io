@@ -6,12 +6,12 @@ export default function AboutSection() {
       <h3 className="text-2xl max-lg:block hidden font-semibold tracking-tight mb-3 pb-4 dark:text-orange-100/90 text-black/80">
         About
       </h3>
-      <div className="dark:text-neutral-400 text-neutral-900">
+      <div className="dark:text-emerald-700/80 text-slate-700">
         <p className="mb-4 leading-6 text-base">
           Since 2019, I have immersed myself in modern design using
           <CustomLink href="https://www.invisionapp.com/">
             Invision Studio
-          </CustomLink>
+          </CustomLink>{' '}
           and thoroughly explored coding and web development. Collaborated with
           several local companies, creating online sales web applications. I
           highlight my contribution in

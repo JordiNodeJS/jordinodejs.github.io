@@ -13,10 +13,10 @@ function Home() {
               Visualmente un desarrollador front-end de React
             </figcaption>
             <div className="flex flex-col gap-3 max-[700px]:px-2">
-              <h1 className="relative inline-block font-extrabold tracking-tighter text-transparent text-7xl md:text-6xl bg-clip-text bg-gradient-to-b dark:from-fuchsia-900 dark:to-red-900 from-fuchsia-300 to-fuchsia-700">
+              <h1 className="relative inline-block font-extrabold tracking-tighter text-transparent text-7xl md:text-6xl bg-clip-text bg-gradient-to-b dark:from-slate-700 dark:to-emerald-400 from-emerald-300 to-red-300">
                 <span>{' Front-End React Developer'}</span>
               </h1>
-              <h2 className="dark:text-[#cecece] text-fuchsia-800 tracking-tight font-semibold text-2xl mt-2">
+              <h2 className="dark:text-emerald-500 text-red-400 tracking-tight font-bold text-2xl mt-2">
                 {'Software Engineer'}
               </h2>
             </div>
@@ -25,7 +25,7 @@ function Home() {
         {/* finger */}
         <div className="absolute shadow-2xl bottom-3 left-[50%] translate-x-[-50%]">
           <a href="#content" className="block animate-bounce">
-            <span className="p-2 rounded-full dark:shadow-md dark:shadow-fuchsia-800/60 material-symbols-outlined text-fuchsia-600 dark:fuchsia-600 ">
+            <span className="p-2 rounded-full dark:shadow-md dark:shadow-slate-700/60 material-symbols-outlined text-emerald-600 dark:fuchsia-600 ">
               keyboard_double_arrow_down
             </span>
           </a>

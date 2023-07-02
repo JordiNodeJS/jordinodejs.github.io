@@ -37,3 +37,18 @@ Para desplegar una página hecha con React JS en GitHub Pages, hay varios pasos 
 
 ## Resources
 [svgrepo](https://www.svgrepo.com/)
+
+## Modes
+[light mode](https://colorhunt.co/palette/fcf8e894b49fecb390df7861)
+
+#FCF8E8 se parece al color rose-50
+#94B49F se parece al color emerald-400
+#ECB390 se parece al color orange-200
+#DF7861 se parece al color red-300
+
+[dark mode](https://colorhunt.co/palette/2d4356435b66a76f6feab2a0)
+
+#2D4356 se parece al color slate-800
+#435B66 se parece al color slate-700
+#A76F6F se parece al color rose-400
+#EAB2A0 se parece al color rose-200
