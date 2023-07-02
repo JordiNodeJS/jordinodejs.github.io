@@ -1,7 +1,7 @@
 function Home() {
   return (
     <>
-      <section className="h-screen relative flex items-center max-w-[1000px] mx-8">
+      <section className="h-screen relative flex items-center mx-8">
         <div className="relative flex h-full max-w-full p-0 py-16 text-center">
           <div className="flex items-center justify-center w-full max-sm:flex-col">
             <figure className="w-2/5 mr-10 md:w-3/5">
@@ -10,7 +10,7 @@ function Home() {
               </picture>
             </figure>
             <figcaption className="sr-only">
-              Visualmente un desarrollador front-end de React
+              un desarrollador front-end de React
             </figcaption>
             <div className="flex flex-col gap-3 max-[700px]:px-2">
               <h1 className="relative inline-block font-extrabold tracking-tighter text-transparent text-7xl md:text-6xl bg-clip-text bg-gradient-to-b dark:from-slate-700 dark:to-emerald-400 from-emerald-300 to-red-300">

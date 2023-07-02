@@ -55,8 +55,8 @@ body {
   body,
   .prettyscroll {
     font-family: 'Poppins', sans-serif;
-    --sb-track-color: #363a3f;
-    --sb-thumb-color: #98b7f0;
+    --sb-track-color: #0f161d;
+    --sb-thumb-color: #435B66;
     --sb-size: 10px;
 
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
