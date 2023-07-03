@@ -1,6 +1,6 @@
 import { ExternalIcon, GithubIcon } from '../Icons/Icons'
 
-export default function ItemProjects(project) {
+export default function EducationItems(project) {
   return (
     <article key={project.id} className="mb-14">
       <div className="group relative grid  transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">

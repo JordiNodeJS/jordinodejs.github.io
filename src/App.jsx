@@ -4,7 +4,7 @@ import Projects from './components/projects'
 import Footer from './components/footer'
 import Header from './components/header'
 import Home from './components/home'
-import ProjectsSection from './components/projects2'
+import ProjectsSection from './components/education'
 import SkillsSection from './components/skills'
 
 function App() {
