@@ -6,7 +6,7 @@ export default function Header() {
     <header className="flex h-screen col-span-2 sm:col-span-1 gap-3 lg:top-0 max-ls:col-span-2 max-lg:h-auto lg:sticky">
       <div className="flex flex-col py-24 px-14 max-lg:px-2">
         <div className="flex flex-col gap-3">
-          <h1 className="font-bold text-slate-700 dark:text-emerald-900  relative items-start text-transparent text-6xl bg-clip-text inline-block text-gradient tracking-tighter">
+          <h1 className="font-bold text-slate-700 dark:text-emerald-600  relative items-start text-transparent text-6xl bg-clip-text inline-block text-gradient tracking-wider">
             J-.ORCAJO
           </h1>
           <h2 className="dark:text-emerald-800 text-slate-700 items-end text-transparent bg-clip-text tracking-tighter text-gradient text-xl">
