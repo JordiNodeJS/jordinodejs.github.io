@@ -12,7 +12,7 @@ export default function Header() {
           <h2 className="dark:text-emerald-800 text-slate-700 items-end text-transparent bg-clip-text tracking-tighter text-gradient text-xl">
             Software Engineer
           </h2>
-          <p className="w-96 max-[700px]:w-full opacity-80 dark:text-emerald-600 text-stone-400 items-start text-transparent text-gradient bg-clip-text leading-5">
+          <p className="w-96 max-[700px]:w-full opacity-80  dark:text-orange-50/20 text-stone-400 items-start text-transparent text-gradient bg-clip-text leading-5">
             +2 years of experience in the programming world, specializing in
             React. Committed to developing accessible and high-performance user
             experiences.

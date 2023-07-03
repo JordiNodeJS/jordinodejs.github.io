@@ -1,10 +1,10 @@
-import { ExternalIcon } from '../Icons/Icons'
+import { ExternalIcon, GithubIcon } from '../Icons/Icons'
 
 export default function ProjectItem(project) {
   return (
     <article className="mb-14">
       <div className="group relative grid transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-        <div className="absolute -inset-x-4 -inset-y-4 border border-transparent hover:dark:border-red-950 hover:border-neutral-450 z-0  rounded-lg transition motion-reduce:transition-none lg:block lg:group-hover:dark:bg-emerald-800/20 lg:group-hover:bg-neutral-300/20 lg:group-hover:dark:shadow-[inset_0_1px_0_0_rgba(221, 223, 225, 0.1)] lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg" />
+        <div className="absolute -inset-x-4 -inset-y-4 border border-transparent z-0 rounded-lg transition lg:block lg:group-hover:dark:bg-emerald-800/20 lg:group-hover:bg-neutral-300/20 lg:group-hover:dark:shadow-[inset_0_1px_0_0_rgba(221, 223, 225, 0.1)] lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg" />
         <header
           className="z-10 mb-2 mt-1 text-sm font-semibold uppercase tracking-wide dark:text-neutral-500 text-neutral-500 sm:col-span-2"
           aria-label="2018 to Present"
@@ -27,11 +27,15 @@ export default function ProjectItem(project) {
                 rel="noreferrer"
                 aria-label={project.title}
               >
-                <span className="inline-block font-semibold">
+                <div className="w-8 mr-2">
+                  <GithubIcon />
+                </div>
+
+                <span className="inline-block self-center font-semibold">
                   {project.title}
                   <ExternalIcon />
                 </span>
-                <span className="absolute -inset-x-3 -inset-y-3"></span>
+                <span className="absolute -inset-x-3 -inset-y-3" />
               </a>
             </div>
             <div>
@@ -43,7 +47,7 @@ export default function ProjectItem(project) {
               </div>
             </div>
           </h3>
-          <p className="mt-2 text-sm leading-normal dark:text-orange-50/60 text-orange-950/80 dark:text-orange-50">
+          <p className="mt-2 text-sm leading-normal dark:text-orange-50/60 text-orange-950/80">
             {project.description}
           </p>
           <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
