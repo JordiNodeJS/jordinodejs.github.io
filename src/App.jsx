@@ -4,7 +4,7 @@ import Projects from './components/projects'
 import Footer from './components/footer'
 import Header from './components/header'
 import Home from './components/home'
-import ProjectsSection from './components/education'
+import Education from './components/education'
 import SkillsSection from './components/skills'
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
               <div className="flex flex-col col-span-1 max-lg:col-span-2">
                 <AboutSection />
                 <Projects />
-                <ProjectsSection />
+                <Education />
                 <SkillsSection />
                 <Footer />
               </div>
