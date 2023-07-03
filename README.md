@@ -38,6 +38,8 @@ Para desplegar una página hecha con React JS en GitHub Pages, hay varios pasos 
 ## Resources
 [svgrepo](https://www.svgrepo.com/)
 
+[sticker](https://icons8.com/icon/set/animals/stickers)
+
 ## Modes
 [light mode](https://colorhunt.co/palette/fcf8e894b49fecb390df7861)
 
