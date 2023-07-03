@@ -6,7 +6,7 @@ export default function EducationItems(edu) {
       <div className="group relative grid  transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
         <div className="absolute -inset-x-4 -inset-y-4 border border-transparent hover:dark:border-neutral-950 hover:border-neutral-450 z-0 hidden rounded-lg transition motion-reduce:transition-none lg:block lg:group-hover:dark:bg-neutral-800/20 lg:group-hover:bg-neutral-300/20 lg:group-hover:dark:shadow-[inset_0_1px_0_0_rgba(221, 223, 225, 0.1)] lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
         <div className="z-10 mb-2 mt-1 text-sm font-semibold uppercase tracking-wide  sm:col-span-2">
-          <div className="text-slate-600 rounded-lg overflow-hidden max-md:hidden">
+          <div className="text-slate-600 rounded-lg overflow-hidden max-md:hidden font-thin text-xs">
             {edu.start_date} - {edu.end_date}
           </div>
         </div>
@@ -39,6 +39,16 @@ export default function EducationItems(edu) {
           <p className="mt-2 text-sm leading-normal dark:text-orange-50/60 text-orange-950/80 dark:text-orange-50 [&>a]:text-orange-800 dark:[&>a]:text-orange-50 dark:hover:[&>a]:text-cyan-500 hover:[&>a]:text-cyan-700">
             {edu.description}
           </p>
+          <h4 className='text-orange-900 font-mono text-sm mt-2'>What it&apos;s taught</h4>
+          <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+            {edu.tags?.map(tag => (
+              <li className="mr-1.5 mt-2" key={tag}>
+                <div className="flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-amber-700 text-orange-900">
+                  {tag}
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </article>

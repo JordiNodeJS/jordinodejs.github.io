@@ -108,8 +108,8 @@ import education from '../../db/education.json'
 export default function Education() {
   return (
     <section id="education" className="pt-24 max-lg:pt-5">
-      <h3 className="text-2xl font-semibold tracking-tight mb-3 pb-4 dark:text-orange-100/90 text-black/80">
-        Projects
+      <h3 className="text-2xl font-semibold tracking-widest mb-3 pb-4 dark:text-orange-100/90 text-black/80">
+        Education
       </h3>
       {education.map((edu) => (
         <EducationItems key={edu.id} {...edu} />

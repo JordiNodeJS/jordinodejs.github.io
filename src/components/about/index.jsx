@@ -1,7 +1,7 @@
 export default function AboutSection() {
   return (
     <section id="about" className="pt-0 lg:pt-28 text-transparent text-gradient bg-clip-text">
-      <h3 className="text-2xl lg:block hidden font-semibold tracking-tight mb-3 pb-4 dark:text-amber-700 text-slate-700">
+      <h3 className="text-2xl lg:block hidden font-semibold tracking-widest mb-3 pb-4 dark:text-amber-700 text-slate-700">
         About
       </h3>
       <div className="dark:text-emerald-700/80">

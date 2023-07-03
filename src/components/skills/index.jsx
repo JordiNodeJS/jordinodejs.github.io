@@ -5,12 +5,9 @@ import {
   FirebaseIcon,
   GitIcon,
   HtmlIcon,
-  JavaIcon,
   JavaScriptIcon,
-  MongoDbIcon,
   MysqlIcon,
   NextjsIcon,
-  PostgressIcon,
   ReactJsIcon,
   SassIcon,
   TailwindcssIcon,
@@ -35,12 +32,9 @@ export default function SkillsSection() {
           <Skill title="Tailwidcss" icon={<TailwindcssIcon />} />
           <Skill title="Sass" icon={<SassIcon />} />
           <Skill title="Firebase" icon={<FirebaseIcon />} />
-          <Skill title="Postgress" icon={<PostgressIcon />} />
           <Skill title="Git" icon={<GitIcon />} />
-          <Skill title="MongoDb" icon={<MongoDbIcon />} />
           <Skill title="Cloudinary" icon={<CloudinaryIcon />} />
           <Skill title="Vercel" icon={<VercelIcon />} />
-          <Skill title="Java" icon={<JavaIcon />} />
           <Skill title="Mysql" icon={<MysqlIcon />} />
         </div>
       </div>

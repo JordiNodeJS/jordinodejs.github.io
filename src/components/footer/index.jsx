@@ -11,25 +11,23 @@ export default function Footer() {
               href="https://es.wikipedia.org/wiki/Per%C3%BA"
               target="_blank"
               referrerPolicy="no-referrer"
-              className="hover:underline tracking-[0.8rem]" rel="noreferrer"
+              className="hover:underline tracking-[0.8rem]"
+              rel="noreferrer"
             >
               Barcelona
             </a>
           </h4>
-          <p className="mt-2 text-sm leading-normal dark:text-orange-50/60 text-orange-950/80 dark:text-orange-50">
+          <p className="mt-2 text-sm leading-normal dark:text-orange-50/60 text-slate-800 dark:text-orange-50 [&>a]:font-medium [&>a]:hover:no-underline [&>a]:text-emerald-600 [&>a]:hover:text-emerald-900">
             Designed and coded with{' '}
             <a
-              className="font-semibold hover:underline hover:text-orange-200 text-neutral-50"
               href="https://code.visualstudio.com/"
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               Visual Studio Code
-            </a>. Build with {' '}
-            <a
-              className="font-semibold hover:underline hover:text-orange-200 text-neutral-50"
-              href="https://tailwindcss.com/"
-              target="_blank" rel="noreferrer"
-            >
+            </a>
+            . Build with{' '}
+            <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
               Tailwind CSS
             </a>
           </p>
