@@ -46,7 +46,7 @@ export default function AboutSection() {
       >
         <Accordion
           title="About"
-          defaultOpen={true}
+          defaultOpen={false}
           titleClassName="text-2xl font-semibold tracking-widest dark:text-amber-700 text-slate-700"
         >
           {content}
