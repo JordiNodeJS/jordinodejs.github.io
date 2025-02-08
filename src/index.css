@@ -356,3 +356,18 @@ body {
     background-attachment: fixed;
   }
 }
+
+#vanta-background {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
