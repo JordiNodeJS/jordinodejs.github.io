@@ -342,8 +342,17 @@ body {
 }
 
 .text-gradient {
-  background-image: var(--gradient-title-custom);
-  background-attachment: fixed;
-  background-size: cover;
-  position: relative;
+  color: var(--text-color);
+  /* Color base para móviles */
+}
+
+/* Aplicar degradado solo en pantallas más grandes */
+@media (min-width: 768px) {
+  .text-gradient {
+    background: var(--gradient-title-custom);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-attachment: fixed;
+  }
 }
