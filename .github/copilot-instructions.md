@@ -23,6 +23,7 @@ Este repositorio utiliza React, Vite, Tailwind CSS y cuenta con configuraciones 
 
    - Evita "// ...existing about content..." y complétalo con el código existente.
    - Escribe en nombre del archivo del componente en PascalCase.
+   - Evita importar React `import Reactfrom'react'` dado que vite lo hace internamente.
 
 5. **Integración de Tailwind CSS**
 

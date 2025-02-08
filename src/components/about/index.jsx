@@ -22,8 +22,8 @@ export default function AboutSection() {
         <li>
           Developed critical thinking, resilience, flexibility and teamwork
           skills through working on various projects using SCRUM: Agile
-          Methodology and Springs, experience gained on IT Academy_directory's
-          project from Barcelona Activa.
+          Methodology and Springs, experience gained on IT
+          Academy_directory&apos;s project from Barcelona Activa.
         </li>
         <li>
           Passionate about creating user-friendly and engaging web experiences
