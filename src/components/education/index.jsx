@@ -111,7 +111,7 @@ export default function Education() {
       <h3 className="text-2xl font-semibold tracking-widest mb-3 pb-4 dark:text-orange-100/90 text-black/80">
         Education
       </h3>
-      {education.map((edu) => (
+      {education.map(edu => (
         <EducationItems key={edu.id} {...edu} />
       ))}
     </section>
