@@ -19,16 +19,21 @@ Este repositorio utiliza React, Vite, Tailwind CSS y cuenta con configuraciones 
    - Asegúrate de usar atributos accesibles, como `alt` en imágenes, y emplea etiquetas semánticas (por ejemplo, `<article>`, `<header>`, `<footer>`).
    - Valida que los links tengan atributos `target="_blank"` y `rel="noopener noreferrer"` para mayor seguridad cuando sea necesario.
 
-4. **Integración de Tailwind CSS**
+4. **Generación de código**
+
+   - Evita "// ...existing about content..." y complétalo con el código existente.
+
+5. **Integración de Tailwind CSS**
 
    - Utiliza las clases utilitarias de Tailwind definidas en [tailwind.config.cjs](tailwind.config.cjs) para mantener la coherencia del estilo.
    - Revisa las paletas y modos (light/dark) definidos en la documentación del proyecto, por ejemplo en [README.md](README.md).
 
-5. **Control de Versiones y Despliegue**
+6. **Control de Versiones y Despliegue**
 
    - Sigue las buenas prácticas de commit, escribiendo mensajes claros y concisos.
    - Asegúrate de que las instrucciones para precompilar y desplegar estén actualizadas en el `package.json` y la documentación asociada en [README.md](README.md).
 
-6. **Pruebas y Documentación**
+7. **Pruebas y Documentación**
+
    - Integra y ejecuta pruebas unitarias y de integración según la estructura y herramientas disponibles en el proyecto.
    - Mantén la documentación actualizada para que otros desarrolladores comprendan la arquitectura y el propósito de cada módulo.
