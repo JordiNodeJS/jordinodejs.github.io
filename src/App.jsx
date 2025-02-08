@@ -8,8 +8,10 @@ import Home from './components/home'
 import Education from './components/education'
 import SkillsSection from './components/skills'
 import ThemeToggle from './components/ThemeToggle'
+import { useIsMobile } from './hooks/useIsMobile'
 
 function App() {
+  const isMobile = useIsMobile()
   const [theme, setTheme] = useState(() => {
     // Inicializar el tema desde localStorage o preferencias del sistema
     if (
@@ -36,7 +38,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 text-black dark:text-white transition-colors">
-      <CursorShadow />
+      {!isMobile && <CursorShadow />}
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       <div className="relative">
         <Home />
