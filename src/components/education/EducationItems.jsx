@@ -1,10 +1,14 @@
 import { ExternalIcon } from '../Icons/Icons'
 
-export default function EducationItems(edu) {
+export default function EducationItems({ isLast, ...edu }) {
   return (
     <article className="mb-14 relative group">
-      {/* Línea vertical conectora - Ajustada para cubrir el espacio entre cards */}
-      <div className="absolute left-[7px] top-0 h-[calc(100%+3.5rem)] w-[2px] bg-orange-400/20 group-hover:bg-orange-400/30 transition-colors duration-300" />
+      {/* Línea vertical conectora */}
+      <div
+        className={`absolute left-[7px] top-2 w-[2px] bg-orange-400/20 group-hover:bg-orange-400/30 transition-colors duration-300 ${
+          isLast ? 'h-full' : 'h-[calc(100%+3.5rem)]'
+        }`}
+      />
 
       {/* Punto centrado con la línea */}
       <div className="absolute left-0 top-2 z-10">
