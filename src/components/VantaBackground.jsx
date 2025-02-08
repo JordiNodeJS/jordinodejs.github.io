@@ -15,7 +15,7 @@ export default function VantaBackground({ theme }) {
           backgroundColor: theme === 'dark' ? 0x111827 : 0xf3f4f6,
           amplitudeFactor: 1.5,
           size: 1.0,
-          xOffset: 0.0,
+          xOffset: 0.3,
           yOffset: 0.0,
           opacity: theme === 'dark' ? 0.3 : 0.15
         })
@@ -30,7 +30,7 @@ export default function VantaBackground({ theme }) {
   useEffect(() => {
     if (vantaEffect) {
       vantaEffect.setOptions({
-        baseColor: theme === 'dark' ? 0x111827 : 0xf3f4f6,
+        baseColor: theme === 'dark' ? 0x34d399 : 0x065f46,
         backgroundColor: theme === 'dark' ? 0x111827 : 0xf3f4f6,
         opacity: theme === 'dark' ? 0.3 : 0.15
       })

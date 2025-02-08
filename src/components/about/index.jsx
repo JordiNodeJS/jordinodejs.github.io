@@ -5,7 +5,7 @@ export default function AboutSection() {
   const isMobile = useIsMobile()
 
   const content = (
-    <div className="text-emerald-800 dark:text-emerald-400">
+    <div className="text-emerald-800/80 dark:text-emerald-400/60">
       <p className="mb-4">
         Experience in HTML, CSS, SASS, JavaScript, TypeScript, React, Redux,
         Node, npm, Git, GitHub, MySQL, API REST, Firebase. Working under agile
@@ -44,7 +44,7 @@ export default function AboutSection() {
         <Accordion
           title="About"
           defaultOpen={false}
-          titleClassName="text-2xl font-semibold tracking-widest text-emerald-800 dark:text-emerald-400"
+          titleClassName="text-2xl font-semibold tracking-widest text-emerald-800/80 dark:text-emerald-400/60"
         >
           {content}
         </Accordion>
@@ -54,7 +54,7 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="pt-0 lg:pt-28">
-      <h3 className="text-2xl lg:block font-semibold tracking-widest mb-3 pb-4 text-emerald-800 dark:text-emerald-400">
+      <h3 className="text-2xl lg:block font-semibold tracking-widest mb-3 pb-4 text-emerald-800/80 dark:text-emerald-400/60">
         About
       </h3>
       {content}
