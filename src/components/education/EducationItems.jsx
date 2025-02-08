@@ -18,7 +18,7 @@ export default function EducationItems({ isLast, ...edu }) {
       </div>
       <div className="ml-8">
         <div className="group relative grid transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover:list:opacity-50">
-          <div className="z-10 mb-2 mt-1 text-sm font-semibold uppercase tracking-wide sm:col-span-2">
+          <div className="z-10 mb-2 mt-2 text-sm font-semibold uppercase tracking-wide sm:col-span-2">
             <div className="text-slate-600 rounded-lg overflow-hidden max-md:hidden font-thin text-xs">
               {edu.start_date} - {edu.end_date}
             </div>
