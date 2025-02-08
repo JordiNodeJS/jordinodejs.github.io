@@ -37,11 +37,11 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-900 text-black dark:text-white transition-colors">
+    <div className="min-h-screen bg-black/80 dark:bg-neutral-900/80 text-black dark:text-white transition-colors">
       {!isMobile && <CursorShadow />}
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       <div className="relative">
-        <Home />
+        <Home theme={theme} />
         <div id="content" className="px-8 relative flex items-center mx-auto">
           <div className="h-full max-w-full text-left">
             <div className="grid w-full h-full grid-cols-2 gap-2">
