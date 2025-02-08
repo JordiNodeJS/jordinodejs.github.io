@@ -11,7 +11,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/prop-types': 0,
+    'react/prop-types': 'off',
     'space-before-function-paren': [
       'error',
       {
@@ -19,6 +19,8 @@ module.exports = {
         named: 'never',
         asyncArrow: 'always'
       }
-    ]
+    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.js'] }],
+    'comma-dangle': 'off' // Disable the trailing comma rule
   }
 }
