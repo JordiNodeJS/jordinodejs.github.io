@@ -7,6 +7,7 @@ export default function VantaBackground({ theme }) {
     3.0 + (0.3 - xOffset) * 2
   )
   const [, setSize] = useState(2.0 + (0.3 - xOffset) * 0.5)
+  const [yOffset, setYOffset] = useState(0)
   const vantaRef = useRef(null)
 
   const calculateAmplitudeFactor = xOffset => 3.0 + (0.3 - xOffset) * 2
@@ -18,7 +19,9 @@ export default function VantaBackground({ theme }) {
         window.scrollY /
         (document.documentElement.scrollHeight - window.innerHeight)
       const newOffset = 0.3 - scrollProgress * 0.6 // This will go from 0.3 to -0.3
+      const newYOffset = -(scrollProgress * 0.2) // Ahora irá de 0 a -0.3 máximo
       setXOffset(newOffset)
+      setYOffset(newYOffset)
       setAmplitudeFactor(calculateAmplitudeFactor(newOffset))
       setSize(calculateSize(newOffset))
     }
@@ -39,9 +42,9 @@ export default function VantaBackground({ theme }) {
           backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
           amplitudeFactor: calculateAmplitudeFactor(0.3), // Aumentado para más intensidad
           size: 2, // Aumentado para más visibilidad
-          xOffset: 0.3, // Aumentado para más visibilidad
-          yOffset: 0.0,
-          opacity: theme === 'dark' ? 0.8 : 0.6 // Mayor opacidad
+          xOffset, // Aumentado para más visibilidad
+          yOffset,
+          opacity: theme === 'dark' ? 0.2 : 0.6 // Mayor opacidad
         })
       )
     }
@@ -68,10 +71,11 @@ export default function VantaBackground({ theme }) {
     if (vantaEffect) {
       vantaEffect.setOptions({
         xOffset,
+        yOffset,
         amplitudeFactor
       })
     }
-  }, [xOffset, amplitudeFactor, vantaEffect])
+  }, [xOffset, yOffset, amplitudeFactor, vantaEffect])
 
   return (
     <div
