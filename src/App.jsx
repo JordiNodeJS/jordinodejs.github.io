@@ -10,6 +10,8 @@ import Skills from './components/skills'
 import ThemeToggle from './components/ThemeToggle'
 import { useIsMobile } from './hooks/useIsMobile'
 import VantaBackground from './components/VantaBackground'
+import LanguageToggle from './components/LanguageToggle'
+import { LanguageProvider } from './context/LanguageContext'
 
 function App() {
   const isMobile = useIsMobile()
@@ -38,10 +40,11 @@ function App() {
   }
 
   return (
-    <>
+    <LanguageProvider>
       <VantaBackground theme={theme} />
       <div className="min-h-screen bg-gradient-to-b from-white/100 to-white/60 dark:from-neutral-900/90 dark:to-neutral-900/50 text-black dark:text-white transition-colors backdrop-blur-[2px]">
         {!isMobile && <CursorShadow />}
+        <LanguageToggle />
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <div className="relative">
           <Home />
@@ -61,7 +64,7 @@ function App() {
           </div>
         </div>
       </div>
-    </>
+    </LanguageProvider>
   )
 }
 
