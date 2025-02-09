@@ -19,7 +19,7 @@ export default function EducationItems({ isLast, ...edu }) {
       <div className="ml-8">
         <div className="group relative grid transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover:list:opacity-50">
           <div className="z-10 mb-2 mt-2 text-sm font-semibold uppercase tracking-wide sm:col-span-2">
-            <div className="dark:text-orange-300/90 text-orange-600 rounded-lg overflow-hidden max-md:hidden font-normal text-xs">
+            <div className="text-orange-600 dark:text-orange-300 rounded-lg overflow-hidden max-md:hidden font-thin text-xs">
               {edu.start_date} - {edu.end_date}
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function EducationItems({ isLast, ...edu }) {
             <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
               {edu.tags?.map(tag => (
                 <li className="mr-1.5 mt-2" key={tag}>
-                  <div className="flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-amber-700 text-orange-900">
+                  <div className="flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-white text-orange-900">
                     {tag}
                   </div>
                 </li>
