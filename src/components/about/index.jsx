@@ -2,7 +2,7 @@ import { useIsMobile } from '../../hooks/useIsMobile'
 import Accordion from '../ui/Accordion'
 import aboutData from '../../db/about.json'
 
-export default function AboutSection() {
+export default function About() {
   const isMobile = useIsMobile()
 
   const content = (

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import AboutSection from './components/about'
+import About from './components/about'
 import CursorShadow from './components/cursor-shadow'
 import Projects from './components/projects'
 import Footer from './components/footer'
 import Header from './components/header'
 import Home from './components/home'
 import Education from './components/education'
-import SkillsSection from './components/skills'
+import Skills from './components/skills'
 import ThemeToggle from './components/ThemeToggle'
 import { useIsMobile } from './hooks/useIsMobile'
 import VantaBackground from './components/VantaBackground'
@@ -50,10 +50,10 @@ function App() {
               <div className="grid w-full h-full grid-cols-2 gap-2">
                 <Header />
                 <div className="flex flex-col col-span-1 max-lg:col-span-2">
-                  <AboutSection />
+                  <About />
                   <Projects />
                   <Education />
-                  <SkillsSection />
+                  <Skills />
                   <Footer />
                 </div>
               </div>
