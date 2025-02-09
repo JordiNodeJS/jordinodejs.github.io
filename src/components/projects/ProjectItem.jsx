@@ -1,4 +1,5 @@
 import { ExternalIcon, GithubIcon } from '../Icons/Icons'
+import { Badge } from '../Badge/Badge'
 
 export default function ProjectItem(project) {
   return (
@@ -39,12 +40,9 @@ export default function ProjectItem(project) {
               </a>
             </div>
             <div>
-              <div
-                className="dark:text-orange-100/50 text-orange-900/80 font-normal"
-                aria-hidden="true"
-              >
+              <Badge type={project.status.toLowerCase()}>
                 {project.status}
-              </div>
+              </Badge>
             </div>
           </h3>
           <p className="mt-2 text-sm leading-normal dark:text-orange-50/60 text-orange-950/80">
