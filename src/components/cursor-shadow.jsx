@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 export default function CursorShadow() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   useEffect(() => {
-    const handleMouseMove = (event) => {
-      setCursorPosition({ x: event.clientX, y: event.clientY })
+    const handleMouseMove = event => {
+      setCursorPosition({ x: event.pageX, y: event.pageY })
     }
     window.addEventListener('mousemove', handleMouseMove)
     return () => {

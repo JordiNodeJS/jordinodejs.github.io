@@ -25,7 +25,7 @@ export default function VantaBackground({ theme }) {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          baseColor: theme === 'dark' ? 0x4ade80 : 0x059669, // Verde más intenso
+          baseColor: theme === 'dark' ? 0x059669 : 0x059669, // Verde más intenso
           backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
           amplitudeFactor: 3.0, // Aumentado para más intensidad
           size: 2.0, // Aumentado para más visibilidad
