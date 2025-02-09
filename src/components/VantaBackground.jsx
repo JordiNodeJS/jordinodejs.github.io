@@ -42,15 +42,29 @@ export default function VantaBackground({ theme }) {
   }, [vantaEffect])
 
   useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        window.VANTA.HALO({
+          el: '#vanta-background',
+          baseColor: theme === 'dark' ? 0x059669 : 0x059669, // Verde más intenso
+          backgroundColor: theme === 'dark' ? 0x000000 : 0xffffff,
+          opacity: theme === 'dark' ? 0.8 : 0.6 // Mayor opacidad
+        })
+      )
+    }
+  }, [theme])
+
+  useEffect(() => {
     if (vantaEffect) {
       vantaEffect.setOptions({
-        baseColor: theme === 'dark' ? 0x4ade80 : 0x059669,
-        backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
-        opacity: theme === 'dark' ? 0.8 : 0.6,
-        xOffset
+        // baseColor: theme === 'dark' ? 0x4ade80 : 0x059669,
+        // backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
+        // opacity: theme === 'dark' ? 0.8 : 0.6,
+        xOffset,
+        amplitudeFactor: 3.0 + (0.3 - xOffset) * 2 // Increases from 3.0 to 5.0 as you scroll
       })
     }
-  }, [theme, xOffset])
+  }, [xOffset])
 
   return (
     <div
