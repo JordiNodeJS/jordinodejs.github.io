@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export default function VantaBackground({ theme }) {
   const [vantaEffect, setVantaEffect] = useState(null)
@@ -6,8 +6,11 @@ export default function VantaBackground({ theme }) {
   const [amplitudeFactor, setAmplitudeFactor] = useState(
     3.0 + (0.3 - xOffset) * 2
   )
+  const [, setSize] = useState(2.0 + (0.3 - xOffset) * 0.5)
+  const vantaRef = useRef(null)
 
   const calculateAmplitudeFactor = xOffset => 3.0 + (0.3 - xOffset) * 2
+  const calculateSize = xOffset => 2.0 + (0.3 - xOffset) * 0.5
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +20,7 @@ export default function VantaBackground({ theme }) {
       const newOffset = 0.3 - scrollProgress * 0.6 // This will go from 0.3 to -0.3
       setXOffset(newOffset)
       setAmplitudeFactor(calculateAmplitudeFactor(newOffset))
+      setSize(calculateSize(newOffset))
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -27,14 +31,14 @@ export default function VantaBackground({ theme }) {
     if (!vantaEffect) {
       setVantaEffect(
         window.VANTA.HALO({
-          el: '#vanta-background',
+          el: vantaRef.current,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
           baseColor: theme === 'dark' ? 0x059669 : 0x059669, // Verde más intenso
           backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
           amplitudeFactor: calculateAmplitudeFactor(0.3), // Aumentado para más intensidad
-          size: 2.0, // Aumentado para más visibilidad
+          size: 2, // Aumentado para más visibilidad
           xOffset: 0.3, // Aumentado para más visibilidad
           yOffset: 0.0,
           opacity: theme === 'dark' ? 0.8 : 0.6 // Mayor opacidad
@@ -51,7 +55,7 @@ export default function VantaBackground({ theme }) {
     if (!vantaEffect) {
       setVantaEffect(
         window.VANTA.HALO({
-          el: '#vanta-background',
+          el: vantaRef.current,
           baseColor: theme === 'dark' ? 0x059669 : 0x059669, // Verde más intenso
           backgroundColor: theme === 'dark' ? 0x000000 : 0xffffff,
           opacity: theme === 'dark' ? 0.8 : 0.6 // Mayor opacidad
@@ -73,6 +77,7 @@ export default function VantaBackground({ theme }) {
     <div
       id="vanta-background"
       className="fixed top-0 left-0 w-full h-full -z-10"
+      ref={vantaRef}
     />
   )
 }
