@@ -3,6 +3,11 @@ import { useEffect, useState } from 'react'
 export default function VantaBackground({ theme }) {
   const [vantaEffect, setVantaEffect] = useState(null)
   const [xOffset, setXOffset] = useState(0.3)
+  const [amplitudeFactor, setAmplitudeFactor] = useState(
+    3.0 + (0.3 - xOffset) * 2
+  )
+
+  const calculateAmplitudeFactor = xOffset => 3.0 + (0.3 - xOffset) * 2
 
   useEffect(() => {
     const handleScroll = () => {
@@ -11,6 +16,7 @@ export default function VantaBackground({ theme }) {
         (document.documentElement.scrollHeight - window.innerHeight)
       const newOffset = 0.3 - scrollProgress * 0.6 // This will go from 0.3 to -0.3
       setXOffset(newOffset)
+      setAmplitudeFactor(calculateAmplitudeFactor(newOffset))
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -27,9 +33,9 @@ export default function VantaBackground({ theme }) {
           gyroControls: false,
           baseColor: theme === 'dark' ? 0x059669 : 0x059669, // Verde más intenso
           backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
-          amplitudeFactor: 3.0, // Aumentado para más intensidad
+          amplitudeFactor: calculateAmplitudeFactor(0.3), // Aumentado para más intensidad
           size: 2.0, // Aumentado para más visibilidad
-          xOffset,
+          xOffset: 0.3, // Aumentado para más visibilidad
           yOffset: 0.0,
           opacity: theme === 'dark' ? 0.8 : 0.6 // Mayor opacidad
         })
@@ -57,14 +63,11 @@ export default function VantaBackground({ theme }) {
   useEffect(() => {
     if (vantaEffect) {
       vantaEffect.setOptions({
-        // baseColor: theme === 'dark' ? 0x4ade80 : 0x059669,
-        // backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
-        // opacity: theme === 'dark' ? 0.8 : 0.6,
         xOffset,
-        amplitudeFactor: 3.0 + (0.3 - xOffset) * 2 // Increases from 3.0 to 5.0 as you scroll
+        amplitudeFactor
       })
     }
-  }, [xOffset])
+  }, [xOffset, amplitudeFactor, vantaEffect])
 
   return (
     <div
