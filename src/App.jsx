@@ -48,9 +48,9 @@ function App() {
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <div className="relative">
           <Home />
-          <div id="content" className="px-8 relative flex items-center mx-auto">
-            <div className="h-full max-w-full text-left">
-              <div className="grid w-full h-full grid-cols-2 gap-2">
+          <div id="content" className="flex relative items-center px-8 mx-auto">
+            <div className="max-w-full h-full text-left">
+              <div className="grid grid-cols-2 gap-2 w-full h-full">
                 <Header />
                 <div className="flex flex-col col-span-1 max-lg:col-span-2">
                   <About />
