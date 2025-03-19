@@ -1,10 +1,10 @@
 function Home() {
   return (
     <>
-      <section className="h-screen relative flex items-center justify-center mx-auto px-6 md:px-8">
-        <div className="relative max-w-6xl w-full p-0 py-8 md:py-16">
-          <div className="flex items-center gap-6 md:gap-10 w-full max-sm:flex-col">
-            <figure className="w-1/4 sm:w-1/5 md:w-1/4 flex-shrink-0">
+      <section className="h-screen flex items-center justify-center mx-auto px-6 md:px-8">
+        <div className="relative max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col items-center">
+          <div className="flex items-center gap-8 md:gap-12 w-full max-sm:flex-col">
+            <figure className="w-1/4 sm:w-1/5 md:w-1/6 flex-shrink-0">
               <div className="rounded-full p-1 aspect-square bg-gradient-to-b dark:from-slate-700/20 dark:to-emerald-400/20 from-emerald-300/20 to-red-300/20 shadow-lg">
                 <div className="rounded-full overflow-hidden aspect-square">
                   <picture>
@@ -16,7 +16,7 @@ function Home() {
             <figcaption className="sr-only">
               un desarrollador front-end de React
             </figcaption>
-            <div className="flex flex-col max-sm:items-center">
+            <div className="flex flex-col items-start max-sm:items-center">
               <h1 className="relative font-extrabold tracking-tighter text-transparent text-5xl sm:text-6xl md:text-7xl bg-clip-text bg-gradient-to-b dark:from-slate-700 dark:to-emerald-400 from-emerald-300 to-red-300">
                 <span>Front-End React Developer</span>
               </h1>
