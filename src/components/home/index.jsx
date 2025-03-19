@@ -93,14 +93,13 @@ function Home() {
   return (
     <>
       <section className="h-screen flex items-center justify-center mx-auto px-6 md:px-8 relative">
-        <div className="max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col ">
+        <div className="max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col">
           <div className="flex items-center justify-center gap-8 md:gap-12 w-full max-sm:flex-col">
-            {/* Ajustamos el tamaño y alineación vertical */}
-            <figure className="w-1/4 h-36 flex-shrink-0 relative">
-              {/* Contenedor de la imagen con la animación de caída y escala inicial más grande */}
+            {/* Contenedor del avatar con animación */}
+            <figure className="profile-container w-1/4 h-36 flex-shrink-0 relative">
               <div
                 ref={circleRef}
-                className={`absolute transition-opacity duration-300 left-1/2 -translate-x-1/2 ${
+                className={`profile-avatar absolute transition-opacity duration-300 left-1/2 -translate-x-1/2 ${
                   animationState === 'disappeared' ? 'opacity-0' : 'opacity-100'
                 } ${
                   animationState === 'falling' ? 'animate-fall-bounce' : ''
@@ -110,34 +109,39 @@ function Home() {
                 style={{
                   transformOrigin: 'center center'
                 }}
+                aria-hidden={
+                  animationState === 'disappeared' ? 'true' : 'false'
+                }
               >
-                {/* Círculos concéntricos */}
-                <div className="rounded-full p-1.5 aspect-square bg-gradient-to-b dark:from-slate-700/30 dark:to-emerald-400/30 from-emerald-300/30 to-red-300/30 shadow-lg">
-                  <div className="rounded-full p-1.5 aspect-square bg-gradient-to-tr dark:from-emerald-400/25 dark:to-slate-700/25 from-red-300/25 to-emerald-300/25">
-                    <div className="rounded-full overflow-hidden aspect-square bg-white/30 dark:bg-slate-800/30">
-                      <picture>
-                        <img
-                          src="developer.png"
-                          alt="Avatar"
-                          className="object-cover w-full h-full mix-blend-overlay"
-                        />
-                      </picture>
+                {/* Círculos concéntricos decorativos */}
+                <div className="profile-ring-outer rounded-full p-1.5 aspect-square bg-gradient-to-b dark:from-slate-700/30 dark:to-emerald-400/30 from-emerald-300/30 to-red-300/30 shadow-lg">
+                  <div className="profile-ring-middle rounded-full p-1.5 aspect-square bg-gradient-to-tr dark:from-emerald-400/25 dark:to-slate-700/25 from-red-300/25 to-emerald-300/25">
+                    <div className="profile-ring-inner rounded-full overflow-hidden aspect-square bg-white/30 dark:bg-slate-800/30">
+                      <img
+                        src="developer.png"
+                        alt="Foto de perfil del desarrollador"
+                        className="profile-image object-cover w-full h-full mix-blend-overlay"
+                        loading="eager"
+                        width="150"
+                        height="150"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Punto final que aparece cuando el círculo desaparece */}
+              {/* Indicador visual que aparece cuando el avatar desaparece */}
               <div
-                className={`absolute top-full left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-emerald-900/80 transition-opacity duration-500 ${
+                className={`profile-indicator absolute top-full left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-emerald-900/80 transition-opacity duration-500 ${
                   animationState === 'disappeared' ? 'opacity-100' : 'opacity-0'
                 }`}
                 aria-hidden="true"
               ></div>
+
+              <figcaption className="sr-only">
+                Foto de perfil de un desarrollador front-end de React
+              </figcaption>
             </figure>
-            <figcaption className="sr-only">
-              un desarrollador front-end de React
-            </figcaption>
 
             {/* Alineamos el texto verticalmente con la imagen */}
             <div className="flex flex-col items-start max-sm:items-center justify-center h-full">
