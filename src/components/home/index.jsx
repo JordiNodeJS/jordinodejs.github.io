@@ -5,18 +5,41 @@ function Home() {
   const { scrollProgress, hasStartedScrolling } = useScrollEffect()
   const [animationState, setAnimationState] = useState('initial')
   const circleRef = useRef(null)
+  const timeoutRef = useRef(null)
 
   // Manejar la animación basada en el scroll
   useEffect(() => {
+    // Iniciar animación de caída cuando comienza el scroll
     if (hasStartedScrolling && animationState === 'initial') {
       setAnimationState('falling')
       
       // Después de la animación de caída, configuramos el estado final
-      const animationTimeout = setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         setAnimationState('disappeared')
       }, 3200) // Duración total de la animación de caída
+    }
+    
+    // Revertir animación cuando volvemos al inicio
+    if (!hasStartedScrolling && (animationState === 'falling' || animationState === 'disappeared')) {
+      // Limpiar cualquier timeout pendiente
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = null
+      }
       
-      return () => clearTimeout(animationTimeout)
+      // Revertir al estado inicial con la animación de subida
+      setAnimationState('rising')
+      
+      // Después de la animación de subida, volvemos al estado inicial
+      timeoutRef.current = setTimeout(() => {
+        setAnimationState('initial')
+      }, 1200) // Duración de la animación de subida
+    }
+    
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
     }
   }, [hasStartedScrolling, animationState])
 
@@ -34,6 +57,8 @@ function Home() {
                   animationState === 'disappeared' ? 'opacity-0' : 'opacity-100'
                 } ${
                   animationState === 'falling' ? 'animate-fall-bounce' : ''
+                } ${
+                  animationState === 'rising' ? 'animate-rise-bounce' : ''
                 } ${
                   animationState === 'initial' ? 'scale-150' : ''
                 }`}
