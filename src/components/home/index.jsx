@@ -1,9 +1,11 @@
 import { useRef, useState, useEffect } from 'react'
 import useScrollEffect from '../../hooks/useScrollEffect'
+import ConfettiEffect from '../ConfettiEffect'
 
 function Home() {
   const { scrollProgress, hasStartedScrolling } = useScrollEffect()
   const [animationState, setAnimationState] = useState('initial')
+  const [showConfetti, setShowConfetti] = useState(false)
   const circleRef = useRef(null)
   const timeoutRef = useRef(null)
   const [typedText, setTypedText] = useState('')
@@ -90,6 +92,11 @@ function Home() {
     }
   }, [hasStartedScrolling, animationState])
 
+  const handleImageClick = () => {
+    setShowConfetti(true)
+    setTimeout(() => setShowConfetti(false), 1000)
+  }
+
   return (
     <>
       <section className="h-screen flex items-center justify-center mx-auto px-6 md:px-8 relative">
@@ -114,17 +121,19 @@ function Home() {
                 }
               >
                 {/* Círculos concéntricos decorativos */}
-                <div className="profile-ring-outer rounded-full p-1.5 aspect-square bg-gradient-to-b dark:from-slate-700/30 dark:to-emerald-400/30 from-emerald-300/30 to-red-300/30 shadow-lg">
+                <div className="profile-ring-outer rounded-full p-1.5 aspect-square bg-gradient-to-b dark:from-slate-700/30 dark:to-emerald-400/30 from-emerald-300/30 to-red-300/30 shadow-lg group transition-transform duration-300 ease-in-out hover:scale-105">
                   <div className="profile-ring-middle rounded-full p-1.5 aspect-square bg-gradient-to-tr dark:from-emerald-400/25 dark:to-slate-700/25 from-red-300/25 to-emerald-300/25">
                     <div className="profile-ring-inner rounded-full overflow-hidden aspect-square bg-white/30 dark:bg-slate-800/30">
                       <img
                         src="developer.png"
                         alt="Foto de perfil del desarrollador"
-                        className="profile-image object-cover w-full h-full mix-blend-overlay"
+                        className="profile-image object-cover w-full h-full mix-blend-overlay cursor-pointer transition-all duration-300 hover:mix-blend-normal hover:brightness-110 active:scale-95"
                         loading="eager"
                         width="200"
                         height="200"
+                        onClick={handleImageClick}
                       />
+                      {showConfetti && <ConfettiEffect isActive={true} colors={['#10b981', '#059669', '#34d399', '#6ee7b7']} />}
                     </div>
                   </div>
                 </div>
