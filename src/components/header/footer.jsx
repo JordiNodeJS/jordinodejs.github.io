@@ -6,7 +6,7 @@ export default function FooterHeader() {
       <div className="flex max-[700px]:flex-col items-center max-[700px]:items-start">
         <div className="flex items-center gap-3">
           <a
-            className="text-slate-400 hover:text-slate-500 transition-colors w-8"
+            className="text-slate-400 hover:text-slate-500 transition-all duration-300 ease-in-out transform hover:scale-110 w-8"
             href="https://github.com/JordiNodeJS"
             target="_blank"
             rel="noreferrer"
@@ -14,7 +14,7 @@ export default function FooterHeader() {
             <GithubIcon />
           </a>
           <a
-            className="text-slate-400 hover:text-slate-500 transition-colors w-8"
+            className="text-slate-400 hover:text-slate-500 transition-all duration-300 ease-in-out transform hover:scale-110 w-8"
             href="https://www.linkedin.com/in/jorge-frontend/"
             target="_blank"
             rel="noreferrer"
