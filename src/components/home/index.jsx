@@ -1,24 +1,76 @@
+import { useRef, useState, useEffect } from 'react'
+import useScrollEffect from '../../hooks/useScrollEffect'
+
 function Home() {
+  const { scrollProgress, hasStartedScrolling } = useScrollEffect()
+  const [animationState, setAnimationState] = useState('initial')
+  const circleRef = useRef(null)
+
+  // Manejar la animación basada en el scroll
+  useEffect(() => {
+    if (hasStartedScrolling && animationState === 'initial') {
+      setAnimationState('falling')
+      
+      // Después de la animación de caída, configuramos el estado final
+      const animationTimeout = setTimeout(() => {
+        setAnimationState('disappeared')
+      }, 3200) // Duración total de la animación de caída
+      
+      return () => clearTimeout(animationTimeout)
+    }
+  }, [hasStartedScrolling, animationState])
+
   return (
     <>
       <section className="h-screen flex items-center justify-center mx-auto px-6 md:px-8">
-        <div className="relative max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col items-center">
-          <div className="flex items-center gap-8 md:gap-12 w-full max-sm:flex-col">
-            <figure className="w-1/4 sm:w-1/5 md:w-1/6 flex-shrink-0">
-              <div className="rounded-full p-1.5 aspect-square bg-gradient-to-b dark:from-slate-700/30 dark:to-emerald-400/30 from-emerald-300/30 to-red-300/30 shadow-lg">
-                <div className="rounded-full p-1.5 aspect-square bg-gradient-to-tr dark:from-emerald-400/25 dark:to-slate-700/25 from-red-300/25 to-emerald-300/25">
-                  <div className="rounded-full overflow-hidden aspect-square">
-                    <picture>
-                      <img src="developer.png" alt="Avatar" className="object-cover w-full h-full" />
-                    </picture>
+        <div className="max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col ">
+          <div className="flex items-center justify-center gap-8 md:gap-12 w-full max-sm:flex-col">
+            {/* Ajustamos el tamaño y alineación vertical */}
+            <figure className="w-1/4 h-36 flex-shrink-0 relative">
+              {/* Contenedor de la imagen con la animación de caída y escala inicial más grande */}
+              <div 
+                ref={circleRef}
+                className={`absolute transition-opacity duration-300 left-1/2 -translate-x-1/2 ${
+                  animationState === 'disappeared' ? 'opacity-0' : 'opacity-100'
+                } ${
+                  animationState === 'falling' ? 'animate-fall-bounce' : ''
+                } ${
+                  animationState === 'initial' ? 'scale-150' : ''
+                }`}
+                style={{
+                  transformOrigin: 'center center',
+                }}
+              >
+                {/* Círculos concéntricos */}
+                <div className="rounded-full p-1.5 aspect-square bg-gradient-to-b dark:from-slate-700/30 dark:to-emerald-400/30 from-emerald-300/30 to-red-300/30 shadow-lg">
+                  <div className="rounded-full p-1.5 aspect-square bg-gradient-to-tr dark:from-emerald-400/25 dark:to-slate-700/25 from-red-300/25 to-emerald-300/25">
+                    <div className="rounded-full overflow-hidden aspect-square">
+                      <picture>
+                        <img 
+                          src="developer.png" 
+                          alt="Avatar" 
+                          className="object-cover w-full h-full" 
+                        />
+                      </picture>
+                    </div>
                   </div>
                 </div>
               </div>
+              
+              {/* Punto final que aparece cuando el círculo desaparece */}
+              <div 
+                className={`absolute top-full left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-emerald-900/80 transition-opacity duration-500 ${
+                  animationState === 'disappeared' ? 'opacity-100' : 'opacity-0'
+                }`}
+                aria-hidden="true"
+              ></div>
             </figure>
             <figcaption className="sr-only">
               un desarrollador front-end de React
             </figcaption>
-            <div className="flex flex-col items-start max-sm:items-center">
+            
+            {/* Alineamos el texto verticalmente con la imagen */}
+            <div className="flex flex-col items-start max-sm:items-center justify-center h-full">
               <h1 className="relative font-extrabold tracking-tighter text-transparent text-5xl sm:text-6xl md:text-7xl bg-clip-text bg-gradient-to-b dark:from-slate-700 dark:to-emerald-400 from-emerald-300 to-red-300">
                 <span>Front-End React Developer</span>
               </h1>
