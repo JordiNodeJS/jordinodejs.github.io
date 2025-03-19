@@ -9,7 +9,7 @@ export default function VantaBackground({ theme }) {
       const scrollProgress =
         window.scrollY /
         (document.documentElement.scrollHeight - window.innerHeight)
-      const newOffset = 0.3 - scrollProgress * 0.6 // This will go from 0.3 to -0.3
+      const newOffset = 0.3 - scrollProgress * 0.6
       setXOffset(newOffset)
     }
 
@@ -25,13 +25,13 @@ export default function VantaBackground({ theme }) {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          baseColor: theme === 'dark' ? 0x4ade80 : 0x059669, // Verde más intenso
-          backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
-          amplitudeFactor: 3.0, // Aumentado para más intensidad
-          size: 2.0, // Aumentado para más visibilidad
+          baseColor: theme === 'dark' ? 0x4ade80 : 0x34d399,
+          backgroundColor: theme === 'dark' ? 0x111827 : 0xf8fafc,
+          amplitudeFactor: theme === 'dark' ? 2.0 : 1.5,
+          size: theme === 'dark' ? 1.0 : 1.5,
           xOffset,
           yOffset: 0.0,
-          opacity: theme === 'dark' ? 0.8 : 0.6 // Mayor opacidad
+          opacity: theme === 'dark' ? 0.3 : 0.4
         })
       )
     }
@@ -44,9 +44,11 @@ export default function VantaBackground({ theme }) {
   useEffect(() => {
     if (vantaEffect) {
       vantaEffect.setOptions({
-        baseColor: theme === 'dark' ? 0x4ade80 : 0x059669,
-        backgroundColor: theme === 'dark' ? 0x111827 : 0xffffff,
-        opacity: theme === 'dark' ? 0.8 : 0.6,
+        baseColor: theme === 'dark' ? 0x4ade80 : 0x34d399,
+        backgroundColor: theme === 'dark' ? 0x111827 : 0xf8fafc,
+        amplitudeFactor: theme === 'dark' ? 2.0 : 1.5,
+        size: theme === 'dark' ? 1.0 : 1.5,
+        opacity: theme === 'dark' ? 0.3 : 0.4,
         xOffset
       })
     }

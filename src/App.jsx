@@ -43,7 +43,7 @@ function App() {
         </div>
       )}
       <VantaBackground theme={theme} />
-      <div className="min-h-screen bg-gradient-to-b from-white/80 to-white/60 dark:from-neutral-900/90 dark:to-neutral-900/50 text-black dark:text-white transition-colors backdrop-blur-[2px]">
+      <div className="min-h-screen bg-gradient-to-b from-white/10 to-transparent dark:from-neutral-900/90 dark:to-neutral-900/50 text-black dark:text-white transition-colors backdrop-blur-[1px]">
         {!isMobile && <CursorShadow />}
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <div className="relative">
