@@ -131,7 +131,7 @@ function Home() {
                     <img
                       src="developer.png"
                       alt="Foto de perfil del desarrollador"
-                      className="profile-image object-cover w-full h-full mix-blend-overlay cursor-pointer transition-all duration-300 hover:mix-blend-normal hover:brightness-110 active:scale-95"
+                      className="profile-image object-cover w-full h-full mix-blend-overlay cursor-pointer transition-all duration-300 hover:mix-blend-normal hover:brightness-110 active:scale-105"
                       loading="eager"
                       width="200"
                       height="200"
