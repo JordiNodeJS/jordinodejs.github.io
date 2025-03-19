@@ -96,7 +96,7 @@ function Home() {
         <div className="max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col">
           <div className="flex items-center justify-center gap-8 md:gap-12 w-full max-sm:flex-col">
             {/* Contenedor del avatar con animación */}
-            <figure className="profile-container w-1/4 h-36 flex-shrink-0 relative">
+            <figure className="profile-container w-10/12 sm:w-1/2 md:w-1/4 h-48 sm:h-40 md:h-36 flex-shrink-0 relative mx-auto sm:mx-0">
               <div
                 ref={circleRef}
                 className={`profile-avatar absolute transition-opacity duration-300 left-1/2 -translate-x-1/2 ${
@@ -104,7 +104,7 @@ function Home() {
                 } ${
                   animationState === 'falling' ? 'animate-fall-bounce' : ''
                 } ${animationState === 'rising' ? 'animate-rise-bounce' : ''} ${
-                  animationState === 'initial' ? 'scale-150' : ''
+                  animationState === 'initial' ? 'scale-150 sm:scale-125' : ''
                 }`}
                 style={{
                   transformOrigin: 'center center'
@@ -122,8 +122,8 @@ function Home() {
                         alt="Foto de perfil del desarrollador"
                         className="profile-image object-cover w-full h-full mix-blend-overlay"
                         loading="eager"
-                        width="150"
-                        height="150"
+                        width="200"
+                        height="200"
                       />
                     </div>
                   </div>
