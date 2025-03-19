@@ -8,7 +8,10 @@ function Home() {
   const timeoutRef = useRef(null)
   const [typedText, setTypedText] = useState('')
   const [showCursor, setShowCursor] = useState(true)
+  const [typedSubtitle, setTypedSubtitle] = useState('')
+  const [showSubtitleCursor, setShowSubtitleCursor] = useState(false)
   const fullText = 'Front-End React Developer'
+  const subtitleText = 'Software Engineer'
 
   // Efecto de typewriter con cursor que desaparece al terminar
   useEffect(() => {
@@ -19,9 +22,28 @@ function Home() {
         index++
       } else {
         clearInterval(typingInterval)
-        // Ocultar el cursor después de completar la escritura (con un pequeño retraso)
+
+        // Comenzar a escribir el segundo texto después de un breve retraso
         setTimeout(() => {
           setShowCursor(false)
+          setShowSubtitleCursor(true)
+
+          // Iniciar la tipografía del subtítulo
+          let subtitleIndex = 0
+          const subtitleInterval = setInterval(() => {
+            if (subtitleIndex < subtitleText.length) {
+              setTypedSubtitle(subtitleText.substring(0, subtitleIndex + 1))
+              subtitleIndex++
+            } else {
+              clearInterval(subtitleInterval)
+              // Ocultar el cursor del subtítulo después de completar
+              setTimeout(() => {
+                setShowSubtitleCursor(false)
+              }, 1000)
+            }
+          }, 100)
+
+          return () => clearInterval(subtitleInterval)
         }, 1000)
       }
     }, 100) // Velocidad de escritura
@@ -132,7 +154,16 @@ function Home() {
                 </div>
               </h1>
               <h2 className="dark:text-emerald-500 text-red-400 tracking-tight font-bold text-xl sm:text-2xl mt-3">
-                Software Engineer
+                <div className="flex items-center">
+                  <span>{typedSubtitle}</span>
+                  {showSubtitleCursor && (
+                    <span
+                      className="inline-block w-[2px] h-[1em] bg-current ml-1 animate-[blink_0.7s_step-end_infinite]"
+                      style={{ verticalAlign: '-0.1em' }}
+                      aria-hidden="true"
+                    ></span>
+                  )}
+                </div>
               </h2>
             </div>
           </div>
