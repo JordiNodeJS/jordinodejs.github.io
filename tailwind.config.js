@@ -97,6 +97,10 @@ export default {
             transform: 'translate(0, 0) rotate(0deg)',
             opacity: '1'
           },
+          '50%': {
+            transform: 'translate(calc(var(--final-x) * 0.5), calc(var(--final-y) * 0.5)) rotate(calc(var(--final-rotation) * 0.5))',
+            opacity: '0.8'
+          },
           '100%': {
             transform: 'translate(var(--final-x), var(--final-y)) rotate(var(--final-rotation))',
             opacity: '0'
@@ -107,7 +111,7 @@ export default {
         'bounce-once': 'bounce-once 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
         'fall-bounce': 'fall-bounce 1.2s ease-in-out forwards',
         'rise-bounce': 'rise-bounce 1.2s ease-in-out forwards',
-        'confetti': 'confetti-explosion 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards'
+        'confetti': 'confetti-explosion 2s cubic-bezier(0.45, 0, 0.55, 1) forwards'
       }
     }
   }
