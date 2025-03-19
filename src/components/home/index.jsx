@@ -93,12 +93,13 @@ function Home() {
   }, [hasStartedScrolling, animationState])
 
   const handleImageClick = () => {
-    setShowConfetti(true)
-    setTimeout(() => setShowConfetti(false), 1000)
+    // Disparar el evento personalizado
+    window.dispatchEvent(new CustomEvent('showConfetti'))
   }
 
   return (
     <>
+      {showConfetti && <ConfettiEffect isActive={true} colors={['#10b981', '#059669', '#34d399', '#6ee7b7', '#34d399']} />}
       <section className="h-screen flex items-center justify-center mx-auto px-6 md:px-8 relative">
         <div className="max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col">
           <div className="flex items-center justify-center gap-8 md:gap-12 w-full max-sm:flex-col">
@@ -133,7 +134,6 @@ function Home() {
                         height="200"
                         onClick={handleImageClick}
                       />
-                      {showConfetti && <ConfettiEffect isActive={true} colors={['#10b981', '#059669', '#34d399', '#6ee7b7']} />}
                     </div>
                   </div>
                 </div>

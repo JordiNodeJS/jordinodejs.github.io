@@ -94,15 +94,11 @@ export default {
         },
         'confetti-explosion': {
           '0%': {
-            transform: 'translate(-50%, -50%) scale(1)',
+            transform: 'translate(-50%, -50%) rotate(0deg)',
             opacity: '1'
           },
-          '50%': {
-            transform: 'translate(var(--x), var(--y)) scale(0.5) rotate(var(--rotation))',
-            opacity: '0.8'
-          },
           '100%': {
-            transform: 'translate(var(--final-x), var(--final-y)) scale(0) rotate(var(--final-rotation))',
+            transform: 'translate(calc(-50% + var(--final-x)), calc(-50% + var(--final-y))) rotate(var(--final-rotation))',
             opacity: '0'
           }
         }
@@ -111,7 +107,7 @@ export default {
         'bounce-once': 'bounce-once 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
         'fall-bounce': 'fall-bounce 1.2s ease-in-out forwards',
         'rise-bounce': 'rise-bounce 1.2s ease-in-out forwards',
-        'confetti': 'confetti-explosion 0.8s ease-out forwards'
+        'confetti': 'confetti-explosion 1s ease-out forwards'
       }
     }
   }
