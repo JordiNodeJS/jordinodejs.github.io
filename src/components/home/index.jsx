@@ -92,7 +92,7 @@ function Home() {
 
   return (
     <>
-      <section className="h-screen flex items-center justify-center mx-auto px-6 md:px-8">
+      <section className="h-screen flex items-center justify-center mx-auto px-6 md:px-8 relative">
         <div className="max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col ">
           <div className="flex items-center justify-center gap-8 md:gap-12 w-full max-sm:flex-col">
             {/* Ajustamos el tamaño y alineación vertical */}
@@ -168,11 +168,28 @@ function Home() {
             </div>
           </div>
         </div>
-        {/* finger */}
-        <div className="absolute shadow-2xl bottom-3 left-[50%] translate-x-[-50%]">
-          <a href="#content" className="block animate-bounce">
-            <span className="p-2 rounded-full dark:shadow-md dark:shadow-slate-700/60 material-symbols-outlined text-emerald-600 dark:fuchsia-600">
-              keyboard_double_arrow_down
+
+        {/* Finger reposicionado al final del viewport */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <a
+            href="#content"
+            className="block animate-bounce bg-white/30 dark:bg-slate-800/30 rounded-full p-1 shadow-lg"
+            aria-label="Desplazar hacia abajo"
+          >
+            <span className="flex items-center justify-center w-12 h-12 rounded-full dark:shadow-md dark:shadow-slate-700/60 text-emerald-600 dark:text-emerald-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </span>
           </a>
         </div>
