@@ -114,7 +114,7 @@ function Home() {
                 {/* Círculos concéntricos */}
                 <div className="rounded-full p-1.5 aspect-square bg-gradient-to-b dark:from-slate-700/30 dark:to-emerald-400/30 from-emerald-300/30 to-red-300/30 shadow-lg">
                   <div className="rounded-full p-1.5 aspect-square bg-gradient-to-tr dark:from-emerald-400/25 dark:to-slate-700/25 from-red-300/25 to-emerald-300/25">
-                    <div className="rounded-full overflow-hidden aspect-square bg-white/100 dark:bg-slate-800/30">
+                    <div className="rounded-full overflow-hidden aspect-square bg-white/30 dark:bg-slate-800/30">
                       <picture>
                         <img
                           src="developer.png"
