@@ -13,7 +13,7 @@ export default function Header() {
             Software Engineer
           </h2>
           <p className="w-96 max-[700px]:w-full items-start leading-5">
-            +2 years of experience in the programming world, specializing in
+            +3 years of experience in the programming world, specializing in
             React. Committed to developing accessible and high-performance user
             experiences.
           </p>

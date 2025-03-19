@@ -5,11 +5,13 @@ function Home() {
         <div className="relative max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col items-center">
           <div className="flex items-center gap-8 md:gap-12 w-full max-sm:flex-col">
             <figure className="w-1/4 sm:w-1/5 md:w-1/6 flex-shrink-0">
-              <div className="rounded-full p-1 aspect-square bg-gradient-to-b dark:from-slate-700/20 dark:to-emerald-400/20 from-emerald-300/20 to-red-300/20 shadow-lg">
-                <div className="rounded-full overflow-hidden aspect-square">
-                  <picture>
-                    <img src="developer.png" alt="Avatar" className="object-cover w-full h-full" />
-                  </picture>
+              <div className="rounded-full p-1.5 aspect-square bg-gradient-to-b dark:from-slate-700/30 dark:to-emerald-400/30 from-emerald-300/30 to-red-300/30 shadow-lg">
+                <div className="rounded-full p-1.5 aspect-square bg-gradient-to-tr dark:from-emerald-400/25 dark:to-slate-700/25 from-red-300/25 to-emerald-300/25">
+                  <div className="rounded-full overflow-hidden aspect-square">
+                    <picture>
+                      <img src="developer.png" alt="Avatar" className="object-cover w-full h-full" />
+                    </picture>
+                  </div>
                 </div>
               </div>
             </figure>
