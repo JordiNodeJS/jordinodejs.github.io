@@ -5,6 +5,10 @@ export default {
   theme: {
     extend: {
       keyframes: {
+        'bounce-once': {
+          '0%, 100%': { transform: 'scaleX(1)' },
+          '50%': { transform: 'scaleX(1.2)' }
+        },
         'fall-bounce': {
           '0%': {
             transform: 'translateY(0) translateX(-50%) scale(1.2) rotate(0deg)',
@@ -90,6 +94,7 @@ export default {
         }
       },
       animation: {
+        'bounce-once': 'bounce-once 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
         'fall-bounce': 'fall-bounce 1.2s ease-in-out forwards',
         'rise-bounce': 'rise-bounce 1.2s ease-in-out forwards'
       }

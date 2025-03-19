@@ -11,8 +11,8 @@ const NavItem = ({ label, href, isActive }) => {
         )}
       >
         <div className={cn(
-          "h-[2px] w-4 dark:bg-neutral-500 bg-neutral-700 transition-all group-hover:dark:bg-neutral-200 group-hover:bg-neutral-800",
-          isActive ? "w-6 dark:bg-neutral-200 bg-neutral-800" : "group-hover:w-6"
+          "h-[2px] w-4 dark:bg-neutral-500 bg-neutral-700 transition-all duration-300 ease-in-out transform origin-left group-hover:dark:bg-neutral-200 group-hover:bg-neutral-800",
+          isActive ? "w-6 dark:bg-neutral-200 bg-neutral-800 animate-bounce-once" : "group-hover:w-6"
         )} />
         <span className="ml-2">{label}</span>
       </a>
