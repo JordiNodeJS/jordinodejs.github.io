@@ -4,7 +4,7 @@ function Home() {
       <section className="h-screen relative flex items-center mx-8">
         <div className="relative flex h-full max-w-full p-0 py-16 text-center">
           <div className="flex items-center justify-center w-full max-sm:flex-col">
-            <figure className="w-2/5 mr-10 md:w-3/5">
+            <figure className="w-2/5 mx-10 md:w-3/5">
               <picture>
                 <img src="assets/slider.svg" alt="Avatar" />
               </picture>
