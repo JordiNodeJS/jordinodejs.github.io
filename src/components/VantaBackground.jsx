@@ -25,13 +25,13 @@ export default function VantaBackground({ theme }) {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          baseColor: theme === 'dark' ? 0x4ade80 : 0x34d399,
-          backgroundColor: theme === 'dark' ? 0x111827 : 0xf8fafc,
-          amplitudeFactor: theme === 'dark' ? 2.0 : 1.5,
-          size: theme === 'dark' ? 1.0 : 1.5,
+          baseColor: theme === 'dark' ? 0x4ade80 : 0x10b981,
+          backgroundColor: theme === 'dark' ? 0x111827 : 0xFFF8DC,
+          amplitudeFactor: 2.5,
+          size: 1.75,
           xOffset,
           yOffset: 0.0,
-          opacity: theme === 'dark' ? 0.3 : 0.4
+          opacity: 0.6
         })
       )
     }
@@ -44,11 +44,11 @@ export default function VantaBackground({ theme }) {
   useEffect(() => {
     if (vantaEffect) {
       vantaEffect.setOptions({
-        baseColor: theme === 'dark' ? 0x4ade80 : 0x34d399,
-        backgroundColor: theme === 'dark' ? 0x111827 : 0xf8fafc,
-        amplitudeFactor: theme === 'dark' ? 2.0 : 1.5,
-        size: theme === 'dark' ? 1.0 : 1.5,
-        opacity: theme === 'dark' ? 0.3 : 0.4,
+        baseColor: theme === 'dark' ? 0x4ade80 : 0x10b981,
+        backgroundColor: theme === 'dark' ? 0x111827 : 0xFFF8DC,
+        amplitudeFactor: 2.5,
+        size: 1.75,
+        opacity: 0.6,
         xOffset
       })
     }
