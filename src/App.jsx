@@ -17,11 +17,14 @@ function App() {
   const isMobile = useIsMobile()
   const { theme, toggleTheme } = useTheme()
   const [showGlobalConfetti, setShowGlobalConfetti] = useState(false)
+  const [confettiPosition, setConfettiPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    const handleShowConfetti = () => {
-      setShowGlobalConfetti(true)
-      setTimeout(() => setShowGlobalConfetti(false), 2000)
+    const handleShowConfetti = (event) => {
+      const { x, y } = event.detail;
+      setConfettiPosition({ x, y });
+      setShowGlobalConfetti(true);
+      setTimeout(() => setShowGlobalConfetti(false), 2000);
     }
 
     window.addEventListener('showConfetti', handleShowConfetti)
@@ -32,7 +35,11 @@ function App() {
     <>
       {showGlobalConfetti && (
         <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 99999 }}>
-          <ConfettiEffect isActive={true} colors={['#10b981', '#059669', '#34d399', '#6ee7b7', '#34d399']} />
+          <ConfettiEffect 
+            isActive={true} 
+            colors={['#10b981', '#059669', '#34d399', '#6ee7b7', '#34d399']}
+            origin={confettiPosition}
+          />
         </div>
       )}
       <VantaBackground theme={theme} />
