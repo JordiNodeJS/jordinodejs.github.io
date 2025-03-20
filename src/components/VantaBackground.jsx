@@ -25,13 +25,17 @@ export default function VantaBackground({ theme }) {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          baseColor: theme === 'dark' ? 0x4ade80 : 0x10b981,
-          backgroundColor: theme === 'dark' ? 0x111827 : 0xFFF8DC,
-          amplitudeFactor: 2.5,
-          size: 1.75,
+          baseColor: theme === 'dark' ? 0x4ade80 : 0x059669, // Verde más intenso para modo claro
+          backgroundColor: theme === 'dark' ? 0x111827 : 0xFFFBF5,
+          amplitudeFactor: 2.0,
+          size: 1.5,
           xOffset,
           yOffset: 0.0,
-          opacity: 0.6
+          colorMode: 'lerpGradient', // Usar gradiente para mejorar la transición de colores
+          blurFactor: 0.6, // Reducir el desenfoque para hacer el color más visible
+          opacity: theme === 'dark' ? 0.6 : 0.75, // Mayor opacidad en modo claro
+          ringFactor: 1.2, // Aumentar el factor de anillo para modo claro
+          color2: theme === 'dark' ? 0x10b981 : 0x047857 // Color secundario para el gradiente
         })
       )
     }
@@ -44,11 +48,15 @@ export default function VantaBackground({ theme }) {
   useEffect(() => {
     if (vantaEffect) {
       vantaEffect.setOptions({
-        baseColor: theme === 'dark' ? 0x4ade80 : 0x10b981,
-        backgroundColor: theme === 'dark' ? 0x111827 : 0xFFF8DC,
-        amplitudeFactor: 2.5,
-        size: 1.75,
-        opacity: 0.6,
+        baseColor: theme === 'dark' ? 0x4ade80 : 0x059669,
+        backgroundColor: theme === 'dark' ? 0x111827 : 0xFFFBF5,
+        amplitudeFactor: 2.0,
+        size: 1.5,
+        colorMode: 'lerpGradient',
+        blurFactor: 0.6,
+        opacity: theme === 'dark' ? 0.6 : 0.75,
+        ringFactor: 1.2,
+        color2: theme === 'dark' ? 0x10b981 : 0x047857,
         xOffset
       })
     }
