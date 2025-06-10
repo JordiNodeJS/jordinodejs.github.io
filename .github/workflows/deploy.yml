@@ -22,8 +22,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-      with:
-        submodules: recursive
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -38,24 +36,24 @@ jobs:
     - name: Build main project
       run: npm run build
 
-    # Build portfolio project
+    # Clone and build portfolio project
+    - name: Clone portfolio repository
+      run: |
+        git clone https://github.com/JordiNodeJS/porfolio-multi-theme.git porfolio-multi-theme
+
     - name: Install dependencies (portfolio)
       run: |
-        if [ -d "porfolio-multi-theme" ]; then
-          cd porfolio-multi-theme
-          npm ci
-        fi
+        cd porfolio-multi-theme
+        npm ci
 
     - name: Build portfolio project
       run: |
-        if [ -d "porfolio-multi-theme" ]; then
-          cd porfolio-multi-theme
-          VITE_BASE_PATH="/porfolio-multi-theme/" npm run build
-          cd ..
-          # Copy portfolio build to main dist
-          mkdir -p dist/porfolio-multi-theme
-          cp -r porfolio-multi-theme/dist/* dist/porfolio-multi-theme/
-        fi
+        cd porfolio-multi-theme
+        VITE_BASE_PATH="/porfolio-multi-theme/" npm run build
+        cd ..
+        # Copy portfolio build to main dist
+        mkdir -p dist/porfolio-multi-theme
+        cp -r porfolio-multi-theme/dist/* dist/porfolio-multi-theme/
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
