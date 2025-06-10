@@ -34,10 +34,12 @@ jobs:
       run: |
         git clone https://github.com/JordiNodeJS/porfolio-multi-theme.git porfolio-multi-theme
 
-    - name: Install dependencies (portfolio multi-theme)
+    - name: Clean npm cache and fix dependencies (portfolio multi-theme)
       run: |
         cd porfolio-multi-theme
-        npm ci
+        npm cache clean --force
+        rm -rf package-lock.json node_modules
+        npm install
 
     - name: Build portfolio multi-theme for root deployment
       run: |
