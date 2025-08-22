@@ -42,7 +42,7 @@ function App() {
         link.removeEventListener("click", handleSmoothScroll);
       });
     };
-  }, []);
+  }, [scrollToSection]);
 
   useEffect(() => {
     const titles = [
