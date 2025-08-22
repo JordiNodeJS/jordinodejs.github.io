@@ -10,14 +10,13 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write
+  name: Deploy to GitHub Pages
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  on:
+    push:
+      branches: [ main ]
 
+<<<<<<< Updated upstream
 jobs:
   deploy:
     environment:
@@ -37,6 +36,47 @@ jobs:
           # Upload entire repository (since files are already built)
           path: '.'
           
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      name: Deploy to GitHub Pages
+
+      on:
+        push:
+          branches: [ main ]
+        workflow_dispatch:
+
+      permissions:
+        contents: read
+        pages: write
+        id-token: write
+
+      concurrency:
+        group: deploy-pages
+        cancel-in-progress: false
+
+      jobs:
+        build-and-deploy:
+          runs-on: ubuntu-latest
+
+          steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Use Node.js 18
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+
+            - name: Install dependencies
+              run: |
+                npm ci
+
+            - name: Build
+              run: |
+                npm run build
+
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./dist
+                publish_branch: gh-pages
+                keep_files: false
