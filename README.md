@@ -63,44 +63,46 @@ bun run preview
 
 ## 🚀 Despliegue Automático a GitHub Pages
 
-### ✨ ¡Despliegue Completamente Automatizado!
+### Resumen de despliegue (actualizado)
 
-El proyecto utiliza **GitHub Actions** para despliegue automático. **No necesitas ejecutar scripts manuales.**
+- Workflow principal: `.github/workflows/deploy.yml`.
+- Triggers: `push` a la rama `main` y `workflow_dispatch` (ejecución manual desde Actions).
+- Nota: mergear una PR hacia `main` genera un push en `main`, por lo que también dispara el workflow.
 
-#### 🔧 Cómo Funciona
+### Qué hace el workflow
 
-1. **Haces cambios** en tu código local
-2. **Subes a GitHub** con `git push origin main`
-3. **GitHub Actions automáticamente**:
-   - 📦 Construye el proyecto con Bun
-   - � Despliega a `https://jordinodejs.github.io`
-   - ⚡ ¡Listo en menos de 2 minutos!
+- Instala dependencias con Bun.
+- Construye la aplicación (por ejemplo `bun run build`).
+- Sube el artefacto y despliega a GitHub Pages.
+- URL de producción: `https://jordinodejs.github.io`
 
-#### 📋 Workflow Simple
+### Seguridad y comportamiento en ramas
+
+- El job de despliegue contiene una guarda para ejecutarse sólo cuando la referencia es `main`:
+
+  if: github.ref == 'refs/heads/main'
+
+  Esto evita intentos de despliegue desde ramas de trabajo (feature branches) que pueden ser rechazados por las protecciones del environment `github-pages`.
+
+- Si necesitas permitir despliegues desde otras ramas o desde ejecuciones manuales en feature branches, ajusta las reglas del Environment en GitHub: `Settings` → `Environments` → `github-pages`.
+
+### Cómo dispararlo
+
+- Opción A (recomendada): push a `main` desde tu repo local:
 
 ```bash
-# 1. Desarrollar localmente
-bun dev
-
-# 2. Confirmar cambios
 git add .
-git commit -m "feat: nueva funcionalidad"
-
-# 3. Subir cambios (esto dispara el deploy automático)
+git commit -m "chore: cambios"
 git push origin main
-
-# ¡YA ESTÁ! GitHub Actions se encarga del resto
 ```
 
-#### ⚙️ Configuración GitHub Actions
+- Opción B: Actions → `Deploy to GitHub Pages` → `Run workflow` → seleccionar `main` → `Run`.
 
-El archivo `.github/workflows/deploy-external.yml` maneja el despliegue automático:
+### Qué revisar si falla
 
-- **Trigger**: Push a la rama `main`
-- **Detecta cambios en**: `src/`, `public/`, `index.html`, `package.json`, etc.
-- **Repositorio destino**: `jordinodejs.github.io`
-- **Build tool**: Bun
-- **Deploy**: Automático con git push
+- Ver los logs de la ejecución en Actions (build y deploy). 
+- Si ves un rechazo por "environment protection", revisa las reglas del environment `github-pages`.
+- Para reintentos puedes usar "Re-run jobs" en la ejecución correspondiente.
 
 ## 🌐 Internacionalización (i18n)
 
