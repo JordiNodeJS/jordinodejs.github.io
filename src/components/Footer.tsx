@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Heart, Code, Coffee } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
 import { usePortfolioTranslations } from "../hooks/usePortfolioTranslations";
+// Import package.json to display app version in the footer
+// Vite / bundlers support importing JSON files like this
+import pkg from "../../package.json";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -324,6 +327,23 @@ const Footer = () => {
           >
             {footer.designedWith}
           </motion.div>
+          {/* Small version text */}
+          <div
+            className={`w-full md:w-auto text-[10px] mt-2 md:mt-0 transition-colors duration-300 ${
+              theme === "dark"
+                ? "text-slate-500"
+                : theme === "light"
+                ? "text-gray-500"
+                : theme === "vintage"
+                ? "text-[#f3ebd3]/60"
+                : theme === "brutalism"
+                ? "text-black"
+                : "text-[#3d2c2c]/70"
+            }`}
+            aria-label={`Version ${pkg.version}`}
+          >
+            Versión {pkg.version}
+          </div>
         </motion.div>
       </div>
     </footer>

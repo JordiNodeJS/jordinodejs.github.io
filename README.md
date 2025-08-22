@@ -100,7 +100,7 @@ git push origin main
 
 ### Qué revisar si falla
 
-- Ver los logs de la ejecución en Actions (build y deploy). 
+- Ver los logs de la ejecución en Actions (build y deploy).
 - Si ves un rechazo por "environment protection", revisa las reglas del environment `github-pages`.
 - Para reintentos puedes usar "Re-run jobs" en la ejecución correspondiente.
 
@@ -148,12 +148,14 @@ Ejemplo de estructura para la sección Skills:
 ## 🔄 Estado Actual del Proyecto
 
 ### ✅ Despliegue Automático Configurado
+
 - **GitHub Actions**: Configurado y funcionando
 - **URL Producción**: https://jordinodejs.github.io
 - **Última actualización**: Enero 2025
 - **Deploy automático**: Activado con push a `main`
 
 ### 🚀 Workflow Optimizado
+
 1. **Desarrollo**: `bun dev` (servidor local)
 2. **Testing**: Playwright automático en CI/CD
 3. **Deploy**: Automático con `git push origin main`

@@ -46,7 +46,7 @@ function App() {
 
   useEffect(() => {
     const titles = [
-      "PORTFOLIO - Test Deploy 2025-01-10",
+      "PORTFOLIO",
       portfolioData?.presentation?.title || "Frontend React Engineer",
     ];
     let currentTitleIndex = 0;
