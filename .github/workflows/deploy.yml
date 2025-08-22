@@ -46,6 +46,8 @@ jobs:
           path: ./dist
 
   deploy:
+    # Only run deploy job on the main branch to avoid environment protection blocks from feature branches
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
