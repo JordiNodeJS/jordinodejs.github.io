@@ -145,14 +145,14 @@ Ejemplo de estructura para la sección Skills:
 }
 ```
 
-## 🔄 Estado Actual del Proyecto
+### 🔄 Estado Actual del Proyecto
 
 ### ✅ Despliegue Automático Configurado
 
 - **GitHub Actions**: Configurado y funcionando
 - **URL Producción**: https://jordinodejs.github.io
-- **Última actualización**: Enero 2025
-- **Deploy automático**: Activado con push a `main`
+- **Última actualización**: 22 de agosto de 2025
+- **Deploy automático**: Activado (push a `main` o ejecución manual vía Actions)
 
 ### 🚀 Workflow Optimizado
 
@@ -165,4 +165,8 @@ Ejemplo de estructura para la sección Skills:
 
 ⭐ **Portfolio completamente funcional, multilenguaje y con despliegue automático!**
 
-🚀 **Servidor corriendo en:** http://localhost:5173/
+🚀 **Servidor corriendo en:** http://localhost:5174/
+
+## Especificaciones y tests
+
+Las pruebas E2E y specs del proyecto están documentadas en `docs/SPECIFICATIONS.md`. Ahí encontrarás la lista de spec files, cómo ejecutarlas localmente y notas sobre la integración en CI.
