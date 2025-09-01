@@ -17,7 +17,7 @@ export default function CursorShadow() {
       <div
         className="fixed inset-0 top-0 left-0 z-20 transition duration-300 pointer-events-none max-lg:hidden max-lg:opacity-0"
         style={{
-          background: `radial-gradient(600px at ${cursorPosition.x}px ${cursorPosition.y}px, rgb(var(--shadow-cursor)), transparent 80%)`
+          background: `radial-gradient(800px at ${cursorPosition.x}px ${cursorPosition.y}px, rgb(var(--shadow-cursor)), transparent 70%)`
         }}
       />
     )

@@ -102,6 +102,10 @@ function Home() {
     }));
   }
 
+  // Calcular la opacidad de la flecha basada en el progreso del scroll
+  // Desaparece completamente cuando el scroll alcanza el 10% (1/10 de la pantalla)
+  const fingerOpacity = Math.max(0, 1 - scrollProgress * 10);
+
   return (
     <section className="h-screen flex items-center justify-center mx-auto px-6 md:px-8 relative">
       <div className="max-w-6xl w-full p-0 py-8 md:py-16 flex flex-col">
@@ -131,7 +135,7 @@ function Home() {
                     <img
                       src="developer.png"
                       alt="Foto de perfil del desarrollador"
-                      className="profile-image object-cover w-full h-full mix-blend-overlay cursor-pointer transition-all duration-300 hover:mix-blend-normal hover:brightness-110 active:scale-95"
+                      className="profile-image object-cover w-full h-full mix-blend-overlay cursor-pointer transition-all duration-300 hover:mix-blend-normal hover:brightness-110 active:scale-105"
                       loading="eager"
                       width="200"
                       height="200"
@@ -185,12 +189,17 @@ function Home() {
         </div>
       </div>
 
-      {/* Finger reposicionado al final del viewport */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+      {/* Finger reposicionado al final del viewport con opacidad controlada por scroll */}
+      <div 
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-300"
+        style={{ opacity: fingerOpacity }}
+        aria-hidden={fingerOpacity === 0 ? 'true' : 'false'}
+      >
         <a
           href="#content"
           className="block animate-bounce bg-white/30 dark:bg-slate-800/30 rounded-full p-1 shadow-lg"
           aria-label="Desplazar hacia abajo"
+          tabIndex={fingerOpacity === 0 ? -1 : 0}
         >
           <span className="flex items-center justify-center w-12 h-12 rounded-full dark:shadow-md dark:shadow-slate-700/60 text-emerald-600 dark:text-emerald-400">
             <svg
