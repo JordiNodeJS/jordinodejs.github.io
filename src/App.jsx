@@ -10,37 +10,40 @@ import SkillsSection from './components/skills'
 import ThemeToggle from './components/ThemeToggle'
 import { useIsMobile } from './hooks/useIsMobile'
 import VantaBackground from './components/VantaBackground'
+import ConfettiEffect from './components/ConfettiEffect'
+import { useTheme } from './hooks/useTheme'
 
 function App() {
   const isMobile = useIsMobile()
-  const [theme, setTheme] = useState(() => {
-    // Inicializar el tema desde localStorage o preferencias del sistema
-    if (
-      localStorage.theme === 'dark' ||
-      (!localStorage.theme &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      return 'dark'
-    }
-    return 'light'
-  })
+  const { theme, toggleTheme } = useTheme()
+  const [showGlobalConfetti, setShowGlobalConfetti] = useState(false)
+  const [confettiPosition, setConfettiPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    // Aplicar tema inicial
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-  }, [])
+    const handleShowConfetti = (event) => {
+      const { x, y } = event.detail;
+      setConfettiPosition({ x, y });
+      setShowGlobalConfetti(true);
+      setTimeout(() => setShowGlobalConfetti(false), 2000);
+    }
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    document.documentElement.classList.toggle('dark')
-    localStorage.theme = newTheme
-  }
+    window.addEventListener('showConfetti', handleShowConfetti)
+    return () => window.removeEventListener('showConfetti', handleShowConfetti)
+  }, [])
 
   return (
     <>
+      {showGlobalConfetti && (
+        <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 99999 }}>
+          <ConfettiEffect 
+            isActive={true} 
+            colors={['#10b981', '#059669', '#34d399', '#6ee7b7', '#34d399']}
+            origin={confettiPosition}
+          />
+        </div>
+      )}
       <VantaBackground theme={theme} />
-      <div className="min-h-screen bg-gradient-to-b from-white/80 to-white/60 dark:from-neutral-900/90 dark:to-neutral-900/50 text-black dark:text-white transition-colors backdrop-blur-[2px]">
+      <div className="min-h-screen bg-gradient-to-b from-[#FFF8DC]/30 to-transparent dark:from-neutral-900/90 dark:to-neutral-900/50 text-black dark:text-white transition-colors backdrop-blur-[1px]">
         {!isMobile && <CursorShadow />}
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <div className="relative">
