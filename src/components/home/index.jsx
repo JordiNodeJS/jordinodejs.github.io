@@ -1,6 +1,9 @@
-function Home() {
+import VantaBackground from '../VantaBackground'
+
+export default function Home({ theme }) {
   return (
-    <>
+    <section className="min-h-screen w-full relative overflow-hidden">
+      <VantaBackground theme={theme} />
       <section className="h-screen relative flex items-center mx-8">
         <div className="relative flex h-full max-w-full p-0 py-16 text-center">
           <div className="flex items-center justify-center w-full max-sm:flex-col">
@@ -31,8 +34,6 @@ function Home() {
           </a>
         </div>
       </section>
-    </>
+    </section>
   )
 }
-
-export default Home

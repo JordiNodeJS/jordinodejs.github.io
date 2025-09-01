@@ -22,6 +22,7 @@ Este repositorio utiliza React, Vite, Tailwind CSS y cuenta con configuraciones 
 4. **Generación de código**
 
    - Evita "// ...existing about content..." y complétalo con el código existente.
+   - Escribe en nombre del archivo del componente en PascalCase.
 
 5. **Integración de Tailwind CSS**
 
