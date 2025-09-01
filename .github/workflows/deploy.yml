@@ -2,9 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ gh-pages ]
+    branches: [ main ]
   pull_request:
-    branches: [ gh-pages ]
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -29,11 +29,38 @@ jobs:
         node-version: '18'
         cache: 'npm'
 
-    - name: Install dependencies
-      run: npm ci
+    # Clone and build the main portfolio (multi-theme) for root deployment
+    - name: Clone portfolio multi-theme repository
+      run: |
+        git clone https://github.com/JordiNodeJS/porfolio-multi-theme.git porfolio-multi-theme
 
-    - name: Build
-      run: npm run build
+    - name: Clean npm cache and fix dependencies (portfolio multi-theme)
+      run: |
+        cd porfolio-multi-theme
+        npm cache clean --force
+        rm -rf package-lock.json node_modules
+        npm install
+
+    - name: Build portfolio multi-theme for root deployment
+      run: |
+        cd porfolio-multi-theme
+        VITE_BASE_PATH="/" npm run build
+        cd ..
+        # Use portfolio build as main deployment
+        mkdir -p dist
+        cp -r porfolio-multi-theme/dist/* dist/
+
+    # Optional: Build current project as backup/legacy (uncomment if needed)
+    # - name: Install dependencies (legacy)
+    #   run: npm ci
+    # 
+    # - name: Build legacy project  
+    #   run: npm run build
+    #
+    # - name: Copy legacy build to subdirectory
+    #   run: |
+    #     mkdir -p dist/legacy
+    #     cp -r dist-legacy/* dist/legacy/ || echo "No legacy build found"
 
     - name: Setup Pages
       uses: actions/configure-pages@v4

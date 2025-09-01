@@ -1,118 +1,103 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class', // Asegúrate que esta línea esté presente
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      keyframes: {
-        'bounce-once': {
-          '0%, 100%': { transform: 'scaleX(1)' },
-          '50%': { transform: 'scaleX(1.2)' }
-        },
-        'fall-bounce': {
-          '0%': {
-            transform: 'translateY(0) translateX(-50%) scale(1.2) rotate(0deg)',
-            opacity: '1'
-          },
-          '20%': {
-            transform:
-              'translateY(20%) translateX(-50%) scale(1.1) rotate(72deg)',
-            opacity: '1'
-          },
-          '40%': {
-            transform:
-              'translateY(100%) translateX(-50%) scale(0.9) rotate(144deg)',
-            opacity: '0.9'
-          },
-          '50%': {
-            transform:
-              'translateY(80%) translateX(-50%) scale(0.85) rotate(180deg)',
-            opacity: '0.8'
-          },
-          '60%': {
-            transform:
-              'translateY(100%) translateX(-50%) scale(0.75) rotate(216deg)',
-            opacity: '0.7'
-          },
-          '70%': {
-            transform:
-              'translateY(90%) translateX(-50%) scale(0.6) rotate(252deg)',
-            opacity: '0.5'
-          },
-          '80%': {
-            transform:
-              'translateY(100%) translateX(-50%) scale(0.4) rotate(288deg)',
-            opacity: '0.3'
-          },
-          '100%': {
-            transform:
-              'translateY(200%) translateX(-50%) scale(0.2) rotate(360deg)',
-            opacity: '0'
-          }
-        },
-        'rise-bounce': {
-          '0%': {
-            transform:
-              'translateY(200%) translateX(-50%) scale(0.2) rotate(0deg)',
-            opacity: '0'
-          },
-          '20%': {
-            transform:
-              'translateY(100%) translateX(-50%) scale(0.4) rotate(72deg)',
-            opacity: '0.3'
-          },
-          '30%': {
-            transform:
-              'translateY(90%) translateX(-50%) scale(0.6) rotate(108deg)',
-            opacity: '0.5'
-          },
-          '40%': {
-            transform:
-              'translateY(100%) translateX(-50%) scale(0.75) rotate(144deg)',
-            opacity: '0.7'
-          },
-          '50%': {
-            transform:
-              'translateY(80%) translateX(-50%) scale(0.85) rotate(180deg)',
-            opacity: '0.8'
-          },
-          '60%': {
-            transform:
-              'translateY(100%) translateX(-50%) scale(0.9) rotate(216deg)',
-            opacity: '0.9'
-          },
-          '80%': {
-            transform:
-              'translateY(20%) translateX(-50%) scale(1.1) rotate(288deg)',
-            opacity: '1'
-          },
-          '100%': {
-            transform:
-              'translateY(0) translateX(-50%) scale(1.2) rotate(360deg)',
-            opacity: '1'
-          }
-        },
-        'confetti-explosion': {
-          '0%': {
-            transform: 'translate(0, 0) rotate(0deg)',
-            opacity: '1'
-          },
-          '50%': {
-            transform: 'translate(calc(var(--final-x) * 0.5), calc(var(--final-y) * 0.5)) rotate(calc(var(--final-rotation) * 0.5))',
-            opacity: '0.8'
-          },
-          '100%': {
-            transform: 'translate(var(--final-x), var(--final-y)) rotate(var(--final-rotation))',
-            opacity: '0'
-          }
-        }
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
-      animation: {
-        'bounce-once': 'bounce-once 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
-        'fall-bounce': 'fall-bounce 1.2s ease-in-out forwards',
-        'rise-bounce': 'rise-bounce 1.2s ease-in-out forwards',
-        'confetti': 'confetti-explosion 2s cubic-bezier(0.45, 0, 0.55, 1) forwards'
-      }
-    }
-  }
-}
+      colors: {
+        primary: {
+          50: "#f0f9ff",
+          100: "#e0f2fe",
+          200: "#bae6fd",
+          300: "#7dd3fc",
+          400: "#38bdf8",
+          500: "#0ea5e9",
+          600: "#0284c7",
+          700: "#0369a1",
+          800: "#075985",
+          900: "#0c4a6e",
+        },
+        dark: {
+          50: "#f8fafc",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1",
+          400: "#94a3b8",
+          500: "#64748b",
+          600: "#475569",
+          700: "#334155",
+          800: "#1e293b",
+          900: "#0f172a",
+        },
+        vintage: {
+          // Marrones
+          brown: {
+            light: "#a87e58",
+            DEFAULT: "#8b5e3c",
+            dark: "#6e4c30",
+          },
+          // Mostaza
+          mustard: {
+            light: "#e3b505",
+            DEFAULT: "#c69f26",
+            dark: "#a78a21",
+          },
+          // Verdes apagados
+          sage: {
+            light: "#94a197",
+            DEFAULT: "#768c7a",
+            dark: "#5f6f61",
+          },
+          // Colores complementarios
+          cream: "#f3ebd3",
+          terracotta: "#d27c54",
+          olive: "#4a5240",
+        },
+        retroPastel: {
+          // Rosa pastel (tonos más oscuros para mejor contraste)
+          pink: {
+            light: "#ffaec0",
+            DEFAULT: "#ff8da3",
+            dark: "#e56b81",
+          },
+          // Amarillo pastel natilla (tonos más intensos)
+          custard: {
+            light: "#ffe9a6",
+            DEFAULT: "#ffd34d",
+            dark: "#e6b800",
+          },
+          // Colores complementarios con mejor contraste
+          mint: "#92c9a9",
+          lavender: "#9d8fc2",
+          babyBlue: "#8fc4e5",
+          peach: "#ffaa80",
+          text: "#3d2c2c",
+          background: "#fffaf0",
+        },
+        brutalism: {
+          // Colores primarios brutalism
+          red: "#ff6b6b",
+          cyan: "#4ecdc4",
+          blue: "#45b7d1",
+          green: "#96ceb4",
+          yellow: "#ffeaa7",
+          black: "#000000",
+          white: "#ffffff",
+          // Sombras y efectos
+          shadow: {
+            primary: "#ff6b6b",
+            secondary: "#4ecdc4",
+            tertiary: "#45b7d1",
+          },
+        },
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
+  darkMode: ["class", "[data-theme='dark']"],
+  // Asegúrate que los nuevos temas sean reconocidos por Tailwind
+  retroPastelMode: "[data-theme='retro-pastel']",
+  brutalismMode: "[data-theme='brutalism']",
+};
