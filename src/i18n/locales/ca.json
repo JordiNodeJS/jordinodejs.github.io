@@ -1,0 +1,361 @@
+{
+    "navigation": {
+        "home": "Inici",
+        "experience": "Experiència",
+        "projects": "Projectes",
+        "skills": "Habilitats",
+        "education": "Educació",
+        "contact": "Contacte"
+    },
+    "hero": {
+        "greeting": "Hola! Sóc",
+        "name": "JOrGE",
+        "title": "Frontend React Engineer",
+        "subtitle": "Desenvolupador Frontend especialitzat en React amb experiència creant interfícies modernes i funcionals",
+        "cta": "Veure el meu treball",
+        "downloadCV": "Descarregar CV",
+        "viewProjects": "Veure Projectes"
+    },
+    "experience": {
+        "title": "Experiència Professional",
+        "subtitle": "La meva trajectòria professional desenvolupant solucions innovadores",
+        "location": "Espanya",
+        "viewProject": "Veure projecte",
+        "clickTooltip": "💡 Fes clic per veure assoliments destacats",
+        "technologiesUsed": "Tecnologies utilitzades",
+        "achievements": "Assoliments Destacats",
+        "description": "Descripció:",
+        "impact": "Impacte:",
+        "period": "Període:",
+        "technologiesAndMethodologies": "Tecnologies i Metodologies Utilitzades:",
+        "frontend": "Frontend:",
+        "testing": "Testing:",
+        "methodologies": "Metodologies:",
+        "tools": "Eines:",
+        "featuredProjects": "Projectes destacats:",
+        "companies": {
+            "flipo": {
+                "title": "FLiPO | Frontend React Engineer",
+                "period": "Juliol 2023 – Abril 2025",
+                "description": "Durant el meu temps a FLiPO, una startup líder en venda online d'ulleres modulars i graduades, vaig contribuir significativament al desenvolupament i millora de l'ERP intern, implementant solucions innovadores que van impactar directament en l'eficiència operativa de l'empresa."
+            },
+            "itacademy": {
+                "title": "IT Academy BCN | Frontend React Engineer",
+                "period": "2022",
+                "description": "A IT Academy BCN vaig col·laborar remotament en un equip de 12 persones utilitzant metodologies àgils (Scrum, Kanban i sprints de 2 setmanes). Vaig participar en el desenvolupament de projectes com ITA Directory i ITA Game, centrant-me en la millora del sistema ERP i la implementació de noves funcionalitats.",
+                "frontend": "JavaScript, TypeScript, React.js, Redux, Context API, Hooks, Styled Components",
+                "testing": "Vitest",
+                "methodologies": "Agile (Scrum, Kanban, sprints de 2 setmanes), POO",
+                "tools": "Git, GitHub, Sonar, Docker",
+                "projects": {
+                    "itaDirectory": "ITA Directory: Projecte per a estudiants de Barcelona Activa - IT Academy",
+                    "itaGame": "ITA Game: Plataforma de gamificació per a alumnes d'acadèmia de codi"
+                }
+            },
+            "aulaMagna": {
+                "title": "Aula Magna Business School SLU | Web Designer",
+                "period": "2022",
+                "description": "A Aula Magna Business School em vaig especialitzar en el disseny web d'esdeveniments, treballant en equip per millorar la usabilitat web i l'experiència d'usuari (UX/UI), creant solucions visuals atractives i funcionals."
+            }
+        }
+    },
+    "projects": {
+        "title": "Projectes Destacats",
+        "subtitle": "Una selecció dels meus treballs més representatius",
+        "viewProject": "Veure Projecte",
+        "viewCode": "Veure Codi",
+        "technologies": "Tecnologies:",
+        "features": "Característiques:",
+        "liveDemo": "Demo en Viu",
+        "sourceCode": "Codi Font",
+        "viewMore": "Veure Més Projectes",
+        "items": {
+            "remove-bg-001": {
+                "title": "Eliminar Fons",
+                "description": "Aplicació web que elimina automàticament el fons de les imatges utilitzant intel·ligència artificial. Permet pujar imatges, processar-les al backend i descarregar la versió sense fons. Exemple educatiu d'un monorepo modern amb Next.js i Express utilitzant Bun."
+            },
+            "9b681b4d": {
+                "title": "Directori IT Academy",
+                "description": "Treballant sota metodologies àgils com SCRUM, solucionant errors, provant, noves funcionalitats, documentació conjuntament amb el backend."
+            },
+            "9b68cc3d": {
+                "title": "Ita-Game",
+                "description": "Gamificació d'una plataforma d'estudi utilitzant React i Tailwind."
+            },
+            "9b68aa3d": {
+                "title": "Generador de Placeholders per a Imatges",
+                "description": "L'aplicació consisteix en generar una imatge de resolució molt baixa, respectant el contorn de la imatge original, amb el propòsit de ser utilitzada com a placeholder o substitut temporal."
+            },
+            "9b68qa3d": {
+                "title": "Projecte King League",
+                "description": "Projecte open source, on vaig col·laborar solucionant alguns errors, documentació i github actions."
+            },
+            "d4613430": {
+                "title": "App del Temps",
+                "description": "El propòsit d'aquesta aplicació va ser construir una interfície entre el client i una API de tercers."
+            },
+            "781d5bab": {
+                "title": "Endevina",
+                "description": "Joc bàsic creat en javascript l'objectiu d'aprenentatge del qual va ser la manipulació del DOM del document HTML per presentar els resultats."
+            },
+            "a3203cfa": {
+                "title": "Efecte de Presentació d'Imatges Només JS",
+                "description": "Un exemple de botó d'un slider automàtic."
+            },
+            "a3203tra": {
+                "title": "FreeForEver",
+                "description": "UX/UI i funcionalitats per a l'arquitectura."
+            }
+        }
+    },
+    "achievements": {
+        "FLiPO": [
+            {
+                "title": "Optimització de la Usabilitat de l'ERP",
+                "description": "Vaig redissenyar i ajustar la interfície per simplificar fluxos de treball i millorar la navegació del sistema.",
+                "impact": "Vaig aconseguir que els usuaris interactuessin de manera més intuïtiva, reduint la corba d'aprenentatge i augmentant l'eficiència operativa."
+            },
+            {
+                "title": "Depuració i Refactorització del Codi",
+                "description": "Vaig identificar àrees problemàtiques i vaig aplicar les millors pràctiques de programació per millorar la llegibilitat i qualitat del codi.",
+                "impact": "Vaig refactoritzar mòduls crítics, eliminant redundàncies i creant una base de codi més estable i fàcil de mantenir."
+            },
+            {
+                "title": "Implementació de Noves Funcionalitats",
+                "description": "Vaig dissenyar i integrar noves característiques a l'ERP, liderant l'anàlisi de necessitats i usant metodologies àgils per assegurar una integració fluida.",
+                "impact": "Vaig incrementar l'eficiència operativa del sistema en un 30%, aportant solucions innovadores que van respondre directament a les demandes dels usuaris."
+            },
+            {
+                "title": "Optimització del Rendiment",
+                "description": "Vaig realitzar ajustos per reduir els temps de càrrega, optimitzar consultes i gestionar de forma eficient els recursos de l'ERP.",
+                "impact": "Vaig millorar significativament el rendiment general del sistema, traduint-se en una experiència d'usuari més àgil i fiable."
+            },
+            {
+                "title": "Integració de Passarel·la de Pagament (Stripe, TPV i ERP)",
+                "description": "Vaig liderar la implementació i optimització de la interfície i lògica de pagaments, treballant conjuntament amb l'equip de Backend, Tech Lead i Project Manager.",
+                "impact": "Agilitat Financera: Va permetre rebre pagaments a l'instant en el moment del lliurament de la comanda. Avantatge Competitiu: Va enfortir la posició de l'empresa al mercat oferint una solució robusta i eficient de gestió financera."
+            },
+            {
+                "title": "Implementació d'Estratègia Git (Feature Branching)",
+                "description": "Vaig introduir i motivar l'equip a seguir una estratègia de ramificació basada en 'feature branching', adaptada a equips mitjans.",
+                "impact": "Aquesta metodologia va millorar l'organització del codi i va potenciar la col·laboració en el desenvolupament, reduint conflictes i facilitant la integració de noves funcionalitats."
+            }
+        ],
+        "IT Academy": [
+            {
+                "title": "Optimització de l'ERP i Millores en UI/UX",
+                "description": "Vaig implementar ajustos estratègics en la interfície i experiència d'usuari, simplificant els fluxos de navegació i reduint la corba d'aprenentatge.",
+                "impact": "Vaig millorar significativament la usabilitat de l'ERP, facilitant les tasques diàries i augmentant la satisfacció dels usuaris."
+            },
+            {
+                "title": "Depuració i Refactorització de Codi",
+                "description": "Vaig identificar i solucionar àrees crítiques en el codi, eliminant redundàncies i aplicant pràctiques recomanades de programació orientada a objectes.",
+                "impact": "Vaig elevar la qualitat i mantenibilitat del codi, reduint el nombre d'errors i facilitant futures actualitzacions."
+            },
+            {
+                "title": "Optimització del Rendiment de Consultes a l'API",
+                "description": "Vaig realitzar ajustos específics en la lògica de programació per optimitzar l'execució i eficiència de les consultes.",
+                "impact": "Es va notar una reducció en els temps de resposta, millorant el rendiment general del sistema i l'experiència de l'usuari."
+            },
+            {
+                "title": "Implementació de Flux de Treball amb Git/GitHub (CI/CD)",
+                "description": "Vaig establir un procés d'integració i desplegament continu a través de Git i GitHub, consolidant un flux de treball àgil per a l'equip.",
+                "impact": "Això va accelerar el lliurament de noves funcionalitats i millores, garantint major estabilitat en cada desplegament."
+            },
+            {
+                "title": "Col·laboració en Equip Remot (12 persones)",
+                "description": "Vaig treballar efectivament en un equip distribuït de 12 persones utilitzant metodologies àgils com Scrum i Kanban amb sprints de 2 setmanes.",
+                "impact": "Vaig contribuir al desenvolupament exitós de projectes com ITA Directory i ITA Game, millorant les habilitats de treball col·laboratiu de l'equip."
+            }
+        ],
+        "Aula Magna": [
+            {
+                "title": "Disseny Web d'Esdeveniments",
+                "description": "Vaig desenvolupar dissenys web específics per a esdeveniments, centrant-me en la presentació visual i funcionalitat específica per a cada ocasió.",
+                "impact": "Vaig crear experiències web atractives que van millorar la presència digital dels esdeveniments i van augmentar la participació dels assistents."
+            },
+            {
+                "title": "Millora d'Usabilitat Web",
+                "description": "Vaig treballar en equip per identificar i resoldre problemes d'usabilitat, optimitzant la navegació i accessibilitat del lloc web.",
+                "impact": "Vaig aconseguir una experiència d'usuari més fluida i accessible, reduint la taxa d'abandonament i millorant la satisfacció de l'usuari."
+            },
+            {
+                "title": "Optimització d'UX/UI",
+                "description": "Vaig implementar millores en l'experiència i interfície d'usuari, aplicant principis de disseny centrat en l'usuari.",
+                "impact": "Vaig millorar significativament la interacció de l'usuari amb la plataforma, creant interfícies més intuïtives i atractives."
+            }
+        ]
+    },
+    "skills": {
+        "title": "Habilitats Tècniques",
+        "subtitle": "Tecnologies i eines amb les quals treballo",
+        "competenceLevel": "Nivell de Competència",
+        "techStack": "Stack Tecnològic",
+        "methodologies": "Metodologies i Eines",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "tools": "Eines",
+            "databases": "Bases de Dades"
+        }
+    },
+    "education": {
+        "title": "Formació Acadèmica",
+        "subtitle": "El meu camí d'aprenentatge continu en tecnologies de desenvolupament",
+        "degree": "Titulació",
+        "institution": "Institució",
+        "period": "Període",
+        "description": "Descripció",
+        "skills": "Habilitats adquirides:",
+        "certificate": "Veure Certificat",
+        "viewCertificate": "Veure certificat o projecte",
+        "featured": "Destacat",
+        "stats": {
+            "trainings": "Formacions",
+            "technologies": "Tecnologies",
+            "projects": "Projectes"
+        },
+        "learningPhilosophy": {
+            "title": "Filosofia d'Aprenentatge",
+            "description": "Crec fermament en l'aprenentatge continu i l'adaptació a les noves tecnologies. La meva formació no només abasta coneixements tècnics, sinó també metodologies àgils, treball en equip i millors pràctiques de desenvolupament que em permeten crear solucions robustes i escalables."
+        }
+    },
+    "contact": {
+        "title": "Contacte",
+        "subtitle": "Tens un projecte al cap? Parlem!",
+        "name": "Nom",
+        "email": "Email",
+        "message": "Missatge",
+        "send": "Enviar Missatge",
+        "sending": "Enviant...",
+        "success": "Missatge enviat correctament!",
+        "error": "Error en enviar el missatge. Torna-ho a provar.",
+        "social": "Xarxes Socials",
+        "location": "Ubicació",
+        "phone": "Telèfon",
+        "availability": "Disponible per a projectes freelance"
+    },
+    "footer": {
+        "rights": "Tots els drets reservats.",
+        "madeWith": "Fet amb",
+        "and": "i",
+        "by": "per",
+        "techStack": "Tech Stack",
+        "connectWithMe": "Connecta amb mi",
+        "description": "Frontend React Developer apassionat per crear experiències digitals excepcionals amb tecnologies modernes.",
+        "designedWith": "Dissenyat i desenvolupat amb ❤️"
+    },
+    "loading": {
+        "text": "Carregant portfolio..."
+    },
+    "theme": {
+        "toggle": "Canviar tema",
+        "light": "Mode clar",
+        "dark": "Mode fosc"
+    },
+    "language": {
+        "select": "Seleccionar idioma",
+        "es": "Español",
+        "en": "English",
+        "fr": "Français",
+        "de": "Deutsch",
+        "it": "Italiano",
+        "pt": "Português",
+        "ca": "Català"
+    },
+    "presentation": {
+        "name": "JORGe's web",
+        "title": "Desenvolupador Frontend React ⚡",
+        "description": "+ 2 anys d'experiència en el món de la programació, especialitzant-me en React. Compromès amb el desenvolupament d'experiències d'usuari accessibles i d'alt rendiment."
+    },
+    "skillsData": [
+        {
+            "id": "0",
+            "nombre": "React JS",
+            "nivel": "avançat",
+            "category": "frontend",
+            "description": "Biblioteca principal per al desenvolupament d'interfícies"
+        },
+        {
+            "id": "1",
+            "nombre": "TypeScript",
+            "nivel": "intermedi",
+            "category": "frontend",
+            "description": "Superset de JavaScript amb tipat estàtic"
+        },
+        {
+            "id": "2",
+            "nombre": "Node.js",
+            "nivel": "intermedi",
+            "category": "backend",
+            "description": "Runtime de JavaScript per al servidor"
+        },
+        {
+            "id": "3",
+            "nombre": "Anglès",
+            "nivel": "B1",
+            "category": "other",
+            "description": "Nivell de comunicació intermedi"
+        }
+    ],
+    "educationData": [
+        {
+            "id": "edu5cc7",
+            "center": "BootCamp IT Academy",
+            "link": "https://www.barcelonactiva.cat/es/itacademy",
+            "title": "Desenvolupador Front-End React",
+            "description": "Desenvolupador Front-End React al Bootcamp IT Academy: Un programa de 18 setmanes on s'ensenyaren habilitats com HTML, CSS, SASS, JavaScript, ReactJS, entre altres. A més, s'utilitzaren diferents eines com Vite i Create React App, i es treballà amb biblioteques com Bootstrap, Mantine i MUI. Es realitzà un projecte que implicava l'ús de GitHub, Typescript, Node, entre altres. També s'aprengué a desplegar en diferents plataformes, com GitHub Pages, Vercel, Netlify, Render.com i Fly.io.",
+            "start_date": "01/09/2015",
+            "end_date": "30/06/2019",
+            "tags": [
+                "HTML",
+                "CSS",
+                "SASS",
+                "JavaScript",
+                "ReactJS",
+                "MUI",
+                "TailwindCSS",
+                "Bootstrap",
+                "Chakra",
+                "Styled-Components",
+                "Git",
+                "GitHub",
+                "TypeScript"
+            ]
+        },
+        {
+            "id": "edu7fcc",
+            "center": "Centre CIFO La Violeta",
+            "link": "https://serveiocupacio.gencat.cat/es/soc/com-ens-organitzem/centres-propis-formacio-cifo-cfpa/centres-dinnovacio-i-formacio-ocupacional-cifo/cifo-barcelona-la-violeta/index.html",
+            "title": "Desenvolupament d'aplicacions web Full Stack",
+            "description": "Desenvolupament Web Full Stack al CIFO La Violeta: Aquest curs de 600 hores va permetre a l'estudiant adquirir habilitats en programació web en l'entorn client i servidor, així com el desenvolupament de documents web utilitzant llenguatges de marcat. També s'ensenyà sobre usabilitat i accessibilitat en l'entorn client, accés a dades en aplicacions web en l'entorn servidor i la implementació d'aplicacions web en entorns d'internet, intranet i extranet. S'utilitzaren diferents eines de desplegament, com Heroku, Vercel, Netlify i GitHub Pages.",
+            "start_date": "01/09/2018",
+            "end_date": "30/06/2019",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "PHP",
+                "Netlify",
+                "Vercel",
+                "Render",
+                "Fly.io"
+            ]
+        },
+        {
+            "id": "edu5ucc",
+            "center": "SINENSIA IT SOLUTIONS",
+            "title": "Desenvolupament d'aplicacions web ANGULAR",
+            "description": "Desenvolupament d'Aplicacions Web amb Angular a SINENSIA IT SOLUTIONS: Un curs de 60 hores on s'ensenyà el desenvolupament d'aplicacions web utilitzant Angular.",
+            "start_date": "01/09/2018",
+            "end_date": "30/06/2019",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Angular",
+                "TypeScript"
+            ]
+        }
+    ]
+}
