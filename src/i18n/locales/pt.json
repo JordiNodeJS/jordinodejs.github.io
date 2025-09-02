@@ -1,0 +1,365 @@
+{
+    "navigation": {
+        "home": "Início",
+        "experience": "Experiência",
+        "projects": "Projetos",
+        "skills": "Habilidades",
+        "education": "Educação",
+        "contact": "Contato"
+    },
+    "hero": {
+        "greeting": "Olá! Eu sou",
+        "name": "JOrGE",
+        "title": "Engenheiro Frontend React",
+        "subtitle": "Desenvolvedor Frontend especializado em React com experiência na criação de interfaces modernas e funcionais",
+        "cta": "Ver meu trabalho",
+        "downloadCV": "Baixar CV",
+        "viewProjects": "Ver Projetos"
+    },
+    "experience": {
+        "title": "Experiência Profissional",
+        "subtitle": "Minha trajetória profissional desenvolvendo soluções inovadoras",
+        "location": "Espanha",
+        "viewProject": "Ver projeto",
+        "clickTooltip": "💡 Clique para ver conquistas destacadas",
+        "technologiesUsed": "Tecnologias utilizadas",
+        "achievements": "Conquistas Destacadas",
+        "description": "Descrição:",
+        "impact": "Impacto:",
+        "period": "Período:",
+        "technologiesAndMethodologies": "Tecnologias e Metodologias Utilizadas:",
+        "frontend": "Frontend:",
+        "testing": "Testes:",
+        "methodologies": "Metodologias:",
+        "tools": "Ferramentas:",
+        "featuredProjects": "Projetos destacados:",
+        "companies": {
+            "flipo": {
+                "title": "FLiPO | Engenheiro Frontend React",
+                "period": "Julho 2023 – Abril 2025",
+                "description": "Durante meu tempo na FLiPO, uma startup líder na venda online de óculos modulares e graduados, contribuí significativamente para o desenvolvimento e melhoria do ERP interno, implementando soluções inovadoras que impactaram diretamente na eficiência operacional da empresa."
+            },
+            "itacademy": {
+                "title": "IT Academy BCN | Engenheiro Frontend React",
+                "period": "2022",
+                "description": "Na IT Academy BCN colaborei remotamente em uma equipe de 12 pessoas usando metodologias ágeis (Scrum, Kanban e sprints de 2 semanas). Participei do desenvolvimento de projetos como ITA Directory e ITA Game, focando na melhoria do sistema ERP e implementação de novas funcionalidades.",
+                "frontend": "JavaScript, TypeScript, React.js, Redux, Context API, Hooks, Styled Components",
+                "testing": "Vitest",
+                "methodologies": "Ágil (Scrum, Kanban, sprints de 2 semanas), POO",
+                "tools": "Git, GitHub, Sonar, Docker",
+                "projects": {
+                    "itaDirectory": "ITA Directory: Projeto para estudantes de Barcelona Activa - IT Academy",
+                    "itaGame": "ITA Game: Plataforma de gamificação para alunos de academia de código"
+                }
+            },
+            "aulaMagna": {
+                "title": "Aula Magna Business School SLU | Web Designer",
+                "period": "2022",
+                "description": "Na Aula Magna Business School me especializei no design web de eventos, trabalhando em equipe para melhorar a usabilidade web e experiência do usuário (UX/UI), criando soluções visuais atrativas e funcionais."
+            }
+        }
+    },
+    "projects": {
+        "title": "Projetos Destacados",
+        "subtitle": "Uma seleção dos meus trabalhos mais representativos",
+        "viewProject": "Ver Projeto",
+        "viewCode": "Ver Código",
+        "technologies": "Tecnologias:",
+        "features": "Características:",
+        "liveDemo": "Demo Ao Vivo",
+        "sourceCode": "Código Fonte",
+        "viewMore": "Ver Mais Projetos",
+        "items": {
+            "astro-5-agosto": {
+                "title": "Mudanzas Andy",
+                "description": "Projetei a identidade visual e a experiência do usuário de mudanzasandy.es, um site estático para empresa de mudanças. Trabalho completo: design responsivo, sistema de cores centralizado, layout acessível e otimização de imagens e desempenho."
+            },
+            "remove-bg-001": {
+                "title": "Remover Fundo",
+                "description": "Aplicação web que remove automaticamente o fundo de imagens usando inteligência artificial. Permite carregar imagens, processá-las no backend e baixar a versão sem fundo. Exemplo educativo de um monorepo moderno com Next.js e Express usando Bun."
+            },
+            "9b681b4d": {
+                "title": "Diretório IT Academy",
+                "description": "Trabalhando sob metodologias ágeis como SCRUM, corrigindo bugs, testando, novas funcionalidades, documentação em conjunto com o backend."
+            },
+            "9b68cc3d": {
+                "title": "Ita-Game",
+                "description": "Gamificação de uma plataforma de estudo usando React e Tailwind."
+            },
+            "9b68aa3d": {
+                "title": "Gerador de Placeholders para Imagens",
+                "description": "A aplicação consiste em gerar uma imagem de resolução muito baixa, respeitando o contorno da imagem original, com o propósito de ser usada como placeholder ou substituto temporário."
+            },
+            "9b68qa3d": {
+                "title": "Projeto King League",
+                "description": "Projeto open source, onde colaborei corrigindo alguns bugs, documentação e github actions."
+            },
+            "d4613430": {
+                "title": "App do Tempo",
+                "description": "O propósito desta aplicação foi construir uma interface entre o cliente e uma API de terceiros."
+            },
+            "781d5bab": {
+                "title": "Adivinhar",
+                "description": "Jogo básico criado em javascript cujo objetivo de aprendizagem foi a manipulação do DOM do documento HTML para apresentar os resultados."
+            },
+            "a3203cfa": {
+                "title": "Efeito de Slideshow de Imagens Apenas JS",
+                "description": "Um exemplo de botão de um slider automático."
+            },
+            "a3203tra": {
+                "title": "FreeForEver",
+                "description": "UX/UI e funcionalidades para arquitetura."
+            }
+        }
+    },
+    "achievements": {
+        "FLiPO": [
+            {
+                "title": "Otimização da Usabilidade do ERP",
+                "description": "Redesenhei e ajustei a interface para simplificar fluxos de trabalho e melhorar a navegação do sistema.",
+                "impact": "Consegui que os usuários interagissem de forma mais intuitiva, reduzindo a curva de aprendizagem e aumentando a eficiência operacional."
+            },
+            {
+                "title": "Depuração e Refatoração do Código",
+                "description": "Identifiquei áreas problemáticas e apliquei as melhores práticas de programação para melhorar a legibilidade e qualidade do código.",
+                "impact": "Refatorei módulos críticos, eliminando redundâncias e criando uma base de código mais estável e fácil de manter."
+            },
+            {
+                "title": "Implementação de Novas Funcionalidades",
+                "description": "Projetei e integrei novas características ao ERP, liderando a análise de necessidades e usando metodologias ágeis para garantir uma integração suave.",
+                "impact": "Incrementei a eficiência operacional do sistema em 30%, fornecendo soluções inovadoras que responderam diretamente às demandas dos usuários."
+            },
+            {
+                "title": "Otimização do Desempenho",
+                "description": "Realizei ajustes para reduzir os tempos de carregamento, otimizar consultas e gerenciar de forma eficiente os recursos do ERP.",
+                "impact": "Melhorei significativamente o desempenho geral do sistema, resultando em uma experiência de usuário mais ágil e confiável."
+            },
+            {
+                "title": "Integração de Gateway de Pagamento (Stripe, TPV e ERP)",
+                "description": "Liderei a implementação e otimização da interface e lógica de pagamentos, trabalhando em conjunto com a equipe de Backend, Tech Lead e Project Manager.",
+                "impact": "Agilidade Financeira: Permitiu receber pagamentos instantaneamente no momento da entrega do pedido. Vantagem Competitiva: Fortaleceu a posição da empresa no mercado oferecendo uma solução robusta e eficiente de gestão financeira."
+            },
+            {
+                "title": "Implementação de Estratégia Git (Feature Branching)",
+                "description": "Introduzi e motivei a equipe a seguir uma estratégia de ramificação baseada em 'feature branching', adaptada a equipes médias.",
+                "impact": "Esta metodologia melhorou a organização do código e potencializou a colaboração no desenvolvimento, reduzindo conflitos e facilitando a integração de novas funcionalidades."
+            }
+        ],
+        "IT Academy": [
+            {
+                "title": "Otimização do ERP e Melhorias em UI/UX",
+                "description": "Implementei ajustes estratégicos na interface e experiência do usuário, simplificando os fluxos de navegação e reduzindo a curva de aprendizagem.",
+                "impact": "Melhorei significativamente a usabilidade do ERP, facilitando as tarefas diárias e aumentando a satisfação dos usuários."
+            },
+            {
+                "title": "Depuração e Refatoração de Código",
+                "description": "Identifiquei e solucionei áreas críticas no código, eliminando redundâncias e aplicando práticas recomendadas de programação orientada a objetos.",
+                "impact": "Elevei a qualidade e manutenibilidade do código, reduzindo o número de erros e facilitando futuras atualizações."
+            },
+            {
+                "title": "Otimização do Desempenho de Consultas à API",
+                "description": "Realizei ajustes específicos na lógica de programação para otimizar a execução e eficiência das consultas.",
+                "impact": "Notou-se uma redução nos tempos de resposta, melhorando o desempenho geral do sistema e a experiência do usuário."
+            },
+            {
+                "title": "Implementação de Fluxo de Trabalho com Git/GitHub (CI/CD)",
+                "description": "Estabeleci um processo de integração e implantação contínua através do Git e GitHub, consolidando um fluxo de trabalho ágil para a equipe.",
+                "impact": "Isso acelerou a entrega de novas funcionalidades e melhorias, garantindo maior estabilidade em cada implantação."
+            },
+            {
+                "title": "Colaboração em Equipe Remota (12 pessoas)",
+                "description": "Trabalhei efetivamente em uma equipe distribuída de 12 pessoas utilizando metodologias ágeis como Scrum e Kanban com sprints de 2 semanas.",
+                "impact": "Contribuí para o desenvolvimento bem-sucedido de projetos como ITA Directory e ITA Game, melhorando as habilidades de trabalho colaborativo da equipe."
+            }
+        ],
+        "Aula Magna": [
+            {
+                "title": "Design Web de Eventos",
+                "description": "Desenvolvi designs web específicos para eventos, focando na apresentação visual e funcionalidade específica para cada ocasião.",
+                "impact": "Criei experiências web atrativas que melhoraram a presença digital dos eventos e aumentaram a participação dos participantes."
+            },
+            {
+                "title": "Melhoria da Usabilidade Web",
+                "description": "Trabalhei em equipe para identificar e resolver problemas de usabilidade, otimizando a navegação e acessibilidade do site.",
+                "impact": "Consegui uma experiência de usuário mais fluida e acessível, reduzindo a taxa de abandono e melhorando a satisfação do usuário."
+            },
+            {
+                "title": "Otimização de UX/UI",
+                "description": "Implementei melhorias na experiência e interface do usuário, aplicando princípios de design centrado no usuário.",
+                "impact": "Melhorei significativamente a interação do usuário com a plataforma, criando interfaces mais intuitivas e atrativas."
+            }
+        ]
+    },
+    "skills": {
+        "title": "Habilidades Técnicas",
+        "subtitle": "Tecnologias e ferramentas com as quais trabalho",
+        "competenceLevel": "Nível de Competência",
+        "techStack": "Stack Tecnológico",
+        "methodologies": "Metodologias e Ferramentas",
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "tools": "Ferramentas",
+            "databases": "Bancos de Dados"
+        }
+    },
+    "education": {
+        "title": "Formação Acadêmica",
+        "subtitle": "Minha jornada de aprendizado contínuo em tecnologias de desenvolvimento",
+        "degree": "Grau",
+        "institution": "Instituição",
+        "period": "Período",
+        "description": "Descrição",
+        "skills": "Habilidades adquiridas:",
+        "certificate": "Ver Certificado",
+        "viewCertificate": "Ver certificado ou projeto",
+        "featured": "Destaque",
+        "stats": {
+            "trainings": "Formações",
+            "technologies": "Tecnologias",
+            "projects": "Projetos"
+        },
+        "learningPhilosophy": {
+            "title": "Filosofia de Aprendizado",
+            "description": "Acredito firmemente no aprendizado contínuo e na adaptação a novas tecnologias. Minha formação abrange não apenas conhecimento técnico, mas também metodologias ágeis, trabalho em equipe e melhores práticas de desenvolvimento que me permitem criar soluções robustas e escaláveis."
+        }
+    },
+    "contact": {
+        "title": "Contato",
+        "subtitle": "Tem um projeto em mente? Vamos conversar!",
+        "name": "Nome",
+        "email": "Email",
+        "message": "Mensagem",
+        "send": "Enviar Mensagem",
+        "sending": "Enviando...",
+        "success": "Mensagem enviada com sucesso!",
+        "error": "Erro ao enviar mensagem. Tente novamente.",
+        "social": "Redes Sociais",
+        "location": "Localização",
+        "phone": "Telefone",
+        "availability": "Disponível para projetos freelance"
+    },
+    "footer": {
+        "rights": "Todos os direitos reservados.",
+        "madeWith": "Feito com",
+        "and": "e",
+        "by": "por",
+        "techStack": "Stack Tecnológico",
+        "connectWithMe": "Conecte-se comigo",
+        "description": "Desenvolvedor Frontend React apaixonado por criar experiências digitais excepcionais com tecnologias modernas.",
+        "designedWith": "Projetado e desenvolvido com ❤️"
+    },
+    "loading": {
+        "text": "Carregando portfólio..."
+    },
+    "theme": {
+        "toggle": "Alternar tema",
+        "light": "Modo claro",
+        "dark": "Modo escuro"
+    },
+    "language": {
+        "select": "Selecionar idioma",
+        "es": "Español",
+        "en": "English",
+        "fr": "Français",
+        "de": "Deutsch",
+        "it": "Italiano",
+        "pt": "Português",
+        "ca": "Català"
+    },
+    "presentation": {
+        "name": "JORGe's web",
+        "title": "Desenvolvedor Frontend React ⚡",
+        "description": "+ 2 anos de experiência no mundo da programação, especializando-me em React. Comprometido com o desenvolvimento de experiências de usuário acessíveis e de alto desempenho."
+    },
+    "skillsData": [
+        {
+            "id": "0",
+            "nombre": "React JS",
+            "nivel": "avançado",
+            "category": "frontend",
+            "description": "Biblioteca principal para desenvolvimento de interfaces"
+        },
+        {
+            "id": "1",
+            "nombre": "TypeScript",
+            "nivel": "intermediário",
+            "category": "frontend",
+            "description": "Superset do JavaScript com tipagem estática"
+        },
+        {
+            "id": "2",
+            "nombre": "Node.js",
+            "nivel": "intermediário",
+            "category": "backend",
+            "description": "Runtime JavaScript para servidor"
+        },
+        {
+            "id": "3",
+            "nombre": "Inglês",
+            "nivel": "B1",
+            "category": "other",
+            "description": "Nível de comunicação intermediário"
+        }
+    ],
+    "educationData": [
+        {
+            "id": "edu5cc7",
+            "center": "BootCamp IT Academy",
+            "link": "https://www.barcelonactiva.cat/es/itacademy",
+            "title": "Desenvolvedor Front-End React",
+            "description": "Desenvolvedor Front-End React no Bootcamp IT Academy: Um programa de 18 semanas onde foram ensinadas habilidades como HTML, CSS, SASS, JavaScript, ReactJS, entre outras. Além disso, foram utilizadas diferentes ferramentas como Vite e Create React App, e trabalhado com bibliotecas como Bootstrap, Mantine e MUI. Foi realizado um projeto que envolveu o uso de GitHub, Typescript, Node, entre outros. Também foi aprendido como implantar em diferentes plataformas, como GitHub Pages, Vercel, Netlify, Render.com e Fly.io.",
+            "start_date": "01/09/2015",
+            "end_date": "30/06/2019",
+            "tags": [
+                "HTML",
+                "CSS",
+                "SASS",
+                "JavaScript",
+                "ReactJS",
+                "MUI",
+                "TailwindCSS",
+                "Bootstrap",
+                "Chakra",
+                "Styled-Components",
+                "Git",
+                "GitHub",
+                "TypeScript"
+            ]
+        },
+        {
+            "id": "edu7fcc",
+            "center": "Centro CIFO La Violeta",
+            "link": "https://serveiocupacio.gencat.cat/es/soc/com-ens-organitzem/centres-propis-formacio-cifo-cfpa/centres-dinnovacio-i-formacio-ocupacional-cifo/cifo-barcelona-la-violeta/index.html",
+            "title": "Desenvolvimento de aplicações web Full Stack",
+            "description": "Desenvolvimento Web Full Stack no CIFO La Violeta: Este curso de 600 horas permitiu ao estudante adquirir habilidades em programação web no ambiente cliente e servidor, bem como o desenvolvimento de documentos web usando linguagens de marcação. Também ensinou sobre usabilidade e acessibilidade no ambiente cliente, acesso a dados em aplicações web no ambiente servidor e a implementação de aplicações web em ambientes de internet, intranet e extranet. Foram utilizadas diferentes ferramentas de implantação, como Heroku, Vercel, Netlify e GitHub Pages.",
+            "start_date": "01/09/2018",
+            "end_date": "30/06/2019",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "PHP",
+                "Netlify",
+                "Vercel",
+                "Render",
+                "Fly.io"
+            ]
+        },
+        {
+            "id": "edu5ucc",
+            "center": "SINENSIA IT SOLUTIONS",
+            "title": "Desenvolvimento de aplicações web ANGULAR",
+            "description": "Desenvolvimento de Aplicações Web com Angular na SINENSIA IT SOLUTIONS: Um curso de 60 horas onde foi ensinado o desenvolvimento de aplicações web usando Angular.",
+            "start_date": "01/09/2018",
+            "end_date": "30/06/2019",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Angular",
+                "TypeScript"
+            ]
+        }
+    ]
+}
