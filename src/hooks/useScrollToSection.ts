@@ -12,14 +12,12 @@ export const useScrollToSection = () => {
       const navigation = document.querySelector("nav");
       const navHeight = navigation?.getBoundingClientRect().height || 80;
 
-      // Agregar un offset adicional para padding visual
-      const extraPadding = 20;
-      const totalOffset = navHeight + extraPadding;
-
-      // Obtener la posición del elemento
-      const elementPosition =
-        element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - totalOffset;
+      // Obtener la posición del elemento relativa al documento
+      const elementRect = element.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.pageYOffset;
+      
+      // Calcular la posición de desplazamiento con el offset de la navegación
+      const offsetPosition = absoluteElementTop - navHeight;
 
       // Scroll suave a la posición con offset
       window.scrollTo({
