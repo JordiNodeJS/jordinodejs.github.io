@@ -57,53 +57,9 @@ const OptimizedTimelineNode: React.FC<OptimizedTimelineNodeProps> = React.memo(
             onMouseLeave?.()
           }}
         >
-          {/* Solo renderizar animaciones infinitas si está en viewport */}
-          {isIntersecting && (
-            <>
-              {/* Pulsing effect */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.9, 0.4, 0.9]
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: index * 0.2
-                }}
-                className="absolute inset-0 bg-primary-400 rounded-full"
-              />
-
-              {/* Ripple effect */}
-              <motion.div
-                animate={{
-                  scale: [1, 3],
-                  opacity: [0.7, 0]
-                }}
-                transition={{
-                  duration: 3.5,
-                  repeat: Infinity,
-                  delay: 1.5 + index * 0.3,
-                  ease: 'easeOut'
-                }}
-                className="absolute inset-0 bg-primary-300 rounded-full"
-              />
-
-              {/* Inner glow */}
-              <motion.div
-                animate={{
-                  opacity: [0.8, 1, 0.8]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut'
-                }}
-                className="absolute inset-1 bg-white rounded-full opacity-80"
-              />
-            </>
-          )}
+          {/* Animaciones desactivadas para mejorar rendimiento */}
+          {/* Solo un glow sutil sin animaciones infinitas */}
+          <div className="absolute inset-1 bg-white/20 rounded-full" />
         </motion.div>
       </motion.div>
     )

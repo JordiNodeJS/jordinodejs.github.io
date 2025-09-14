@@ -292,7 +292,7 @@ const Footer = () => {
             </span>
             <span className="flex items-center gap-1">
               {footer.madeWith}
-              <Heart className="w-4 h-4 text-red-400 animate-pulse" />
+              <Heart className="w-4 h-4 text-red-400" />
               {footer.and}
               <Coffee
                 className={`w-4 h-4 ${

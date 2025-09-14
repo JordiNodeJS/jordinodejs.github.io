@@ -7,7 +7,7 @@ import Experience from './components/Experience'
 import Education from './components/Education'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-import FloatingParticles from './components/FloatingParticles'
+// import FloatingParticles from './components/FloatingParticles' // TEMPORARILY DISABLED FOR PERFORMANCE
 import LoadingScreen from './components/LoadingScreen'
 
 import { useScrollToSection } from './hooks/useScrollToSection'
@@ -54,8 +54,8 @@ function App() {
       <LoadingScreen />
 
       <div className="min-h-screen dark:bg-slate-900 light:bg-gray-50 transition-colors duration-300 overflow-x-hidden relative">
-        {/* Floating background particles */}
-        <FloatingParticles />
+        {/* Floating background particles - TEMPORARILY DISABLED FOR PERFORMANCE */}
+        {/* <FloatingParticles /> */}
 
         <Navigation />
 
