@@ -211,6 +211,19 @@
             "backend": "Backend",
             "tools": "Werkzeuge",
             "databases": "Datenbanken"
+        },
+        "techStackDescriptions": {
+            "React": "Komponentenbasierte UI-Bibliothek zum Erstellen interaktiver Webanwendungen",
+            "JavaScript": "Kernprogrammiersprache für die Webentwicklung",
+            "TypeScript": "Stark typisierte Programmiersprache, die auf JavaScript aufbaut",
+            "CSS/SASS": "Erweiterte Gestaltung mit CSS-Präprozessor-Funktionen",
+            "TailwindCSS": "Utility-first CSS-Framework für schnelle UI-Entwicklung",
+            "Vite": "Frontend-Build-Tool der nächsten Generation",
+            "Astro": "Moderner statischer Site-Generator mit Komponenteninseln-Architektur",
+            "SQL": "Sprache zum Verwalten und Abfragen relationaler Datenbanken",
+            "NestJS": "Progressives Node.js-Framework für serverseitige Anwendungen",
+            "Next.js": "React-Framework für Produktionsanwendungen",
+            "Redux": "Vorhersagbarer Zustandsmanagement-Container für JavaScript-Apps"
         }
     },
     "education": {

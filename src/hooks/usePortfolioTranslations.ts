@@ -85,6 +85,19 @@ export const usePortfolioTranslations = () => {
       backend: t('skills.categories.backend'),
       tools: t('skills.categories.tools'),
       databases: t('skills.categories.databases')
+    },
+    techStackDescriptions: {
+      React: t('skills.techStackDescriptions.React'),
+      JavaScript: t('skills.techStackDescriptions.JavaScript'),
+      TypeScript: t('skills.techStackDescriptions.TypeScript'),
+      'CSS/SASS': t('skills.techStackDescriptions.CSS/SASS'),
+      TailwindCSS: t('skills.techStackDescriptions.TailwindCSS'),
+      Vite: t('skills.techStackDescriptions.Vite'),
+      Astro: t('skills.techStackDescriptions.Astro'),
+      SQL: t('skills.techStackDescriptions.SQL'),
+      NestJS: t('skills.techStackDescriptions.NestJS'),
+      'Next.js': t('skills.techStackDescriptions.Next.js'),
+      Redux: t('skills.techStackDescriptions.Redux')
     }
   }
   // Helper para education section

@@ -211,6 +211,19 @@
             "backend": "Backend",
             "tools": "Tools",
             "databases": "Databases"
+        },
+        "techStackDescriptions": {
+            "React": "Component-based UI library for building interactive web applications",
+            "JavaScript": "Core programming language for web development",
+            "TypeScript": "Strongly typed programming language that builds on JavaScript",
+            "CSS/SASS": "Advanced styling with CSS preprocessor capabilities",
+            "TailwindCSS": "Utility-first CSS framework for rapid UI development",
+            "Vite": "Next generation front-end build tool",
+            "Astro": "Modern static site generator with component islands architecture",
+            "SQL": "Language for managing and querying relational databases",
+            "NestJS": "Progressive Node.js framework for server-side applications",
+            "Next.js": "React framework for production grade applications",
+            "Redux": "Predictable state management container for JavaScript apps"
         }
     },
     "education": {

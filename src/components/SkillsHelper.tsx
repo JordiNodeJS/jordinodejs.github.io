@@ -27,23 +27,9 @@ export const getLevelNameForTechStack = (
 };
 
 // Helper function to provide descriptions for tech stack items
-export const getDescriptionForTech = (techName: string): string => {
-  const descriptions: Record<string, string> = {
-    React:
-      "Component-based UI library for building interactive web applications",
-    JavaScript: "Core programming language for web development",
-    TypeScript: "Strongly typed programming language that builds on JavaScript",
-    "CSS/SASS": "Advanced styling with CSS preprocessor capabilities",
-    TailwindCSS: "Utility-first CSS framework for rapid UI development",
-    Vite: "Next generation front-end build tool",
-    Astro: "Modern static site generator with component islands architecture",
-    SQL: "Language for managing and querying relational databases",
-    NestJS: "Progressive Node.js framework for server-side applications",
-    "Next.js": "React framework for production grade applications",
-    Redux: "Predictable state management container for JavaScript apps",
-  };
-
-  return descriptions[techName] || `${techName} development and implementation`;
+// Now uses translations instead of hardcoded descriptions
+export const getDescriptionForTech = (techName: string, techStackDescriptions: Record<string, string>): string => {
+  return techStackDescriptions[techName] || `${techName} development and implementation`;
 };
 
 // Helper function to get English equivalent of skill levels

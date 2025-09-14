@@ -211,6 +211,19 @@
             "backend": "Backend",
             "tools": "Eines",
             "databases": "Bases de Dades"
+        },
+        "techStackDescriptions": {
+            "React": "Biblioteca d'UI basada en components per construir aplicacions web interactives",
+            "JavaScript": "Llenguatge de programació principal per al desenvolupament web",
+            "TypeScript": "Llenguatge de programació fortament tipat que es basa en JavaScript",
+            "CSS/SASS": "Estilització avançada amb capacitats de preprocessador CSS",
+            "TailwindCSS": "Framework CSS utility-first per al desenvolupament ràpid d'UI",
+            "Vite": "Eina de build frontend de nova generació",
+            "Astro": "Generador de llocs estàtics modern amb arquitectura d'illes de components",
+            "SQL": "Llenguatge per gestionar i consultar bases de dades relacionals",
+            "NestJS": "Framework Node.js progressiu per a aplicacions del costat del servidor",
+            "Next.js": "Framework React per a aplicacions de nivell de producció",
+            "Redux": "Contenidor de gestió d'estat predictible per a apps JavaScript"
         }
     },
     "education": {
