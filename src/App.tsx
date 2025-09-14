@@ -1,52 +1,53 @@
-import { useEffect } from "react";
-import Navigation from "./components/Navigation";
-import Hero from "./components/Hero";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Experience from "./components/Experience";
-import Education from "./components/Education";
-import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
-import FloatingParticles from "./components/FloatingParticles";
-import LoadingScreen from "./components/LoadingScreen";
+import { useEffect, useCallback } from 'react'
+import Navigation from './components/Navigation'
+import Hero from './components/Hero'
+import Projects from './components/Projects'
+import Skills from './components/Skills'
+import Experience from './components/Experience'
+import Education from './components/Education'
+import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+import FloatingParticles from './components/FloatingParticles'
+import LoadingScreen from './components/LoadingScreen'
 
-import { useScrollToSection } from "./hooks/useScrollToSection";
+import { useScrollToSection } from './hooks/useScrollToSection'
 
-import "./App.css";
+import './App.css'
 
 // Test deployment - 2025-06-10 18:19
 
 function App() {
-  const { scrollToSection } = useScrollToSection();
-  
+  const { scrollToSection } = useScrollToSection()
 
+  // Smooth scroll behavior for anchor links with navigation offset
+  const handleSmoothScroll = useCallback(
+    (e: Event) => {
+      const target = e.target as HTMLAnchorElement
+      if (target.hash) {
+        e.preventDefault()
+        scrollToSection(target.hash)
+      }
+    },
+    [scrollToSection]
+  )
 
   useEffect(() => {
     // Set a fixed document title
-    document.title = "PORTFOLIO - jORge";
-
-    // Smooth scroll behavior for anchor links with navigation offset
-    const handleSmoothScroll = (e: Event) => {
-      const target = e.target as HTMLAnchorElement;
-      if (target.hash) {
-        e.preventDefault();
-        scrollToSection(target.hash);
-      }
-    };
+    document.title = 'PORTFOLIO - jORge'
 
     // Add scroll listener to all anchor links
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach((link) => {
-      link.addEventListener("click", handleSmoothScroll);
-    });
+    const links = document.querySelectorAll('a[href^="#"]')
+    links.forEach(link => {
+      link.addEventListener('click', handleSmoothScroll)
+    })
 
     // Cleanup
     return () => {
-      links.forEach((link) => {
-        link.removeEventListener("click", handleSmoothScroll);
-      });
-    };
-  }, []);
+      links.forEach(link => {
+        link.removeEventListener('click', handleSmoothScroll)
+      })
+    }
+  }, [handleSmoothScroll])
 
   return (
     <>
@@ -89,10 +90,10 @@ function App() {
         <ScrollToTop />
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
 // Test deployment - Tue, Jun 10, 2025  6:26:47 PM
 // Force cache refresh - Tue, Jun 10, 2025  6:34:57 PM
 // Test deployment with correct capitalization - Tue, Jun 10, 2025  7:00:09 PM

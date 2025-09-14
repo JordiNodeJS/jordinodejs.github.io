@@ -1,17 +1,24 @@
-import { createContext, useState, useEffect, type ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  type ReactNode
+} from 'react'
 
-export type Theme = "dark" | "light" | "vintage" | "retro-pastel" | "brutalism";
+export type Theme = 'dark' | 'light' | 'vintage' | 'retro-pastel' | 'brutalism'
 
 interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
-  setTheme: (theme: Theme) => void;
+  theme: Theme
+  toggleTheme: () => void
+  setTheme: (theme: Theme) => void
 }
 
-export const ThemeContext = createContext<ThemeContextType | null>(null);
+export const ThemeContext = createContext<ThemeContextType | null>(null)
 
 interface ThemeProviderProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
@@ -19,100 +26,109 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const getInitialTheme = (): Theme => {
     try {
       // First, check localStorage for saved preference
-      const savedTheme = localStorage.getItem("theme") as Theme;
+      const savedTheme = localStorage.getItem('theme') as Theme
       const validThemes: Theme[] = [
-        "dark",
-        "light",
-        "vintage",
-        "retro-pastel",
-        "brutalism",
-      ];
+        'dark',
+        'light',
+        'vintage',
+        'retro-pastel',
+        'brutalism'
+      ]
 
       if (savedTheme && validThemes.includes(savedTheme)) {
-        return savedTheme;
+        return savedTheme
       }
 
       // If no saved preference, check system preference
-      if (typeof window !== "undefined" && window.matchMedia) {
+      if (typeof window !== 'undefined' && window.matchMedia) {
         const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        return prefersDark ? "dark" : "light";
+          '(prefers-color-scheme: dark)'
+        ).matches
+        return prefersDark ? 'dark' : 'light'
       }
 
       // Fallback to dark theme
-      return "dark";
+      return 'dark'
     } catch (error) {
-      console.warn("Error reading theme preference from localStorage:", error);
-      return "dark";
+      console.warn('Error reading theme preference from localStorage:', error)
+      return 'dark'
     }
-  };
+  }
 
-  const [theme, setThemeState] = useState<Theme>(() => getInitialTheme());
+  const [theme, setThemeState] = useState<Theme>(() => getInitialTheme())
 
   useEffect(() => {
     // Apply theme to document and save to localStorage with error handling
     try {
-      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.setAttribute('data-theme', theme)
       // Also keep class for compatibility with existing code
       document.documentElement.classList.remove(
-        "dark",
-        "light",
-        "vintage",
-        "retro-pastel",
-        "brutalism"
-      );
-      document.documentElement.classList.add(theme);
-      localStorage.setItem("theme", theme);
+        'dark',
+        'light',
+        'vintage',
+        'retro-pastel',
+        'brutalism'
+      )
+      document.documentElement.classList.add(theme)
+      localStorage.setItem('theme', theme)
 
       // Optional: Dispatch custom event for other components to listen
       window.dispatchEvent(
-        new CustomEvent("themeChanged", { detail: { theme } })
-      );
+        new CustomEvent('themeChanged', { detail: { theme } })
+      )
     } catch (error) {
-      console.warn("Error saving theme preference to localStorage:", error);
+      console.warn('Error saving theme preference to localStorage:', error)
     }
-  }, [theme]);
+  }, [theme])
 
   // Listen for system theme changes
   useEffect(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return;
+    if (typeof window === 'undefined' || !window.matchMedia) return
 
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     const handleChange = (e: MediaQueryListEvent) => {
       // Only auto-switch if user hasn't manually set a preference
-      const hasManualPreference = localStorage.getItem("theme");
+      const hasManualPreference = localStorage.getItem('theme')
       if (!hasManualPreference) {
-        setThemeState(e.matches ? "dark" : "light");
+        setThemeState(e.matches ? 'dark' : 'light')
       }
-    };
+    }
 
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
 
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-  };
+  const setTheme = useCallback((newTheme: Theme) => {
+    setThemeState(newTheme)
+  }, [])
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setThemeState((prevTheme: Theme) => {
       const themeOrder: Theme[] = [
-        "dark",
-        "light",
-        "vintage",
-        "retro-pastel",
-        "brutalism",
-      ];
-      const currentIndex = themeOrder.indexOf(prevTheme);
-      const nextIndex = (currentIndex + 1) % themeOrder.length;
-      return themeOrder[nextIndex];
-    });
-  };
+        'dark',
+        'light',
+        'vintage',
+        'retro-pastel',
+        'brutalism'
+      ]
+      const currentIndex = themeOrder.indexOf(prevTheme)
+      const nextIndex = (currentIndex + 1) % themeOrder.length
+      return themeOrder[nextIndex]
+    })
+  }, [])
+
+  const contextValue = useMemo(
+    () => ({
+      theme,
+      toggleTheme,
+      setTheme
+    }),
+    [theme, toggleTheme, setTheme]
+  )
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
-  );
-};
+  )
+}
