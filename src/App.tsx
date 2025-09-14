@@ -19,12 +19,7 @@ import "./App.css";
 function App() {
   const { scrollToSection } = useScrollToSection();
   
-  // Para mantener compatibilidad con el código existente
-  const portfolioData = {
-    presentation: {
-      title: "Frontend React Engineer"
-    }
-  };
+
 
   useEffect(() => {
     // Set a fixed document title
