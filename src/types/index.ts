@@ -1,103 +1,145 @@
+// ============================================================================
+// TIPOS PRINCIPALES DEL PORTAFOLIO
+// ============================================================================
+
 export interface Presentation {
-  name: string;
-  title: string;
-  description: string;
+  name: string
+  title: string
+  description: string
 }
 
+/**
+ * Interfaz unificada para proyectos del portafolio
+ * Basada en la estructura real de datos en portfolio-data.ts
+ */
 export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  technologies?: string[]; // Made optional as it's not in all project.json entries
-  imgCover?: string; // Changed from imageUrl to imgCover, made optional
-  link?: string; // Changed from projectUrl to link, made optional
-  demo?: string; // Added demo link, made optional
-  repositoryUrl?: string;
-  type?: "main" | "secondary" | "practice" | "personal"; // Made optional
-  status?:
-    | "completed"
-    | "in-progress"
-    | "archived"
-    | "in production"
-    | "done"
-    | "retired"; // Added more statuses and made optional
-  detailedDescription?: string;
-  features?: string[];
-  challenges?: string;
-  learnings?: string;
-  gifUrl?: string;
-  videoUrl?: string;
-  tags?: string[];
-  date?: string; // e.g., "2023-01-15" or "Fall 2022"
-  client?: string; // If applicable
-  teamSize?: number; // If applicable
-  role?: string; // If applicable
-  coverImage?: string; // This seems to be a duplicate of imgCover, kept for now
-  images?: string[];
-  category?: string;
-  duration?: string;
-  longDescription?: string;
-  keyFeatures?: Array<{ title: string; description: string; icon?: string }>;
-  techStack?: Array<{ name: string; icon?: string; category: string }>;
-  testimonials?: Array<{ quote: string; author: string; relation: string }>;
-  featured?: boolean; // Indica si el proyecto es destacado
+  id: string
+  title: string
+  description: string
+  status: 'in production' | 'done' | 'retired'
+  imgCover: string
+  link: string
+  demo?: string
+  tags: string[]
+  featured?: boolean
 }
 
-export interface ExperienceType {
-  // Renamed from Experience
-  company: string;
-  experience: string;
-  links?: string[];
-  // Add other relevant fields if necessary
+/**
+ * Interfaz para logros/achievements
+ */
+export interface Achievement {
+  title: string
+  description: string
+  impact: string
+  icon?: string
 }
 
+/**
+ * Interfaz unificada para experiencias laborales
+ * Simplificada pero manteniendo funcionalidad completa
+ */
+export interface Experience {
+  id: string
+  company: string
+  title: string
+  period: string
+  description: string
+  location?: string
+  links?: string[]
+  technologies?: {
+    frontend?: string
+    testing?: string
+    methodologies?: string
+    tools?: string
+  }
+  projects?: Record<string, string>
+  achievements?: Achievement[]
+  clickable?: boolean
+}
+
+/**
+ * Interfaz unificada para educación
+ * Extendida para incluir propiedades adicionales del portafolio
+ */
 export interface Education {
-  id: string;
-  center: string;
-  link?: string; // Made optional since not all education items have a link
-  title: string;
-  description: string;
-  start_date: string;
-  end_date: string;
-  tags: string[];
+  id: string
+  center: string
+  link?: string
+  title: string
+  description: string
+  start_date: string
+  end_date: string
+  tags: string[]
+  duration?: string
+  featured?: boolean
+  certificate?: {
+    available: boolean
+    url?: string
+  }
 }
 
 export interface ContactInfo {
-  email?: string;
-  github?: string;
-  linkedin?: string;
-  portfolio?: string;
-}
-
-export interface Achievement {
-  title: string;
-  description: string;
-  impact: string;
-  icon: string;
+  email?: string
+  github?: string
+  linkedin?: string
+  portfolio?: string
 }
 
 export interface Skill {
-  // Added export
-  id: string;
-  name: string;
-  level: number; // Assuming level is a number (e.g., 1-5 or 1-100)
+  id: string
+  name: string
+  level: number
   category:
-    | "frontend"
-    | "backend"
-    | "database"
-    | "devops"
-    | "tools"
-    | "testing"
-    | "other";
-  icon?: string; // Optional: path to an icon or a component name
-  description?: string; // Optional: a brief description of the skill or experience with it
-  keywords?: string[]; // Optional: related keywords or technologies
+    | 'frontend'
+    | 'backend'
+    | 'database'
+    | 'devops'
+    | 'tools'
+    | 'testing'
+    | 'other'
+  icon?: string
+  description?: string
+  keywords?: string[]
 }
 
-// Placeholder for DatabaseData if it's a complex type, adjust as needed
-export interface DatabaseData {
-  presentation?: Presentation;
-  projects?: Project[];
-  skills?: Skill[];
-  // Add other data types if they are part of DatabaseData
+// ============================================================================
+// TIPOS PARA COMPATIBILIDAD CON EL SISTEMA EXISTENTE
+// ============================================================================
+
+/**
+ * Tipo para compatibilidad con useCentralizedPortfolioData
+ * @deprecated Use Experience instead
+ */
+export type ExperienceType = {
+  company: string
+  experience: string
+  links?: string[]
+  period?: string
+  location?: string
 }
+
+/**
+ * Interfaz para datos del portafolio completo
+ */
+export interface DatabaseData {
+  presentation?: Presentation
+  projects?: Project[]
+  skills?: Skill[]
+  experiences?: Experience[]
+  education?: Education[]
+}
+
+// ============================================================================
+// TIPOS DE CONFIGURACIÓN
+// ============================================================================
+
+export const SUPPORTED_LANGUAGES = [
+  'es',
+  'en',
+  'fr',
+  'de',
+  'it',
+  'pt',
+  'ca'
+] as const
+export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
