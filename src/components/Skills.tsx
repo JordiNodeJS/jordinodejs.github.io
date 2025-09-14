@@ -365,7 +365,10 @@ const Skills = () => {
                     name={tech.name}
                     level={getLevelNameForTechStack(tech.name)}
                     color={tech.color}
-                    description={getDescriptionForTech(tech.name, skillsTranslations.techStackDescriptions)}
+                    description={getDescriptionForTech(
+                      tech.name,
+                      skillsTranslations.techStackDescriptions
+                    )}
                   />
                 </motion.div>
               ))}
