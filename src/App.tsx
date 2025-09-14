@@ -27,6 +27,9 @@ function App() {
   };
 
   useEffect(() => {
+    // Set a fixed document title
+    document.title = "PORTFOLIO - jORge";
+
     // Smooth scroll behavior for anchor links with navigation offset
     const handleSmoothScroll = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
@@ -49,85 +52,6 @@ function App() {
       });
     };
   }, []);
-
-  useEffect(() => {
-    const titles = [
-      "PORTFOLIO - Test Deploy 2025-01-10",
-      portfolioData?.presentation?.title || "Frontend React Engineer",
-    ];
-    let currentTitleIndex = 0;
-    let currentIndex = 0;
-    let currentTitle = "";
-    let isDeleting = false;
-    let cycleCount = 0; // Track how many titles we've completed
-    const typingSpeed = 150; // ms
-    const deletingSpeed = 100; // ms
-    const pauseBetweenTitles = 1000; // ms pause between titles
-    const pauseAtEnd = 2000; // ms pause at the end of full title
-
-    const animateTitle = () => {
-      const currentTargetTitle = titles[currentTitleIndex];
-
-      if (isDeleting) {
-        currentTitle = currentTargetTitle.substring(0, currentIndex);
-        currentIndex--;
-
-        if (currentIndex < 0) {
-          isDeleting = false;
-          currentIndex = 0;
-          cycleCount++;
-
-          // If we've shown both titles once, stop here
-          if (cycleCount >= titles.length) {
-            document.title =
-              portfolioData?.presentation?.title || "Frontend React Engineer";
-            return;
-          }
-
-          // Move to next title
-          currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-
-          // Pause before starting to type the next title
-          setTimeout(() => {
-            requestAnimationFrame(animateTitleLoop);
-          }, pauseBetweenTitles);
-          return;
-        }
-      } else {
-        currentTitle = currentTargetTitle.substring(0, currentIndex + 1);
-        currentIndex++;
-
-        if (currentIndex === currentTargetTitle.length) {
-          document.title = currentTitle; // Display full title before pause
-
-          // Pause at the end before deleting
-          setTimeout(() => {
-            isDeleting = true;
-            requestAnimationFrame(animateTitleLoop);
-          }, pauseAtEnd);
-          return;
-        }
-      }
-
-      // Add cursor effect
-      document.title = currentTitle + "_";
-
-      const speed = isDeleting ? deletingSpeed : typingSpeed;
-      setTimeout(animateTitleLoop, speed);
-    };
-
-    const animateTitleLoop = () => {
-      requestAnimationFrame(animateTitle);
-    };
-
-    const timeoutId = setTimeout(animateTitleLoop, 1000); // Initial delay before starting
-
-    // Cleanup on component unmount
-    return () => {
-      clearTimeout(timeoutId);
-      document.title = "PORTFOLIO"; // Reset title on unmount
-    };
-  }, [portfolioData]);
 
   return (
     <>
