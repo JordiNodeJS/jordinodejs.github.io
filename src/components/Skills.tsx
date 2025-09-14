@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 
 import { usePortfolioTranslations } from '../hooks/usePortfolioTranslations'
 import { useTheme } from '../hooks/useTheme'
+
 import {
   SiReact,
   SiJavascript,
@@ -319,13 +320,18 @@ const Skills = () => {
               {skillsTranslations.competenceLevel}{' '}
             </h3>
             <div className="space-y-4">
-              {skillsDataFromHook.map((skill: any, index: number) => (
-                <SkillBar
-                  key={skill.id || index}
-                  skill={{ name: skill.name, level: skill.level }}
-                  index={index}
-                />
-              ))}
+              {skillsDataFromHook.map(
+                (
+                  skill: { id: string; name: string; level: number },
+                  index: number
+                ) => (
+                  <SkillBar
+                    key={skill.id || index}
+                    skill={{ name: skill.name, level: skill.level }}
+                    index={index}
+                  />
+                )
+              )}
             </div>
           </motion.div>
 

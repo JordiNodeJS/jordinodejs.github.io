@@ -12,7 +12,7 @@ interface OptimizedTimelineNodeProps {
 const OptimizedTimelineNode: React.FC<OptimizedTimelineNodeProps> = React.memo(
   ({ index, isCardHovered, onMouseEnter, onMouseLeave }) => {
     const [isNodeHovered, setIsNodeHovered] = useState(false)
-    const { ref, isIntersecting } = useIntersectionObserver({
+    const { ref } = useIntersectionObserver({
       threshold: 0.1,
       rootMargin: '100px'
     })
