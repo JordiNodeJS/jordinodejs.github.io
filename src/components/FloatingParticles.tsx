@@ -63,15 +63,17 @@ const FloatingParticles = React.memo(() => {
         <div
           key={particle.id}
           className="floating-particle absolute rounded-full bg-gradient-to-r from-blue-400/20 to-purple-600/20 blur-sm"
-          style={{
-            '--size': `${particle.size}px`,
-            width: `var(--size)`,
-            height: `var(--size)`,
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            animationDuration: `${particle.duration}s`,
-            animationDelay: `${particle.delay}s`,
-          } as React.CSSProperties}
+          style={
+            {
+              '--size': `${particle.size}px`,
+              width: `var(--size)`,
+              height: `var(--size)`,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              animationDuration: `${particle.duration}s`,
+              animationDelay: `${particle.delay}s`
+            } as React.CSSProperties
+          }
         />
       ))}
     </div>

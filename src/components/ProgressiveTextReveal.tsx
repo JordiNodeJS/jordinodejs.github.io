@@ -158,9 +158,7 @@ const ProgressiveTextReveal: React.FC<ProgressiveTextRevealProps> = React.memo(
             }
           `}
         </style>
-        <span className="progressive-text-reveal">
-          {text}
-        </span>
+        <span className="progressive-text-reveal">{text}</span>
       </motion.div>
     )
   }
