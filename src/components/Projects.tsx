@@ -1,25 +1,26 @@
-import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import { usePortfolioTranslations } from "../hooks/usePortfolioTranslations";
-import { useCentralizedPortfolioData } from "../hooks/useCentralizedPortfolioData";
-import type { Project } from "../types";
-import { useState } from "react";
+import { motion } from 'framer-motion'
+import { ExternalLink, Github } from 'lucide-react'
+import { usePortfolioTranslations } from '../hooks/usePortfolioTranslations'
+import { useCentralizedPortfolioData } from '../hooks/useCentralizedPortfolioData'
+import type { Project } from '../types'
+import { useState } from 'react'
 
 const ProjectCard = ({
   project,
   index,
-  projectsUiStrings,
+  projectsUiStrings
 }: {
-  project: Project;
-  index: number;
+  project: Project
+  index: number
   projectsUiStrings: {
-    viewProject: string;
-    viewCode: string;
-    technologies: string;
-    liveDemo: string;
-    sourceCode: string;
-    viewMore: string;
-  };
+    viewProject: string
+    viewCode: string
+    technologies: string
+    liveDemo: string
+    sourceCode: string
+    viewMore: string
+    more: string
+  }
 }) => {
   // Proyecto ya viene con datos traducidos desde useCentralizedPortfolioData
   return (
@@ -107,7 +108,7 @@ const ProjectCard = ({
         </p>
         {/* Tags */}
         <div className="mt-2 flex flex-wrap gap-2">
-          {project.tags?.slice(0, 4).map((tag) => (
+          {project.tags?.slice(0, 4).map(tag => (
             <span
               key={tag}
               className="px-3 py-1 bg-primary-500/20 text-primary-300 text-xs rounded-full border border-primary-500/30 cursor-default"
@@ -118,27 +119,27 @@ const ProjectCard = ({
         </div>
         {project.tags && project.tags.length > 4 && (
           <div className="mt-1 text-xs text-gray-400">
-            +{project.tags.length - 4} más
+            +{project.tags.length - 4} {projectsUiStrings.more}
           </div>
         )}
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
 const Projects = () => {
-  const { projects } = useCentralizedPortfolioData();
-  const { projects: projectsTranslationsHook } = usePortfolioTranslations();
-  const [visibleProjects, setVisibleProjects] = useState(6);
+  const { projects } = useCentralizedPortfolioData()
+  const { projects: projectsTranslationsHook } = usePortfolioTranslations()
+  const [visibleProjects, setVisibleProjects] = useState(6)
 
-  const totalProjects = projects.length;
+  const totalProjects = projects.length
 
   const showMoreProjects = () => {
-    setVisibleProjects(totalProjects);
-  };
+    setVisibleProjects(totalProjects)
+  }
 
   if (!projectsTranslationsHook) {
-    return <div>Loading section translations...</div>;
+    return <div>Loading section translations...</div>
   }
 
   return (
@@ -152,7 +153,7 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          {" "}
+          {' '}
           <h2
             className="text-4xl md:text-5xl mb-8 font-bold text-gray-900 dark:text-white
             theme-brutalism:brutal-title
@@ -198,7 +199,7 @@ const Projects = () => {
         )}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

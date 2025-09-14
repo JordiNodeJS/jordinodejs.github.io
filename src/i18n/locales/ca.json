@@ -5,7 +5,8 @@
         "projects": "Projectes",
         "skills": "Habilitats",
         "education": "Educació",
-        "contact": "Contacte"
+        "contact": "Contacte",
+        "scrollToTop": "Pujar a dalt"
     },
     "hero": {
         "greeting": "Hola! Sóc",
@@ -69,6 +70,7 @@
         "liveDemo": "Demo en Viu",
         "sourceCode": "Codi Font",
         "viewMore": "Veure Més Projectes",
+        "more": "més",
         "items": {
             "astro-5-agosto": {
                 "title": "Mudances Andy",
@@ -196,6 +198,14 @@
         "competenceLevel": "Nivell de Competència",
         "techStack": "Stack Tecnològic",
         "methodologies": "Metodologies i Eines",
+        "efficientMethodologies": "Metodologies eficients per a resultats excepcionals",
+        "efficientMethodologiesBrutalism": "MÈTODES EFICIENTS, RESULTATS EXCEPCIONALS",
+        "methodologyDescriptions": {
+            "agileScrum": "Metodologies àgils i gestió de projectes",
+            "gitGithub": "Control de versions i col·laboració",
+            "testing": "Proves unitàries i d'integració",
+            "cicd": "Integració i desplegament continus"
+        },
         "categories": {
             "frontend": "Frontend",
             "backend": "Backend",
@@ -240,6 +250,7 @@
         "availability": "Disponible per a projectes freelance"
     },
     "footer": {
+        "portfolioName": "Jorge Portfolio",
         "rights": "Tots els drets reservats.",
         "madeWith": "Fet amb",
         "and": "i",
@@ -250,7 +261,8 @@
         "designedWith": "Dissenyat i desenvolupat amb ❤️"
     },
     "loading": {
-        "text": "Carregant portfolio..."
+        "title": "Jorge Portfolio",
+        "text": "Carregant experiència..."
     },
     "theme": {
         "toggle": "Canviar tema",
@@ -361,5 +373,22 @@
                 "TypeScript"
             ]
         }
-    ]
+    ],
+    "educationTranslations": {
+        "edu5cc7": {
+            "title": "Desenvolupador Front-End React",
+            "center": "BootCamp IT Academy",
+            "description": "Desenvolupador Front-End React al Bootcamp IT Academy: Un programa de 18 setmanes on es van ensenyar habilitats com HTML, CSS, SASS, JavaScript, ReactJS, entre d'altres. A més, es van utilitzar diferents eines com Vite i Create React App, i es va treballar amb llibreries com Bootstrap, Mantine i MUI. Es va realitzar un projecte que va implicar l'ús de GitHub, Typescript, Node, entre d'altres. També es va aprendre a desplegar en diferents plataformes, com GitHub Pages, Vercel, Netlify, Render.com i Fly.io."
+        },
+        "edu7fcc": {
+            "title": "Desenvolupament d'aplicacions web Full Stack",
+            "center": "Centre CIFO La Violeta",
+            "description": "Desenvolupament web Full Stack al CIFO La Violeta: Aquest curs de 600 hores va permetre a l'estudiant adquirir habilitats en programació web en l'entorn client i servidor, així com el desenvolupament de documents web utilitzant llenguatges de marcatge. També es va ensenyar sobre usabilitat i accessibilitat en l'entorn client, accés a dades en aplicacions web en l'entorn servidor i la implementació d'aplicacions web en entorns d'internet, intranet i extranet. Es van utilitzar diferents eines de desplegament, com Heroku, Vercel, Netlify i GitHub Pages."
+        },
+        "edu5ucc": {
+            "title": "Desenvolupament d'aplicacions web ANGULAR",
+            "center": "SINENSIA IT SOLUTIONS",
+            "description": "Desenvolupament d'Aplicacions Web amb Angular a SINENSIA IT SOLUTIONS: Un curs de 60 hores on es va ensenyar el desenvolupament d'aplicacions web utilitzant Angular."
+        }
+    }
 }

@@ -5,7 +5,8 @@
         "projects": "Progetti",
         "skills": "Competenze",
         "education": "Formazione",
-        "contact": "Contatto"
+        "contact": "Contatto",
+        "scrollToTop": "Torna in alto"
     },
     "hero": {
         "greeting": "Ciao! Sono",
@@ -69,6 +70,7 @@
         "liveDemo": "Demo Live",
         "sourceCode": "Codice Sorgente",
         "viewMore": "Vedi Altri Progetti",
+        "more": "altro",
         "items": {
             "astro-5-agosto": {
                 "title": "Mudanzas Andy",
@@ -196,6 +198,14 @@
         "competenceLevel": "Livello di Competenza",
         "techStack": "Stack Tecnologico",
         "methodologies": "Metodologie e Strumenti",
+        "efficientMethodologies": "Metodologie efficienti per risultati eccezionali",
+        "efficientMethodologiesBrutalism": "METODI EFFICIENTI, RISULTATI ECCEZIONALI",
+        "methodologyDescriptions": {
+            "agileScrum": "Metodologie agili e gestione progetti",
+            "gitGithub": "Controllo versioni e collaborazione",
+            "testing": "Test unitari e di integrazione",
+            "cicd": "Integrazione e distribuzione continue"
+        },
         "categories": {
             "frontend": "Frontend",
             "backend": "Backend",
@@ -240,6 +250,7 @@
         "availability": "Disponibile per progetti freelance"
     },
     "footer": {
+        "portfolioName": "Jorge Portfolio",
         "rights": "Tutti i diritti riservati.",
         "madeWith": "Fatto con",
         "and": "e",
@@ -250,7 +261,8 @@
         "designedWith": "Progettato e sviluppato con ❤️"
     },
     "loading": {
-        "text": "Caricamento portfolio..."
+        "title": "Jorge Portfolio",
+        "text": "Caricamento esperienza..."
     },
     "theme": {
         "toggle": "Cambia tema",
@@ -361,5 +373,22 @@
                 "TypeScript"
             ]
         }
-    ]
+    ],
+    "educationTranslations": {
+        "edu5cc7": {
+            "title": "Sviluppatore Front-End React",
+            "center": "BootCamp IT Academy",
+            "description": "Sviluppatore Front-End React al Bootcamp IT Academy: Un programma di 18 settimane dove sono state insegnate competenze come HTML, CSS, SASS, JavaScript, ReactJS, tra gli altri. Inoltre, sono stati utilizzati diversi strumenti come Vite e Create React App, e si è lavorato con librerie come Bootstrap, Mantine e MUI. È stato realizzato un progetto che ha comportato l'uso di GitHub, Typescript, Node, tra gli altri. È stato anche imparato come distribuire su diverse piattaforme, come GitHub Pages, Vercel, Netlify, Render.com e Fly.io."
+        },
+        "edu7fcc": {
+            "title": "Sviluppo di applicazioni web Full Stack",
+            "center": "Centro CIFO La Violeta",
+            "description": "Sviluppo web Full Stack al CIFO La Violeta: Questo corso di 600 ore ha permesso allo studente di acquisire competenze nella programmazione web sia nell'ambiente client che server, così come lo sviluppo di documenti web utilizzando linguaggi di markup. È stato anche insegnato sull'usabilità e accessibilità nell'ambiente client, accesso ai dati nelle applicazioni web nell'ambiente server e l'implementazione di applicazioni web negli ambienti internet, intranet ed extranet. Sono stati utilizzati diversi strumenti di distribuzione, come Heroku, Vercel, Netlify e GitHub Pages."
+        },
+        "edu5ucc": {
+            "title": "Sviluppo di applicazioni web ANGULAR",
+            "center": "SINENSIA IT SOLUTIONS",
+            "description": "Sviluppo di Applicazioni Web con Angular presso SINENSIA IT SOLUTIONS: Un corso di 60 ore dove è stato insegnato lo sviluppo di applicazioni web utilizzando Angular."
+        }
+    }
 }

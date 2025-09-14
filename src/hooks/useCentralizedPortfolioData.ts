@@ -75,16 +75,16 @@ export const useCentralizedPortfolioData = () => {
     // Transformar datos de educación con traducciones automáticas
     const transformedEducation: Education[] = EDUCATION_DATA.map(eduData => {
       // Intentar obtener traducción, usar datos originales como fallback
-      const translatedTitle = t(`educationData.${eduData.id}.title`, {
+      const translatedTitle = t(`educationTranslations.${eduData.id}.title`, {
         defaultValue: eduData.title
       })
       const translatedDescription = t(
-        `educationData.${eduData.id}.description`,
+        `educationTranslations.${eduData.id}.description`,
         {
           defaultValue: eduData.description
         }
       )
-      const translatedCenter = t(`educationData.${eduData.id}.center`, {
+      const translatedCenter = t(`educationTranslations.${eduData.id}.center`, {
         defaultValue: eduData.center
       })
 

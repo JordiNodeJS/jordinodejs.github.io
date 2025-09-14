@@ -5,7 +5,8 @@
         "projects": "Projects",
         "skills": "Skills",
         "education": "Education",
-        "contact": "Contact"
+        "contact": "Contact",
+        "scrollToTop": "Scroll to top"
     },
     "hero": {
         "greeting": "Hello! I'm",
@@ -69,6 +70,7 @@
         "liveDemo": "Live Demo",
         "sourceCode": "Source Code",
         "viewMore": "View More Projects",
+        "more": "more",
         "items": {
             "astro-5-agosto": {
                 "title": "Mudanzas Andy",
@@ -196,6 +198,14 @@
         "competenceLevel": "Competence Level",
         "techStack": "Tech Stack",
         "methodologies": "Methodologies & Tools",
+        "efficientMethodologies": "Efficient methodologies for exceptional results",
+        "efficientMethodologiesBrutalism": "EFFICIENT METHODS, EXCEPTIONAL RESULTS",
+        "methodologyDescriptions": {
+            "agileScrum": "Agile methodologies and project management",
+            "gitGithub": "Version control and collaboration",
+            "testing": "Unit and integration testing",
+            "cicd": "Continuous integration and deployment"
+        },
         "categories": {
             "frontend": "Frontend",
             "backend": "Backend",
@@ -240,6 +250,7 @@
         "availability": "Available for freelance projects"
     },
     "footer": {
+        "portfolioName": "Jorge Portfolio",
         "rights": "All rights reserved.",
         "madeWith": "Made with",
         "and": "and",
@@ -250,7 +261,8 @@
         "designedWith": "Designed and developed with ❤️"
     },
     "loading": {
-        "text": "Loading portfolio..."
+        "title": "Jorge Portfolio",
+        "text": "Loading experience..."
     },
     "theme": {
         "toggle": "Toggle theme",
@@ -361,5 +373,22 @@
                 "TypeScript"
             ]
         }
-    ]
+    ],
+    "educationTranslations": {
+        "edu5cc7": {
+            "title": "Front-End React Developer",
+            "center": "BootCamp IT Academy",
+            "description": "Front-End React Developer at Bootcamp IT Academy: An 18-week program where skills such as HTML, CSS, SASS, JavaScript, ReactJS, among others, were taught. In addition, different tools such as Vite and Create React App were used, and libraries such as Bootstrap, Mantine and MUI were worked with. A project was carried out that involved the use of GitHub, Typescript, Node, among others. It was also learned how to deploy on different platforms, such as GitHub Pages, Vercel, Netlify, Render.com and Fly.io."
+        },
+        "edu7fcc": {
+            "title": "Full Stack Web Application Development",
+            "center": "CIFO La Violeta Center",
+            "description": "Full Stack Web Development at CIFO La Violeta: This 600-hour course allowed students to acquire skills in web programming in both client and server environments, as well as the development of web documents using markup languages. It also taught about usability and accessibility in the client environment, data access in web applications in the server environment, and the implementation of web applications in internet, intranet, and extranet environments. Different deployment tools were used, such as Heroku, Vercel, Netlify, and GitHub Pages."
+        },
+        "edu5ucc": {
+            "title": "ANGULAR Web Application Development",
+            "center": "SINENSIA IT SOLUTIONS",
+            "description": "Web Application Development with Angular at SINENSIA IT SOLUTIONS: A 60-hour course where web applications development using Angular was taught."
+        }
+    }
 }
