@@ -122,7 +122,13 @@ const Navigation = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div
+            className={`hidden md:flex items-center ${
+              theme === 'brutalism'
+                ? 'space-x-4 lg:space-x-6 xl:space-x-8'
+                : 'space-x-8'
+            }`}
+          >
             {navItems.map(item => (
               <motion.button
                 key={item.name}
@@ -135,7 +141,7 @@ const Navigation = () => {
                     : theme === 'retro-pastel'
                     ? 'text-[#3d2c2c]/80 hover:text-[#e56b81]'
                     : theme === 'brutalism'
-                    ? 'text-black font-bold hover:text-[#ff6b6b] hover:bg-[#ffeaa7] px-3 py-2 border-2 border-black hover:shadow-[2px_2px_0px_0px_#4ecdc4] transform hover:skew-x-[-2deg] transition-all duration-200'
+                    ? 'text-black font-bold hover:text-[#ff6b6b] hover:bg-[#ffeaa7] px-2 py-1 lg:px-3 lg:py-2 border-2 border-black hover:shadow-[2px_2px_0px_0px_#4ecdc4] transform hover:skew-x-[-2deg] transition-all duration-200 text-sm lg:text-base'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -161,7 +167,11 @@ const Navigation = () => {
             </div>
 
             {/* Social Links - Solo en desktop */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div
+              className={`hidden lg:flex items-center ${
+                theme === 'brutalism' ? 'space-x-2 xl:space-x-4' : 'space-x-4'
+              }`}
+            >
               {socialLinks.map(social => (
                 <motion.a
                   key={social.label}
@@ -170,23 +180,33 @@ const Navigation = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
-                  className={`p-2 transition-colors duration-300 ${
+                  className={`transition-colors duration-300 ${
                     theme === 'vintage'
-                      ? 'text-[#f3ebd3] hover:text-[#e3b505]'
+                      ? 'text-[#f3ebd3] hover:text-[#e3b505] p-2'
                       : theme === 'retro-pastel'
-                      ? 'text-[#3d2c2c]/80 hover:text-[#e56b81]'
+                      ? 'text-[#3d2c2c]/80 hover:text-[#e56b81] p-2'
                       : theme === 'brutalism'
-                      ? 'text-black hover:text-[#ff6b6b] hover:bg-[#4ecdc4] border-2 border-black hover:shadow-[2px_2px_0px_0px_#ffeaa7] transition-all duration-200 rounded-none'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'text-black hover:text-[#ff6b6b] hover:bg-[#4ecdc4] border-2 border-black hover:shadow-[2px_2px_0px_0px_#ffeaa7] transition-all duration-200 rounded-none p-1 lg:p-2'
+                      : 'text-gray-400 hover:text-white p-2'
                   }`}
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon
+                    className={`${
+                      theme === 'brutalism'
+                        ? 'w-4 h-4 lg:w-5 lg:h-5'
+                        : 'w-5 h-5'
+                    }`}
+                  />
                 </motion.a>
               ))}
 
               {/* Language Selector y Theme Toggle en desktop */}
-              <div className="flex items-center space-x-2">
+              <div
+                className={`flex items-center ${
+                  theme === 'brutalism' ? 'space-x-1 lg:space-x-2' : 'space-x-2'
+                }`}
+              >
                 <LanguageSelector />
                 <ThemeToggle />
                 <PreferencesManager />

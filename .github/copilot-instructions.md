@@ -39,3 +39,5 @@ Este repositorio utiliza React, Vite, Tailwind CSS y cuenta con configuraciones 
 
    - Integra y ejecuta pruebas unitarias y de integración según la estructura y herramientas disponibles en el proyecto.
    - Mantén la documentación actualizada para que otros desarrolladores comprendan la arquitectura y el propósito de cada módulo.
+
+8. **Cada vez que realices cambios significativos, asegúrate de probar la aplicación en utilizando el mcp playwright.**
