@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { useTheme } from '../hooks/useTheme'
 import { useRef } from 'react'
 import useMotion3DEffect from '../hooks/useMotion3DEffect'
-import { TextRevealAnimation } from './TextRevealAnimation'
 import ProgressiveTextReveal from './ProgressiveTextReveal'
 
 const Hero = () => {
@@ -228,93 +227,87 @@ const Hero = () => {
             style={{
               // Ensure text container doesn't clip content
               overflow: 'visible',
-              ...(theme === 'brutalism' && {
-                minWidth: '100%',
-                width: 'auto'
-              })
+              minWidth: '100%',
+              width: 'auto'
             }}
           >
-            {/* Progressive text reveal for dark, light, retro-pastel themes */}
-            {theme === 'dark' ||
-            theme === 'light' ||
-            theme === 'retro-pastel' ? (
-              <ProgressiveTextReveal
-                text={portfolioData?.presentation?.name || 'JORGE'}
-                duration={4000}
-                className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent ${
-                  theme === 'dark'
-                    ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600'
-                    : theme === 'light'
-                    ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600'
-                    : theme === 'retro-pastel'
-                    ? 'bg-gradient-to-r from-pink-300 via-rose-200 to-orange-200'
-                    : ''
-                }`}
-                style={{
-                  fontSize: '4.5rem',
-                  lineHeight: '1.1',
-                  ...(theme === 'retro-pastel' && {
-                    fontFamily: '"Comfortaa", cursive, sans-serif',
-                    fontWeight: '600',
-                    letterSpacing: '0.02em'
-                  })
-                }}
-              />
-            ) : (
-              /* Regular text for brutalism and vintage themes */
-              <div
-                className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${
-                  theme === 'brutalism'
-                    ? 'text-black'
-                    : theme === 'vintage'
-                    ? 'bg-clip-text text-transparent'
-                    : 'bg-clip-text text-transparent'
-                } ${
+            {/* Unified title component using ProgressiveTextReveal for all themes */}
+            <ProgressiveTextReveal
+              text={portfolioData?.presentation?.name || 'JORGE'}
+              duration={4000}
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${
+                theme === 'brutalism'
+                  ? 'text-black'
+                  : 'bg-clip-text text-transparent'
+              } ${
+                theme === 'dark'
+                  ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600'
+                  : theme === 'light'
+                  ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600'
+                  : theme === 'vintage'
+                  ? 'bg-gradient-to-r from-yellow-600 via-amber-500 to-orange-600'
+                  : theme === 'retro-pastel'
+                  ? 'bg-gradient-to-r from-pink-300 via-rose-200 to-orange-200'
+                  : theme === 'brutalism'
+                  ? ''
+                  : 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600'
+              }`}
+              style={{
+                fontSize: '4.5rem',
+                lineHeight: '1.1',
+                fontFamily:
                   theme === 'vintage'
-                    ? 'bg-gradient-to-r from-yellow-600 via-amber-500 to-orange-600'
+                    ? '"Playfair Display", serif'
+                    : theme === 'retro-pastel'
+                    ? '"Comfortaa", cursive, sans-serif'
+                    : '"Inter", system-ui, sans-serif',
+                fontWeight:
+                  theme === 'vintage'
+                    ? '700'
+                    : theme === 'retro-pastel'
+                    ? '600'
                     : theme === 'brutalism'
-                    ? ''
-                    : 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600'
-                }`}
-                style={{
-                  fontSize: '4.5rem',
-                  lineHeight: '1.1',
-                  // Ensure proper display for brutalism theme
-                  ...(theme === 'brutalism' && {
-                    color: '#ef7574',
-                    textShadow:
-                      '2px 2px 0 #000, ' +
-                      '-1px -1px 0 #f8d7da, ' +
-                      '-1px -2px 0 #f5b5b5, ' +
-                      '1px -1px 0 #000, ' +
-                      '-1px 1px 0 #000, ' +
-                      '1px 1px 0 #000',
-                    WebkitTextStroke: '0.5px #000',
-                    overflow: 'visible', // Ensure text is not clipped
-                    whiteSpace: 'nowrap' // Prevent text wrapping that might cause issues
-                  }),
-                  ...(theme === 'vintage' && {
-                    textShadow:
-                      '2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(251, 191, 36, 0.5)',
-                    fontFamily: '"Playfair Display", serif',
-                    fontWeight: '700',
-                    letterSpacing: '0.05em',
-                    filter: 'drop-shadow(0 4px 8px rgba(139, 94, 60, 0.4))'
-                  })
-                }}
-              >
-                <TextRevealAnimation
-                  text={portfolioData?.presentation?.name || "JORGe's web"}
-                  charDelay={theme === 'brutalism' ? 0.12 : 0.08} // Slower animation for brutalism to ensure all chars appear
-                  animationStyle="scale"
-                  once={false}
-                  replay={false}
-                />
-              </div>
-            )}
+                    ? '800'
+                    : '700',
+                letterSpacing:
+                  theme === 'vintage'
+                    ? '0.05em'
+                    : theme === 'retro-pastel'
+                    ? '0.02em'
+                    : '0.02em',
+                // Theme-specific styles
+                ...(theme === 'brutalism' && {
+                  color: '#ef7574',
+                  textShadow:
+                    '2px 2px 0 #000, ' +
+                    '-1px -1px 0 #f8d7da, ' +
+                    '-1px -2px 0 #f5b5b5, ' +
+                    '1px -1px 0 #000, ' +
+                    '-1px 1px 0 #000, ' +
+                    '1px 1px 0 #000',
+                  WebkitTextStroke: '0.5px #000',
+                  overflow: 'visible',
+                  whiteSpace: 'nowrap'
+                }),
+                ...(theme === 'vintage' && {
+                  textShadow:
+                    '2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(251, 191, 36, 0.5)',
+                  filter: 'drop-shadow(0 4px 8px rgba(139, 94, 60, 0.4))'
+                }),
+                ...(theme === 'retro-pastel' && {
+                  textShadow: '0 2px 8px rgba(255, 182, 193, 0.4)'
+                }),
+                ...(theme === 'dark' && {
+                  textShadow: '0 2px 12px rgba(56, 189, 248, 0.3)'
+                }),
+                ...(theme === 'light' && {
+                  textShadow: '0 2px 8px rgba(59, 130, 246, 0.2)'
+                })
+              }}
+            />
 
             <div
-              className={`text-xl md:text-2xl lg:text-3xl font-medium mb-6 ${
+              className={`text-xl md:text-2xl lg:text-3xl mb-6 ${
                 theme === 'dark'
                   ? 'text-slate-200'
                   : theme === 'brutalism'
@@ -328,16 +321,36 @@ const Hero = () => {
                   : 'text-gray-700'
               }`}
               style={{
-                // Force absolute centering - override any conflicting styles
-                textAlign: 'center' as const,
-                display: 'flex' as const,
-                justifyContent: 'center' as const,
-                alignItems: 'center' as const,
-                width: '100%' as const,
-                margin: '0 auto' as const,
-                position: 'relative',
-                left: '50%',
-                transform: 'translateX(-50%)',
+                // Simplified centering approach
+                textAlign: 'center',
+                display: 'block',
+                width: '100%',
+                margin: '0 auto',
+                // Unified font system
+                fontFamily:
+                  theme === 'vintage'
+                    ? '"Playfair Display", serif'
+                    : theme === 'retro-pastel'
+                    ? '"Comfortaa", cursive, sans-serif'
+                    : '"Inter", system-ui, sans-serif',
+                fontWeight:
+                  theme === 'vintage'
+                    ? '500'
+                    : theme === 'retro-pastel'
+                    ? '400'
+                    : theme === 'brutalism'
+                    ? '700'
+                    : theme === 'dark'
+                    ? '400'
+                    : '500',
+                fontStyle: theme === 'vintage' ? 'italic' : 'normal',
+                letterSpacing:
+                  theme === 'vintage'
+                    ? '0.02em'
+                    : theme === 'retro-pastel'
+                    ? '0.01em'
+                    : '0.01em',
+                // Theme-specific text effects
                 ...(theme === 'dark' && {
                   textShadow: '0 2px 8px rgba(0,0,0,0.4)'
                 }),
@@ -348,38 +361,18 @@ const Hero = () => {
                 }),
                 ...(theme === 'vintage' && {
                   textShadow:
-                    '1px 1px 2px rgba(0, 0, 0, 0.2), 0 0 10px rgba(251, 191, 36, 0.3)',
-                  fontFamily: '"Playfair Display", serif',
-                  fontStyle: 'italic',
-                  letterSpacing: '0.02em'
+                    '1px 1px 2px rgba(0, 0, 0, 0.2), 0 0 10px rgba(251, 191, 36, 0.3)'
                 }),
                 ...(theme === 'retro-pastel' && {
                   textShadow:
-                    '0 2px 4px rgba(255, 182, 193, 0.3), 0 0 8px rgba(255, 218, 185, 0.2)',
-                  fontFamily: '"Comfortaa", cursive, sans-serif',
-                  letterSpacing: '0.01em',
-                  fontWeight: '300'
+                    '0 2px 4px rgba(255, 182, 193, 0.3), 0 0 8px rgba(255, 218, 185, 0.2)'
                 }),
                 ...(theme === 'light' && {
                   textShadow: '0 1px 4px rgba(0,0,0,0.1)'
                 })
               }}
             >
-              <div
-                style={{
-                  textAlign: 'center',
-                  width: '100%',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                {/* Simple text without animation to ensure centering */}
-                <span style={{ textAlign: 'center', display: 'inline-block' }}>
-                  {portfolioData?.presentation?.title ||
-                    'Frontend React Engineer'}
-                </span>
-              </div>
+              {portfolioData?.presentation?.title || 'Frontend React Engineer'}
             </div>
 
             <motion.div
