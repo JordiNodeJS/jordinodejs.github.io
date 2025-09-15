@@ -378,9 +378,7 @@ packages:
 ```yaml
 steps:
 - name: Setup pnpm          # ← PRIMERO: Instalar pnpm
-  uses: pnpm/action-setup@v4
-  with:
-    version: 9
+  uses: pnpm/action-setup@v4 # ← Sin version: usa packageManager de package.json
 
 - name: Setup Node.js       # ← SEGUNDO: Configurar cache con pnpm ya instalado
   uses: actions/setup-node@v4
@@ -436,9 +434,40 @@ steps:
    git push origin main
    ```
 
+## 🚨 **Troubleshooting Post-Merge (2025-09-15)**
+
+### ❌ **Error: Multiple versions of pnpm specified**
+
+**Síntoma**:
+```
+Error: Multiple versions of pnpm specified:
+- version 9 in the GitHub Action config with the key "version"
+- version pnpm@9.15.0 in the package.json with the key "packageManager"
+Remove one of th...
+```
+
+**Causa**: 
+Conflicto entre la versión especificada en el workflow de GitHub Actions y la especificada en `package.json`.
+
+**Solución**:
+```yaml
+# ❌ INCORRECTO - Especifica versión duplicada
+- name: Setup pnpm
+  uses: pnpm/action-setup@v4
+  with:
+    version: 9  # ← Conflicto con packageManager
+
+# ✅ CORRECTO - Usa la versión de package.json
+- name: Setup pnpm
+  uses: pnpm/action-setup@v4  # ← Sin 'with.version'
+```
+
+**Explicación**: 
+Cuando `package.json` contiene `"packageManager": "pnpm@9.15.0"`, pnpm/action-setup@v4 automáticamente usa esa versión. Especificar `version` en el workflow crea un conflicto.
+
 ---
 
 **Documento actualizado**: 2025-09-15  
 **Autor**: GitHub Copilot - Migración jordinodejs.github.io  
-**Versión**: 2.0  
-**Estado**: ✅ **MIGRACIÓN IMPLEMENTADA - LISTA PARA TESTING**
+**Versión**: 2.1  
+**Estado**: ✅ **MIGRACIÓN CORREGIDA - READY FOR DEPLOYMENT**
