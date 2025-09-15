@@ -14,7 +14,6 @@ The `Article` component is used to display an article with a title, content, and
 
 ```jsx
 import Article from './components/Article'
-
 ;<Article
   title="Sample Article"
   content="This is the content of the sample article."
@@ -39,12 +38,14 @@ Este proyecto utiliza **GitHub Actions** para el despliegue automático en GitHu
 El proyecto está configurado para desplegarse automáticamente usando GitHub Actions cada vez que se hace push a la rama `main`.
 
 #### **Configuración:**
+
 - **Archivo**: `.github/workflows/deploy.yml`
 - **Trigger**: Automático en cada `git push origin main`
 - **Destino**: GitHub Pages
 - **URL**: https://jordinodejs.github.io
 
 #### **Proceso Automático:**
+
 1. Se detecta un push a la rama `main`
 2. GitHub Actions ejecuta el workflow
 3. Instala dependencias con `pnpm install --frozen-lockfile`
@@ -60,6 +61,7 @@ Aunque el comando existe en `package.json`, puede causar conflictos con GitHub A
 ## 🔧 Configuración del Proyecto
 
 ### **package.json**
+
 ```json
 {
   "name": "jordinodejs.github.io",
@@ -67,19 +69,20 @@ Aunque el comando existe en `package.json`, puede causar conflictos con GitHub A
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "deploy": "gh-pages -d dist"  // ⚠️ No usar
+    "deploy": "gh-pages -d dist" // ⚠️ No usar
   }
 }
 ```
 
 ### **GitHub Actions Workflow**
+
 ```yaml
 # .github/workflows/deploy.yml
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
@@ -88,35 +91,34 @@ jobs:
       contents: read
       pages: write
       id-token: write
-    
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 9
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'pnpm'
-    
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-    
-    - name: Build project
-      run: pnpm run build
-    
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
 ```
 
 ## 📝 Proceso de Despliegue Paso a Paso
 
 ### **1. Desarrollo Local**
+
 ```bash
 # Clonar el repositorio
 git clone https://github.com/JordiNodeJS/jordinodejs.github.io.git
@@ -133,6 +135,7 @@ pnpm run build
 ```
 
 ### **2. Realizar Cambios**
+
 ```bash
 # Hacer cambios en el código
 # Editar archivos en src/, public/, etc.
@@ -143,6 +146,7 @@ pnpm run preview
 ```
 
 ### **3. Desplegar**
+
 ```bash
 # Agregar cambios al staging
 git add .
@@ -155,6 +159,7 @@ git push origin main
 ```
 
 ### **4. Verificar Despliegue**
+
 1. Ve a: https://github.com/JordiNodeJS/jordinodejs.github.io/actions
 2. Verifica que el workflow se ejecutó exitosamente ✅
 3. Visita: https://jordinodejs.github.io para ver los cambios
@@ -162,16 +167,19 @@ git push origin main
 ## 🔍 Monitoreo y Verificación
 
 ### **GitHub Actions Dashboard**
+
 - **URL**: https://github.com/JordiNodeJS/jordinodejs.github.io/actions
 - **Estado**: Muestra si el deploy fue exitoso o falló
 - **Logs**: Detalles completos del proceso de build y deploy
 
 ### **Tiempos de Despliegue**
+
 - **Build**: ~2-3 minutos
 - **Deploy**: ~1-2 minutos
 - **Propagación**: ~5-10 minutos (GitHub Pages)
 
 ### **Verificación Post-Deploy**
+
 ```bash
 # Verificar que el sitio está funcionando
 curl -I https://jordinodejs.github.io
@@ -182,12 +190,14 @@ curl -I https://jordinodejs.github.io
 ## 🛠️ Configuración de GitHub Pages
 
 ### **Configuración del Repositorio**
+
 1. Ve a: `Settings` > `Pages`
 2. **Source**: Deploy from a branch
 3. **Branch**: `gh-pages` (creada automáticamente por GitHub Actions)
 4. **Folder**: `/ (root)`
 
 ### **Configuración de Dominio**
+
 - **Dominio actual**: `jordinodejs.github.io`
 - **HTTPS**: Habilitado automáticamente
 - **Dominio personalizado**: No configurado
@@ -195,16 +205,19 @@ curl -I https://jordinodejs.github.io
 ## 🚨 Solución de Problemas
 
 ### **Deploy Falla**
+
 1. Revisar logs en GitHub Actions
 2. Verificar que `npm run build` funciona localmente
 3. Comprobar que no hay errores de TypeScript/ESLint
 
 ### **Sitio No Se Actualiza**
+
 1. Verificar que el workflow se ejecutó exitosamente
 2. Esperar 5-10 minutos para propagación
 3. Limpiar caché del navegador (Ctrl+F5)
 
 ### **Conflictos con node_modules**
+
 ```bash
 # Si hay problemas con node_modules en Git
 git checkout -- node_modules/

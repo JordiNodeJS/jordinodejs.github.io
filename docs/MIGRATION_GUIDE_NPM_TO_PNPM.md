@@ -1,444 +1,271 @@
-# Guía de Migración: npm a pnpm
+# Project Documentation
 
-## 📋 Resumen Ejecutivo
+## Components
 
-Este documento describe las lecciones aprendidas durante la migración del proyecto jordinodejs.github.io de npm a pnpm, incluyendo los problemas encontrados, soluciones implementadas y recomendaciones para futuras migraciones.
+### Article
 
-**Estado del proyecto**: Migración revertida debido a problemas de compatibilidad y estabilidad.
+The `Article` component is used to display an article with a title, content, and an optional image.
 
-## 🎯 Motivación para la Migración
+#### Props
 
-- **Velocidad**: pnpm es significativamente más rápido que npm
-- **Eficiencia de espacio**: Utiliza enlaces duros para evitar duplicación de dependencias
-- **Mejor manejo de monorepos**: Soporte nativo mejorado
-- **Compatibilidad**: Mantiene compatibilidad con package.json de npm
+- `title` (string): The title of the article.
+- `content` (string): The content of the article.
+- `imageUrl` (string, optional): The URL of the image to be displayed.
 
-## 🔍 Análisis Inicial Realizado
-
-### ✅ Verificaciones Previas Exitosas
-1. **Estructura del proyecto**: Compatible con pnpm
-2. **Scripts de package.json**: Funcionan sin modificación
-3. **GitHub Actions**: Soporte nativo para pnpm disponible
-4. **GitHub Pages**: Compatible con cualquier gestor de paquetes
-
-### ⚠️ Puntos de Atención Identificados
-- Versiones de pnpm en diferentes entornos
-- Compatibilidad de lockfiles
-- Configuración de CI/CD
-
-## 🚀 Plan de Migración Implementado
-
-### Fase 1: Preparación
-- [x] Verificar versión de pnpm local
-- [x] Actualizar pnpm a la versión más reciente
-- [x] Backup del estado actual
-
-### Fase 2: Migración Local
-- [x] Eliminación de `package-lock.json` y `node_modules/`
-- [x] Instalación con `pnpm install`
-- [x] Verificación de build local
-
-### Fase 3: Actualización de CI/CD
-- [x] Modificación del workflow de GitHub Actions
-- [x] Actualización de configuración de cache
-
-### Fase 4: Limpieza y Pruebas
-- [x] Actualización de `.gitignore`
-- [x] Pruebas de deployment
-
-## ⚠️ Problemas Encontrados
-
-### 1. 🔴 Actualización Automática de Dependencias
-
-**Problema**: pnpm actualizó automáticamente `framer-motion` de `12.16.0` a `12.23.12`
-
-**Síntomas**:
-```typescript
-// Error en TypeScript
-Property 'ease' does not exist on type...
-Type '"easeInOut"' is not assignable to type 'Easing'
+```jsx
+import Article from './components/Article'
+;<Article
+  title="Sample Article"
+  content="This is the content of the sample article."
+  imageUrl="https://example.com/image.jpg"
+/>
 ```
 
-**Causa Raíz**: 
-- pnpm interpreta `^12.16.0` de manera más agresiva que npm
-- Cambios breaking en la API de framer-motion entre versiones
+## Tools
 
-**Solución Aplicada**:
-```bash
-pnpm add framer-motion@12.16.0 --save-exact
+[iloveimg](https://www.iloveimg.com/crop-image)
+
+[Mockups](https://shots.so/)
+
+# 🚀 Guía de Despliegue
+
+Este proyecto utiliza **GitHub Actions** para el despliegue automático en GitHub Pages. A continuación se detalla todo el proceso.
+
+## 📋 Método de Despliegue Actual
+
+### ✅ **GitHub Actions (Recomendado y Actual)**
+
+El proyecto está configurado para desplegarse automáticamente usando GitHub Actions cada vez que se hace push a la rama `main`.
+
+#### **Configuración:**
+
+- **Archivo**: `.github/workflows/deploy.yml`
+- **Trigger**: Automático en cada `git push origin main`
+- **Destino**: GitHub Pages
+- **URL**: https://jordinodejs.github.io
+
+#### **Proceso Automático:**
+
+1. Se detecta un push a la rama `main`
+2. GitHub Actions ejecuta el workflow
+3. Instala dependencias con `pnpm install --frozen-lockfile`
+4. Construye el proyecto con `npm run build`
+5. Despliega automáticamente a GitHub Pages
+
+### ❌ **npm run deploy (Obsoleto)**
+
+**⚠️ IMPORTANTE: NO usar `npm run deploy`**
+
+Aunque el comando existe en `package.json`, puede causar conflictos con GitHub Actions. El método recomendado es usar únicamente GitHub Actions.
+
+## 🔧 Configuración del Proyecto
+
+### **package.json**
+
+```json
+{
+  "name": "jordinodejs.github.io",
+  "homepage": "https://jordinodejs.github.io",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "deploy": "gh-pages -d dist" // ⚠️ No usar
+  }
+}
 ```
 
-**Lección Aprendida**: 
-- Siempre usar versiones exactas para dependencias críticas
-- Verificar cambios de versiones antes de proceder
+### **GitHub Actions Workflow**
 
-### 2. 🔴 Orden Incorrecto en GitHub Actions
-
-**Problema**: Error "Unable to locate executable file: pnpm"
-
-**Síntomas específicos**:
-- Workflow falla en el step "Setup Node.js"
-- Error: `Error: Unable to locate executable file: pnpm. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable.`
-- El job se detiene antes de llegar a "Install dependencies"
-
-**Causa Raíz**: 
-- `actions/setup-node@v4` intenta configurar el cache de pnpm antes de que pnpm esté instalado
-- El parámetro `cache: 'pnpm'` requiere que pnpm ya esté disponible en el PATH
-
-**Configuración Incorrecta que causó el fallo**:
 ```yaml
-- name: Setup Node.js
-  uses: actions/setup-node@v4
-  with:
-    node-version: '18'
-    cache: 'pnpm'  # ❌ pnpm no está disponible aún
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
 
-- name: Setup pnpm
-  uses: pnpm/action-setup@v2
-  with:
-    version: 8
-```
+on:
+  push:
+    branches: [main]
 
-**Configuración Correcta implementada**:
-```yaml
-- name: Setup pnpm
-  uses: pnpm/action-setup@v2
-  with:
-    version: 8  # Instala pnpm primero
-
-- name: Setup Node.js
-  uses: actions/setup-node@v4
-  with:
-    node-version: '18'
-    cache: 'pnpm'  # ✅ Ahora pnpm está disponible
-```
-
-**Secuencia completa del workflow corregido**:
-1. `actions/checkout@v4` - Descarga el código
-2. `pnpm/action-setup@v2` - Instala pnpm globalmente
-3. `actions/setup-node@v4` - Configura Node.js y cache de pnpm
-4. `pnpm install --frozen-lockfile` - Instala dependencias
-5. `pnpm run build` - Construye el proyecto
-6. Pasos de deployment a GitHub Pages
-
-**Lecciones Aprendidas**: 
-- **Orden crítico**: Las herramientas deben instalarse antes de configurar su cache
-- **Dependencias explícitas**: `setup-node` con `cache: 'pnpm'` depende de que pnpm esté instalado
-- **Testing de workflows**: Probar cada cambio en el workflow antes del deployment final
-- **Logs específicos**: El error "Unable to locate executable file" indica problema de PATH/instalación
-
-### 3. 🔴 Fallos de Deployment en GitHub Pages
-
-**Problema**: Workflow completa exitosamente pero deployment falla
-
-**Síntomas observados**:
-- GitHub Actions muestra "Success" pero la página no se actualiza
-- Página devuelve errores 404 o carga versión anterior
-- Logs muestran warnings sobre archivos faltantes
-
-**Causas identificadas**:
-1. **pnpm-lock.yaml faltante**: Si está en `.gitignore`, las dependencias no se instalan correctamente
-2. **Cambios de configuración**: `vite.config.ts` con `base` incorrecto para dominio raíz
-3. **Permisos de Pages**: Configuración incorrecta de permisos en el workflow
-
-**Solución para pnpm-lock.yaml**:
-```bash
-# Verificar que pnpm-lock.yaml NO esté en .gitignore
-grep -v "pnpm-lock.yaml" .gitignore > .gitignore.tmp
-mv .gitignore.tmp .gitignore
-
-# Asegurar que el lockfile esté versionado
-git add pnpm-lock.yaml
-git commit -m "Add pnpm-lock.yaml to version control"
-```
-
-**Configuración de permisos en deploy.yml**:
-```yaml
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
-    permissions:  # ✅ Permisos explícitos
+    permissions:
       contents: read
       pages: write
       id-token: write
 
-    environment:  # ✅ Environment correcto
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-```
-
-**Verificación post-deployment**:
-```bash
-# Verificar que la página carga correctamente
-curl -I https://jordinodejs.github.io  # Debe devolver HTTP/2 200
-
-# Verificar assets estáticos
-curl -I https://jordinodejs.github.io/assets/index-[hash].js
-```
-
-### 4. 🟡 Configuración de .gitignore
-
-**Problema**: `pnpm-lock.yaml` estaba siendo ignorado
-
-**Causa**: Línea `pnpm-lock.yaml` en `.gitignore`
-
-**Solución**: Eliminar la exclusión para que el lockfile sea versionado
-
-**Estado problemático en .gitignore**:
-```
-# ... otros archivos ...
-pnpm-lock.yaml  # ❌ Esto impide que se versione el lockfile
-```
-
-**Estado corregido**:
-```
-# ... otros archivos ...
-# pnpm-lock.yaml eliminado de .gitignore  # ✅ Ahora se versiona correctamente
-```
-
-## 🔄 Proceso de Reversión
-
-### Motivos para la Reversión
-1. **Problemas de compatibilidad**: Framer Motion requería atención especial
-2. **Percepción de usuario**: "La página no está funcionando"
-3. **Principio de estabilidad**: Priorizar funcionamiento sobre optimización
-
-### Comando de Reversión
-```bash
-git reset --hard d0cf432  # Commit: "✨ Portfolio moderno optimizado - Estado funcional completo"
-git push --force-with-lease origin main
-```
-
-## 📚 Lecciones Aprendidas
-
-### ✅ Buenas Prácticas
-1. **Testing exhaustivo**: Verificar funcionalidad completa antes de deployment
-2. **Versionado exacto**: Usar versiones exactas para dependencias críticas
-3. **Documentación**: Mantener registro detallado de cambios
-4. **Backup strategy**: Siempre tener un punto de retorno identificado
-
-### ❌ Errores a Evitar
-1. **Asumir compatibilidad total**: Verificar cada dependencia individualmente
-2. **Orden de configuración**: Respetar dependencias en workflows
-3. **Ignorar warnings**: Los warnings de TypeScript pueden indicar problemas reales
-4. **Migración sin testing**: Nunca migrar sin pruebas completas
-
-## 🚀 Recomendaciones para Futuras Migraciones
-
-### Pre-migración
-- [ ] Crear rama dedicada para la migración
-- [ ] Documentar todas las versiones actuales de dependencias
-- [ ] Ejecutar suite completa de tests
-- [ ] Identificar dependencias críticas que podrían tener breaking changes
-
-### Durante la Migración
-- [ ] Usar versiones exactas inicialmente
-- [ ] Verificar build después de cada paso
-- [ ] Probar funcionalidad core antes de proceder
-- [ ] Mantener comunicación con stakeholders
-
-### Post-migración
-- [ ] Ejecutar tests de integración completos
-- [ ] Verificar deployment en staging
-- [ ] Monitorear métricas de rendimiento
-- [ ] Mantener período de observación antes de considerar exitosa
-
-## 🛠️ Configuraciones Recomendadas
-
-### package.json para pnpm
-```json
-{
-  "packageManager": "pnpm@8.15.0",
-  "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
-  }
-}
-```
-
-### .npmrc recomendado
-```
-auto-install-peers=true
-strict-peer-dependencies=false
-prefer-frozen-lockfile=true
-```
-
-### GitHub Actions Template
-```yaml
-name: Deploy with pnpm
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'pnpm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
 
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-    - name: Build project
-      run: pnpm run build
+      - name: Build project
+        run: pnpm run build
 
-    # ... resto de pasos de deployment
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
 ```
 
-## 📊 Criterios de Éxito para Futuras Migraciones
+## 📝 Proceso de Despliegue Paso a Paso
 
-### Técnicos
-- [ ] Build exitoso sin warnings
-- [ ] Tests pasando al 100%
-- [ ] Performance igual o mejor
-- [ ] Deployment exitoso
+### **1. Desarrollo Local**
 
-### Funcionales
-- [ ] Todas las funcionalidades core operativas
-- [ ] UI/UX sin degradación
-- [ ] Animaciones funcionando correctamente
-- [ ] Navegación fluida
+```bash
+# Clonar el repositorio
+git clone https://github.com/JordiNodeJS/jordinodejs.github.io.git
+cd jordinodejs.github.io
 
-### Operacionales
-- [ ] CI/CD funcionando sin errores
-- [ ] Métricas de deployment estables
-- [ ] No regresiones en producción
+# Instalar dependencias
+pnpm install
 
-## 🔮 Conclusiones
+# Iniciar servidor de desarrollo
+pnpm run dev
 
-La migración a pnpm es técnicamente viable y ofrece beneficios reales, pero requiere:
-
-1. **Planificación meticulosa**: Cada dependencia debe ser evaluada
-2. **Testing exhaustivo**: No solo build, sino funcionalidad completa
-3. **Estrategia de rollback**: Siempre tener un plan B
-4. **Comunicación clara**: Mantener a todos informados del progreso
-
-**Recomendación**: Intentar la migración nuevamente en una ventana de mantenimiento con más tiempo para testing y validación completa.
-
-## 🎯 Migración Exitosa - Implementación Revisada (2025-09-15)
-
-### ✅ **Nueva Implementación Basada en Lecciones Aprendidas**
-
-**Estado**: ✅ **MIGRACIÓN EXITOSA**
-
-### 📋 **Cambios Implementados**
-
-#### 1. **Configuración de pnpm optimizada**
-
-**Archivo `.npmrc` creado**:
-```ini
-# Configuración específica para pnpm
-hoist-pattern[]=*
-save-exact=true
-auto-install-peers=true
-resolution-mode=highest
-store-dir=~/.pnpm-store
-lockfile=true
-prefer-frozen-lockfile=true
-progress=true
-network-concurrency=16
-loglevel=warn
+# Compilar para producción
+pnpm run build
 ```
 
-#### 2. **Workspace configurado**
+### **2. Realizar Cambios**
 
-**Archivo `pnpm-workspace.yaml`**:
-```yaml
-packages:
-  - '.'
+```bash
+# Hacer cambios en el código
+# Editar archivos en src/, public/, etc.
+
+# Probar localmente
+pnpm run build
+pnpm run preview
 ```
 
-#### 3. **Package.json mejorado**
+### **3. Desplegar**
 
-```json
-{
-  "packageManager": "pnpm@9.15.0",
-  "dependencies": {
-    "framer-motion": "12.16.0"  // ← Versión exacta para evitar breaking changes
-  }
-}
+```bash
+# Agregar cambios al staging
+git add .
+
+# Hacer commit con mensaje descriptivo
+git commit -m "feat: agregar nueva funcionalidad"
+
+# Hacer push a main (esto activa el deploy automático)
+git push origin main
 ```
 
-#### 4. **GitHub Actions corregido**
+### **4. Verificar Despliegue**
 
-```yaml
-steps:
-- name: Setup pnpm          # ← PRIMERO: Instalar pnpm
-  uses: pnpm/action-setup@v4
-  with:
-    version: 9
+1. Ve a: https://github.com/JordiNodeJS/jordinodejs.github.io/actions
+2. Verifica que el workflow se ejecutó exitosamente ✅
+3. Visita: https://jordinodejs.github.io para ver los cambios
 
-- name: Setup Node.js       # ← SEGUNDO: Configurar cache con pnpm ya instalado
-  uses: actions/setup-node@v4
-  with:
-    node-version: '18'
-    cache: 'pnpm'
+## 🔍 Monitoreo y Verificación
 
-- name: Install dependencies
-  run: pnpm install --frozen-lockfile  # ← Usar lockfile estricto
+### **GitHub Actions Dashboard**
+
+- **URL**: https://github.com/JordiNodeJS/jordinodejs.github.io/actions
+- **Estado**: Muestra si el deploy fue exitoso o falló
+- **Logs**: Detalles completos del proceso de build y deploy
+
+### **Tiempos de Despliegue**
+
+- **Build**: ~2-3 minutos
+- **Deploy**: ~1-2 minutos
+- **Propagación**: ~5-10 minutos (GitHub Pages)
+
+### **Verificación Post-Deploy**
+
+```bash
+# Verificar que el sitio está funcionando
+curl -I https://jordinodejs.github.io
+
+# Debería retornar: HTTP/2 200
 ```
 
-#### 5. **Gitignore actualizado**
+## 🛠️ Configuración de GitHub Pages
 
-```gitignore
-# Permitir pnpm-lock.yaml en el repo
-# .pnpm-debug.log        ← Solo ignorar logs
-# .pnpm-store/           ← Solo ignorar store local
+### **Configuración del Repositorio**
+
+1. Ve a: `Settings` > `Pages`
+2. **Source**: Deploy from a branch
+3. **Branch**: `gh-pages` (creada automáticamente por GitHub Actions)
+4. **Folder**: `/ (root)`
+
+### **Configuración de Dominio**
+
+- **Dominio actual**: `jordinodejs.github.io`
+- **HTTPS**: Habilitado automáticamente
+- **Dominio personalizado**: No configurado
+
+## 🚨 Solución de Problemas
+
+### **Deploy Falla**
+
+1. Revisar logs en GitHub Actions
+2. Verificar que `npm run build` funciona localmente
+3. Comprobar que no hay errores de TypeScript/ESLint
+
+### **Sitio No Se Actualiza**
+
+1. Verificar que el workflow se ejecutó exitosamente
+2. Esperar 5-10 minutos para propagación
+3. Limpiar caché del navegador (Ctrl+F5)
+
+### **Conflictos con node_modules**
+
+```bash
+# Si hay problemas con node_modules en Git
+git checkout -- node_modules/
+git status  # Verificar que esté limpio
 ```
 
-### 🔍 **Diferencias Clave vs Intento Anterior**
+## 📊 Estructura del Proyecto
 
-| Aspecto | Anterior (Falló) | Actual (Exitoso) |
-|---------|------------------|-------------------|
-| **Orden en CI** | `setup-node` → `setup-pnpm` | `setup-pnpm` → `setup-node` |
-| **Framer Motion** | `^12.16.0` → `12.23.12` | Fijo en `12.16.0` |
-| **Lockfile** | En `.gitignore` | Versionado correctamente |
-| **Configuración** | Sin `.npmrc` | `.npmrc` optimizado |
-| **Testing** | Solo build | Build + funcionalidad |
+```
+jordinodejs.github.io/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # Configuración GitHub Actions
+├── src/                        # Código fuente
+├── public/                     # Archivos estáticos
+├── dist/                       # Build output (ignorado en Git)
+├── package.json               # Dependencias y scripts
+├── vite.config.ts            # Configuración de Vite
+└── README.md                 # Esta documentación
+```
 
-### 🚀 **Próximos Pasos**
+## 🔗 Enlaces Útiles
 
-1. **Eliminar archivos npm existentes**:
-   ```bash
-   rm package-lock.json
-   rm -rf node_modules/
-   ```
-
-2. **Instalar con pnpm**:
-   ```bash
-   pnpm install
-   ```
-
-3. **Verificar build local**:
-   ```bash
-   pnpm run build
-   pnpm run preview
-   ```
-
-4. **Commit y push para probar CI/CD**:
-   ```bash
-   git add .
-   git commit -m "feat: migrar de npm a pnpm - implementación mejorada"
-   git push origin main
-   ```
+- **Sitio Web**: https://jordinodejs.github.io
+- **Repositorio**: https://github.com/JordiNodeJS/jordinodejs.github.io
+- **GitHub Actions**: https://github.com/JordiNodeJS/jordinodejs.github.io/actions
+- **Configuración Pages**: https://github.com/JordiNodeJS/jordinodejs.github.io/settings/pages
 
 ---
 
-**Documento actualizado**: 2025-09-15  
-**Autor**: GitHub Copilot - Migración jordinodejs.github.io  
-**Versión**: 2.0  
-**Estado**: ✅ **MIGRACIÓN IMPLEMENTADA - LISTA PARA TESTING**
+## Resources
+
+[svgrepo](https://www.svgrepo.com/)
+
+[sticker](https://icons8.com/icon/set/animals/stickers)
+
+## Modes
+
+[light mode](https://colorhunt.co/palette/fcf8e894b49fecb390df7861)
+
+#FCF8E8 se parece al color rose-50
+#94B49F se parece al color emerald-400
+#ECB390 se parece al color orange-200
+#DF7861 se parece al color red-300
+
+[dark mode](https://colorhunt.co/palette/2d4356435b66a76f6feab2a0)
+
+#2D4356 se parece al color slate-800
+#435B66 se parece al color slate-700
+#A76F6F se parece al color rose-400
+#EAB2A0 se parece al color rose-200
