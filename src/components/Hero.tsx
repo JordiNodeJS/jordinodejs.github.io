@@ -15,7 +15,7 @@ const Hero = () => {
   const profileContainerRef = useRef<HTMLDivElement>(null)
 
   // Using our enhanced 3D effect hook for better physics-based animations
-  const { springProps, isHovered, config } = useMotion3DEffect(
+  const { motionProps, springProps, isHovered, config } = useMotion3DEffect(
     profileContainerRef as React.RefObject<HTMLElement>,
     {
       strength: 25,
@@ -79,17 +79,14 @@ const Hero = () => {
             {' '}
             <motion.div
               className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-visible shadow-2xl transform-style-3d scale-smooth"
+              {...motionProps}
               style={{
-                // Apply transform directly from spring props
-                rotateX: springProps.rotateX,
-                rotateY: springProps.rotateY,
-                scale: springProps.scale,
-                z: springProps.zIndex,
                 // Use CSS custom property for perspective
                 transform: `perspective(1000px)`,
                 // Add smooth transitions for all transformations
                 transition:
-                  'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease'
+                  'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease',
+                ...motionProps.style
               }}
             >
               {' '}
@@ -147,7 +144,7 @@ const Hero = () => {
               <motion.div
                 className="absolute inset-0 overflow-visible transform-style-3d"
                 style={{
-                  z: springProps.zIndex
+                  zIndex: springProps.zIndex
                 }}
               >
                 {' '}
@@ -157,12 +154,11 @@ const Hero = () => {
                   alt="Profile"
                   className="w-full h-full object-cover rounded-full transform-gpu transform-style-3d scale-smooth"
                   style={{
-                    scale: springProps.scale,
                     filter: isHovered
                       ? `drop-shadow(0 0 20px ${config.glowColor})`
                       : 'none',
                     transition:
-                      'filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), scale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                      'filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                   }}
                 />{' '}
               </motion.div>{' '}
