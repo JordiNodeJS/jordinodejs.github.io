@@ -22,4 +22,7 @@ build
 *.njsproj
 *.sln
 *.sw?
-pnpm-lock.yaml
+
+# pnpm specific
+.pnpm-debug.log
+.pnpm-store/
