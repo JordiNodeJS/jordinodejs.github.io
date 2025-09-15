@@ -18,7 +18,7 @@ export const TextRevealAnimation = ({
   text,
   className = '',
   charDelay = 0.08, // 80ms default delay
-  once = true,
+  // 'once' was unused and caused a TS6133 error; remove it from the props list
   animationStyle = 'scale',
   initialDelay = 0.1,
   highlightColor,

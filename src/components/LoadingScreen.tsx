@@ -27,7 +27,12 @@ const LoadingScreen = () => {
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { duration: 2, ease: 'easeInOut' },
+        // Use a numeric cubic-bezier easing array to satisfy the motion typing
+        // Provide an easing function (easeInOut) to satisfy the motion typing
+        pathLength: {
+          duration: 2,
+          ease: (t: number) => (1 - Math.cos(Math.PI * t)) / 2
+        },
         opacity: { duration: 0.5 }
       }
     }
