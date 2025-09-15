@@ -1,0 +1,6 @@
+# Configuración del workspace para pnpm
+# https://pnpm.io/pnpm-workspace_yaml
+
+packages:
+  # Root del proyecto
+  - '.'

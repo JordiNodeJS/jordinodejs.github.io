@@ -47,7 +47,7 @@ El proyecto está configurado para desplegarse automáticamente usando GitHub Ac
 #### **Proceso Automático:**
 1. Se detecta un push a la rama `main`
 2. GitHub Actions ejecuta el workflow
-3. Instala dependencias con `npm ci`
+3. Instala dependencias con `pnpm install --frozen-lockfile`
 4. Construye el proyecto con `npm run build`
 5. Despliega automáticamente a GitHub Pages
 
@@ -93,17 +93,22 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+    
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
+        cache: 'pnpm'
     
     - name: Install dependencies
-      run: npm ci
+      run: pnpm install --frozen-lockfile
     
     - name: Build project
-      run: npm run build
+      run: pnpm run build
     
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
@@ -118,10 +123,13 @@ git clone https://github.com/JordiNodeJS/jordinodejs.github.io.git
 cd jordinodejs.github.io
 
 # Instalar dependencias
-npm install
+pnpm install
 
-# Ejecutar en modo desarrollo
-npm run dev
+# Iniciar servidor de desarrollo
+pnpm run dev
+
+# Compilar para producción
+pnpm run build
 ```
 
 ### **2. Realizar Cambios**
@@ -130,8 +138,8 @@ npm run dev
 # Editar archivos en src/, public/, etc.
 
 # Probar localmente
-npm run build
-npm run preview
+pnpm run build
+pnpm run preview
 ```
 
 ### **3. Desplegar**
