@@ -22,9 +22,9 @@
         "subtitle": "Minha trajetória profissional desenvolvendo soluções inovadoras",
         "location": "Espanha",
         "viewProject": "Ver projeto",
-        "clickTooltip": "💡 Clique para ver conquistas destacadas",
+        "clickTooltip": "💡 Clique para ver conquistas em destaque",
         "technologiesUsed": "Tecnologias utilizadas",
-        "achievements": "Conquistas Destacadas",
+        "achievements": "Conquistas em destaque",
         "description": "Descrição:",
         "impact": "Impacto:",
         "period": "Período:",
@@ -33,7 +33,7 @@
         "testing": "Testes:",
         "methodologies": "Metodologias:",
         "tools": "Ferramentas:",
-        "featuredProjects": "Projetos destacados:",
+        "featuredProjects": "Projetos em destaque:",
         "companies": {
             "flipo": {
                 "title": "FLiPO | Engenheiro Frontend React",
