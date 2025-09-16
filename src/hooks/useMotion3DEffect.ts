@@ -24,20 +24,20 @@ export const useMotion3DEffect = (
 ) => {
   // Default options with sensible values - reduced intensity for smoother experience
   const {
-    strength = 15, // Reduced from 25 for smoother motion
-    rotateLimit = 8, // Reduced from 15 for less extreme rotation
+    strength = 10, // Further reduced for ultra-smooth motion
+    rotateLimit = 5, // Further reduced for very subtle rotation
     perspective = 1000,
-    scaleFactor = 1.02, // Reduced from 1.05 for subtler scaling
-    zAxisMovement = 15, // Reduced from 30 for gentler depth
+    scaleFactor = 1.015, // Much more subtle scaling
+    zAxisMovement = 8, // Gentler depth movement
     tiltReverse = false,
     resetOnLeave = true,
 
     breatheAnimation = true,
-    breatheScale = 1.015, // Reduced breathing scale for subtlety
-    breatheDuration = 4000, // Slower breathing for calmer effect
+    breatheScale = 1.01, // Very subtle breathing scale
+    breatheDuration = 5000, // Even slower breathing for calmer effect
     glowOnHover = true,
-    glowColor = 'rgba(59, 130, 246, 0.5)', // Default blue glow
-    glowIntensity = 0.5 // Reduced intensity
+    glowColor = 'rgba(59, 130, 246, 0.3)', // More subtle glow
+    glowIntensity = 0.3 // Much reduced intensity
   } = options
 
   // State to track if mouse is over the element
@@ -111,9 +111,9 @@ export const useMotion3DEffect = (
       const x = (e.clientX - rect.left) / rect.width - 0.5
       const y = (e.clientY - rect.top) / rect.height - 0.5
 
-      // Apply easing to mouse movement for smoother transitions
-      const easedX = x * 0.7 // Reduce sensitivity
-      const easedY = y * 0.7
+      // Apply stronger easing to mouse movement for ultra-smooth transitions
+      const easedX = x * 0.4 // Much more reduced sensitivity
+      const easedY = y * 0.4
 
       // Update motion values with smoothed values
       mouseX.set(easedX)
