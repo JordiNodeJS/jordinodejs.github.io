@@ -54,7 +54,7 @@ src/
 | Français  | `fr`   | `fr.json` | ✅ Completo               |
 | Deutsch   | `de`   | `de.json` | ✅ Completo               |
 | Italiano  | `it`   | `it.json` | ✅ Completo               |
-| Português | `pt`   | `pt.json` | ⚠️ Necesita corrección    |
+| Português | `pt`   | `pt.json` | ✅ Completo               |
 | Català    | `ca`   | `ca.json` | ✅ Completo               |
 
 ## ⚙️ Cómo Funciona
@@ -120,6 +120,17 @@ Cada archivo de idioma sigue esta estructura jerárquica:
     "title": "Habilidades Técnicas",
     "subtitle": "Tecnologías y herramientas con las que trabajo",
     "methodologies": "Metodologías y Herramientas"
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "subtitle": "Mi trayectoria profesional desarrollando soluciones innovadoras",
+    "companies": {
+      "flipo": {
+        "title": "FLiPO | Frontend React Engineer",
+        "period": "Julio 2023 – Abril 2025",
+        "description": "En FLiPO, startup líder en venta online de gafas modulares y graduadas, diseñé y desarrollé interfaces dinámicas en React, optimizando la experiencia de usuario y garantizando una comunicación fluida con el backend a través de integraciones API. Implementé componentes reutilizables y flujos de datos eficientes que mejoraron la usabilidad y la coherencia visual de la plataforma."
+      }
+    }
   },
   "education": {
     "title": "Formación Académica",
@@ -257,7 +268,76 @@ return <p>{skills.newKey}</p>
 }
 ```
 
-## 📋 Buenas Prácticas
+## � Estructura de Experiencia Profesional
+
+La sección de experiencia profesional tiene una estructura jerárquica específica que permite organizar la información de manera consistente en todos los idiomas:
+
+### Estructura Jerárquica:
+
+```json
+{
+  "experience": {
+    "title": "Experiencia Profesional",
+    "subtitle": "Mi trayectoria profesional desarrollando soluciones innovadoras",
+    "location": "España",
+    "viewProject": "Ver proyecto",
+    "clickTooltip": "💡 Haz clic para ver logros destacados",
+    "technologiesUsed": "Tecnologías utilizadas",
+    "achievements": "Logros Destacados",
+    "description": "Descripción:",
+    "impact": "Impacto:",
+    "period": "Período:",
+    "technologiesAndMethodologies": "Tecnologías y Metodologías Utilizadas:",
+    "frontend": "Frontend:",
+    "testing": "Testing:",
+    "methodologies": "Metodologías:",
+    "tools": "Herramientas:",
+    "featuredProjects": "Proyectos destacados:",
+    "companies": {
+      "flipo": {
+        "title": "FLiPO | Frontend React Engineer",
+        "period": "Julio 2023 – Abril 2025",
+        "description": "En FLiPO, startup líder en venta online de gafas modulares y graduadas, diseñé y desarrollé interfaces dinámicas en React, optimizando la experiencia de usuario y garantizando una comunicación fluida con el backend a través de integraciones API. Implementé componentes reutilizables y flujos de datos eficientes que mejoraron la usabilidad y la coherencia visual de la plataforma."
+      },
+      "itacademy": {
+        "title": "IT Academy BCN | Frontend React Engineer",
+        "period": "2022",
+        "description": "En IT Academy BCN colaboré remotamente en un equipo de 12 personas utilizando metodologías ágiles (Scrum, Kanban y sprints de 2 semanas). Participé en el desarrollo de proyectos como ITA Directory e ITA Game, enfocándome en la mejora del sistema ERP y la implementación de nuevas funcionalidades."
+      }
+    }
+  }
+}
+```
+
+### Características Importantes:
+
+- **Estructura anidada**: Las empresas están organizadas bajo `experience.companies.{company}`
+- **Información consistente**: Cada empresa tiene `title`, `period`, y `description`
+- **Metadatos útiles**: Incluye tooltips, etiquetas de sección, y términos técnicos
+- **Escalabilidad**: Fácil agregar nuevas empresas siguiendo el mismo patrón
+
+### Agregar Nueva Empresa:
+
+Para agregar una nueva experiencia laboral:
+
+1. **Agregar en español** (`es.json`):
+
+```json
+"companies": {
+  "flipo": { ... },
+  "itacademy": { ... },
+  "nuevaEmpresa": {
+    "title": "Nueva Empresa | Frontend Developer",
+    "period": "Enero 2025 – Presente",
+    "description": "Descripción detallada de la experiencia..."
+  }
+}
+```
+
+2. **Traducir a todos los idiomas** manteniendo la misma estructura
+3. **Actualizar el hook** si es necesario para acceder a los nuevos datos
+
+## �📋 Buenas Prácticas
 
 ### ✅ Hacer:
 
@@ -414,6 +494,44 @@ Se ha identificado texto hardcodeado en español que necesita ser movido al sist
   }
 }
 ```
+
+---
+
+## 🔄 Cambios Recientes y Estado Actual
+
+### Últimas Actualizaciones (Septiembre 2025):
+
+✅ **Descripción de FLiPO actualizada** - Se actualizó la descripción de la experiencia en FLiPO para reflejar mejor las responsabilidades específicas:
+
+- Enfoque en el diseño y desarrollo de interfaces dinámicas en React
+- Optimización de la experiencia de usuario
+- Implementación de integraciones API
+- Desarrollo de componentes reutilizables y flujos de datos eficientes
+
+✅ **Traducciones completadas** - Todos los idiomas soportados tienen la nueva descripción:
+
+- 🇪🇸 Español (idioma base)
+- 🇺🇸 Inglés
+- 🇫🇷 Francés
+- 🇩🇪 Alemán
+- 🇮🇹 Italiano
+- 🇵🇹 Portugués
+- 🇨🇦 Catalán
+
+### Estado del Sistema:
+
+- **📊 Cobertura de traducción**: 100% en todos los idiomas soportados
+- **🏗️ Arquitectura**: Completamente basada en react-i18next con detección automática
+- **🔧 Mantenimiento**: Sistema escalable y fácil de mantener
+- **📱 UX**: Cambio de idioma dinámico sin recarga de página
+- **💾 Persistencia**: Preferencias de idioma guardadas localmente
+
+### Próximos Pasos Recomendados:
+
+1. **Testing automatizado** de todas las traducciones
+2. **Validación de consistencia** entre idiomas
+3. **Herramientas de traducción** para futuros cambios masivos
+4. **Métricas de uso** por idioma para optimizar recursos
 
 ---
 

@@ -9,7 +9,20 @@ export interface Presentation {
 }
 
 /**
- * Interfaz unificada para proyectos del portafolio
+ * Interfaz para datos estructurales de proyectos (sin texto traducible)
+ */
+export interface ProjectData {
+  id: string
+  status: 'in production' | 'done' | 'retired'
+  imgCover: string
+  link: string
+  demo?: string
+  tags: string[]
+  featured?: boolean
+}
+
+/**
+ * Interfaz unificada para proyectos del portafolio (con traducciones)
  * Basada en la estructura real de datos en portfolio-data.ts
  */
 export interface Project {
@@ -35,6 +48,26 @@ export interface Achievement {
 }
 
 /**
+ * Interfaz para datos estructurales de experiencias (sin texto traducible)
+ */
+export interface ExperienceData {
+  id: string
+  company: string
+  period: string
+  location?: string
+  links?: string[]
+  technologies?: {
+    frontend?: string
+    testing?: string
+    methodologies?: string
+    tools?: string
+  }
+  projects?: Record<string, string>
+  achievements?: Achievement[]
+  clickable?: boolean
+}
+
+/**
  * Interfaz unificada para experiencias laborales
  * Simplificada pero manteniendo funcionalidad completa
  */
@@ -55,6 +88,24 @@ export interface Experience {
   projects?: Record<string, string>
   achievements?: Achievement[]
   clickable?: boolean
+}
+
+/**
+ * Interfaz para datos estructurales de educación (sin texto traducible)
+ */
+export interface EducationData {
+  id: string
+  center: string
+  link?: string
+  start_date: string
+  end_date: string
+  tags: string[]
+  duration?: string
+  featured?: boolean
+  certificate?: {
+    available: boolean
+    url?: string
+  }
 }
 
 /**

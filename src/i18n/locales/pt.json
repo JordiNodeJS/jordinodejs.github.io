@@ -22,9 +22,9 @@
         "subtitle": "Minha trajetória profissional desenvolvendo soluções inovadoras",
         "location": "Espanha",
         "viewProject": "Ver projeto",
-        "clickTooltip": "💡 Clique para ver conquistas destacadas",
+        "clickTooltip": "💡 Clique para ver conquistas em destaque",
         "technologiesUsed": "Tecnologias utilizadas",
-        "achievements": "Conquistas Destacadas",
+        "achievements": "Conquistas em destaque",
         "description": "Descrição:",
         "impact": "Impacto:",
         "period": "Período:",
@@ -33,12 +33,12 @@
         "testing": "Testes:",
         "methodologies": "Metodologias:",
         "tools": "Ferramentas:",
-        "featuredProjects": "Projetos destacados:",
+        "featuredProjects": "Projetos em destaque:",
         "companies": {
             "flipo": {
                 "title": "FLiPO | Engenheiro Frontend React",
                 "period": "Julho 2023 – Abril 2025",
-                "description": "Durante meu tempo na FLiPO, uma startup líder na venda online de óculos modulares e graduados, contribuí significativamente para o desenvolvimento e melhoria do ERP interno, implementando soluções inovadoras que impactaram diretamente na eficiência operacional da empresa."
+                "description": "Na FLiPO, startup líder na venda online de óculos modulares e graduados, projetei e desenvolvi interfaces dinâmicas em React, otimizando a experiência do usuário e garantindo uma comunicação fluida com o backend através de integrações API. Implementei componentes reutilizáveis e fluxos de dados eficientes que melhoraram a usabilidade e a coerência visual da plataforma."
             },
             "itacademy": {
                 "title": "IT Academy BCN | Engenheiro Frontend React",
