@@ -24,15 +24,10 @@ export const useCentralizedPortfolioData = () => {
   useEffect(() => {
     // Transformar datos de proyectos con traducciones automáticas
     const transformedProjects: Project[] = PROJECTS_DATA.map(projectData => {
-      // Intentar obtener traducción, usar datos originales como fallback
-      const translatedTitle = t(`projects.items.${projectData.id}.title`, {
-        defaultValue: projectData.title
-      })
+      // Obtener traducciones desde los archivos JSON (sin fallback)
+      const translatedTitle = t(`projects.items.${projectData.id}.title`)
       const translatedDescription = t(
-        `projects.items.${projectData.id}.description`,
-        {
-          defaultValue: projectData.description
-        }
+        `projects.items.${projectData.id}.description`
       )
 
       return {
@@ -51,15 +46,10 @@ export const useCentralizedPortfolioData = () => {
     // Transformar datos de experiencias con traducciones automáticas
     const transformedExperiences: ExperienceType[] = EXPERIENCES_DATA.map(
       expData => {
-        // Intentar obtener traducción, usar datos originales como fallback
-        const translatedTitle = t(`experience.companies.${expData.id}.title`, {
-          defaultValue: expData.title
-        })
+        // Obtener traducciones desde los archivos JSON (sin fallback)
+        const translatedTitle = t(`experience.companies.${expData.id}.title`)
         const translatedDescription = t(
-          `experience.companies.${expData.id}.description`,
-          {
-            defaultValue: expData.description
-          }
+          `experience.companies.${expData.id}.description`
         )
 
         return {
@@ -74,15 +64,10 @@ export const useCentralizedPortfolioData = () => {
 
     // Transformar datos de educación con traducciones automáticas
     const transformedEducation: Education[] = EDUCATION_DATA.map(eduData => {
-      // Intentar obtener traducción, usar datos originales como fallback
-      const translatedTitle = t(`educationTranslations.${eduData.id}.title`, {
-        defaultValue: eduData.title
-      })
+      // Obtener traducciones desde los archivos JSON (sin fallback)
+      const translatedTitle = t(`educationTranslations.${eduData.id}.title`)
       const translatedDescription = t(
-        `educationTranslations.${eduData.id}.description`,
-        {
-          defaultValue: eduData.description
-        }
+        `educationTranslations.${eduData.id}.description`
       )
       const translatedCenter = t(`educationTranslations.${eduData.id}.center`, {
         defaultValue: eduData.center
@@ -108,7 +93,7 @@ export const useCentralizedPortfolioData = () => {
   // Función para obtener logros de una empresa específica
   const getAchievements = (companyName: string) => {
     const experienceData = EXPERIENCES_DATA.find(
-      exp => exp.company === companyName || exp.title.includes(companyName)
+      exp => exp.company === companyName
     )
 
     if (!experienceData?.achievements) {
@@ -126,24 +111,16 @@ export const useCentralizedPortfolioData = () => {
   // Función para obtener información de una empresa
   const getCompanyInfo = (companyName: string) => {
     const experienceData = EXPERIENCES_DATA.find(
-      exp => exp.company === companyName || exp.title.includes(companyName)
+      exp => exp.company === companyName
     )
 
     if (!experienceData) {
       return { title: '', period: '', description: '' }
     }
 
-    const translatedTitle = t(
-      `experience.companies.${experienceData.id}.title`,
-      {
-        defaultValue: experienceData.title
-      }
-    )
+    const translatedTitle = t(`experience.companies.${experienceData.id}.title`)
     const translatedDescription = t(
-      `experience.companies.${experienceData.id}.description`,
-      {
-        defaultValue: experienceData.description
-      }
+      `experience.companies.${experienceData.id}.description`
     )
 
     return {
@@ -158,7 +135,7 @@ export const useCentralizedPortfolioData = () => {
   // Función para verificar si una empresa es clickeable
   const isCompanyClickable = (companyName: string) => {
     const experienceData = EXPERIENCES_DATA.find(
-      exp => exp.company === companyName || exp.title.includes(companyName)
+      exp => exp.company === companyName
     )
     return experienceData?.clickable || false
   }
@@ -166,7 +143,7 @@ export const useCentralizedPortfolioData = () => {
   // Función para obtener el nombre simplificado de la empresa
   const getSimpleCompanyName = (fullCompanyName: string) => {
     const experienceData = EXPERIENCES_DATA.find(exp =>
-      exp.title.includes(fullCompanyName)
+      exp.company.includes(fullCompanyName)
     )
     return experienceData?.company || fullCompanyName
   }
