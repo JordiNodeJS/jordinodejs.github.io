@@ -43,7 +43,7 @@
             "itacademy": {
                 "title": "IT Academy BCN | Frontend React Engineer",
                 "period": "2022",
-                "description": "At IT Academy BCN I collaborated remotely in a team of 12 people using agile methodologies (Scrum, Kanban and 2-week sprints). I participated in the development of projects like ITA Directory and ITA Game, focusing on ERP system improvement and new feature implementation.",
+                "description": "I collaborated remotely within a 12-person team using agile methodologies (Scrum, Kanban, 2-week sprints) to develop web applications such as ITA Directory and ITA Game. I designed and implemented React interfaces, ensuring smooth API integrations and improving the user experience through reusable components, efficient state management, and clear data flows.",
                 "frontend": "JavaScript, TypeScript, React.js, Redux, Context API, Hooks, Styled Components",
                 "testing": "Vitest",
                 "methodologies": "Agile (Scrum, Kanban, 2-week sprints), OOP",
