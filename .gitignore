@@ -22,7 +22,6 @@ build
 *.njsproj
 *.sln
 *.sw?
-pnpm-lock.yaml
 
 # Screenshots with Playwright
 .playwright-mcp

@@ -5,6 +5,11 @@
   "private": true,
   "version": "0.0.4",
   "type": "module",
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -17,7 +22,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
-    "framer-motion": "^12.16.0",
+    "framer-motion": "12.16.0",
     "i18next": "^25.2.1",
     "i18next-browser-languagedetector": "^8.1.0",
     "lucide-react": "^0.511.0",
