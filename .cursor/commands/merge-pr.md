@@ -152,6 +152,4 @@ git push origin feature-branch
 
 **Uso**: Escribe `/merge-pr` en el chat de Cursor para ejecutar este comando.
 
----
-
 **Nota**: Asegúrate de tener permisos para mergear en el repositorio y que la PR esté lista para merge.
