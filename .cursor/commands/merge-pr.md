@@ -1,200 +1,85 @@
 # Merge & Squash PR
 
 ## 🎯 **Objetivo**
-Mergear Pull Requests usando GitHub CLI con diferentes estrategias de merge (squash, merge, rebase) y configuración completa.
+Mergear Pull Requests usando GitHub CLI con diferentes estrategias de merge.
 
-## 🔀 **Estrategias de Merge**
+## 🚀 **Comandos Principales**
 
-### **1. Squash and Merge (Recomendado)**
+### **1. Squash Merge (Recomendado para Features)**
 ```bash
-# Mergear con squash (combina todos los commits en uno)
-gh pr merge --squash
-
-# Mergear con squash y mensaje personalizado
-gh pr merge --squash --subject "feat: Add new feature"
-
-# Mergear con squash y eliminar rama
+# Mergear con squash y eliminar rama (más común)
 gh pr merge --squash --delete-branch
+
+# Con mensaje personalizado
+gh pr merge --squash --delete-branch --subject "feat: Add new feature"
 ```
 
-### **2. Merge Commit**
+### **2. Merge Commit (Para Hotfixes)**
 ```bash
-# Mergear creando merge commit
-gh pr merge --merge
-
-# Mergear con merge commit y eliminar rama
+# Mergear con merge commit
 gh pr merge --merge --delete-branch
 ```
 
-### **3. Rebase and Merge**
+### **3. Rebase Merge (Para Commits Individuales)**
 ```bash
-# Mergear con rebase (mantiene commits individuales)
-gh pr merge --rebase
-
-# Mergear con rebase y eliminar rama
+# Mergear con rebase
 gh pr merge --rebase --delete-branch
 ```
 
-## ⚙️ **Configuración Avanzada**
+## 🚀 **Workflow Rápido**
 
-### **1. Merge con Mensaje Personalizado**
-```bash
-# Squash con mensaje personalizado
-gh pr merge --squash --subject "feat: Implement user authentication" --body "Add complete user authentication system with JWT tokens and password hashing"
-
-# Merge con mensaje personalizado
-gh pr merge --merge --subject "feat: Add new feature" --body "Detailed description of the changes"
-```
-
-### **2. Merge Automático**
-```bash
-# Mergear automáticamente cuando esté listo
-gh pr merge --auto
-
-# Mergear con squash automático
-gh pr merge --squash --auto
-```
-
-## 🔍 **Verificar Antes de Mergear**
-
-### **1. Verificar Estado de PR**
+### **1. Verificar Estado**
 ```bash
 # Ver estado de PR actual
 gh pr status
 
 # Ver checks de PR
 gh pr checks
-
-# Ver si PR está lista para merge
-gh pr view --json mergeable,mergeStateStatus
 ```
 
-### **2. Verificar Reviews**
+### **2. Mergear PR**
 ```bash
-# Ver reviews de PR
-gh pr view --json reviews
-
-# Ver si hay reviews pendientes
-gh pr view --json reviewDecision
-```
-
-### **3. Verificar Checks**
-```bash
-# Ver todos los checks
-gh pr checks
-
-# Ver checks específicos
-gh pr checks --watch
-
-# Ver logs de checks fallidos
-gh pr checks --log-failed
-```
-
-## 🚀 **Workflow Completo de Merge**
-
-### **1. Pre-Merge Checklist**
-```bash
-# 1. Verificar que PR está lista
-gh pr view --json mergeable,mergeStateStatus,reviewDecision
-
-# 2. Verificar que todos los checks pasan
-gh pr checks
-
-# 3. Verificar que no hay conflictos
-gh pr view --json mergeable
-```
-
-### **2. Merge con Squash (Recomendado)**
-```bash
-# 1. Verificar estado
-gh pr status
-
-# 2. Mergear con squash
+# Opción 1: Squash merge (recomendado para features)
 gh pr merge --squash --delete-branch
 
-# 3. Verificar que se mergeó correctamente
-gh pr list --state merged
-```
-
-### **3. Merge con Merge Commit**
-```bash
-# 1. Verificar estado
-gh pr status
-
-# 2. Mergear con merge commit
+# Opción 2: Merge commit (para hotfixes)
 gh pr merge --merge --delete-branch
-
-# 3. Verificar merge
-gh pr view --json mergedAt
 ```
 
-## 📋 **Comandos de Verificación**
-
-### **1. Verificar PR Lista para Merge**
+### **3. Verificar Merge**
 ```bash
-# Verificar que PR puede ser mergeada
-gh pr view --json mergeable,mergeStateStatus,reviewDecision,checks
+# Ver PRs mergeadas recientemente
+gh pr list --state merged --limit 3
 
-# Verificar checks específicos
-gh pr checks --required
+# Ver commits recientes
+git log --oneline -3
 ```
 
-### **2. Verificar Reviews**
+## 🎯 **Ejemplos por Tipo de PR**
+
+### **Feature PR (Recomendado: Squash)**
 ```bash
-# Ver reviews aprobadas
-gh pr view --json reviews --jq '.reviews[] | select(.state == "APPROVED")'
-
-# Ver reviews pendientes
-gh pr view --json reviews --jq '.reviews[] | select(.state == "PENDING")'
-```
-
-### **3. Verificar Conflictos**
-```bash
-# Verificar si hay conflictos
-gh pr view --json mergeable
-
-# Ver diff de PR
-gh pr diff
-```
-
-## 🎯 **Casos de Uso Específicos**
-
-### **1. Feature PR (Recomendado: Squash)**
-```bash
-# Para features, usar squash para mantener historial limpio
 gh pr merge --squash --delete-branch --subject "feat: Add user authentication system"
 ```
 
-### **2. Bug Fix PR (Recomendado: Squash)**
+### **Bug Fix PR (Recomendado: Squash)**
 ```bash
-# Para bug fixes, usar squash
 gh pr merge --squash --delete-branch --subject "fix: Resolve login validation issue"
 ```
 
-### **3. Hotfix PR (Recomendado: Merge)**
+### **Hotfix PR (Recomendado: Merge)**
 ```bash
-# Para hotfixes, usar merge commit para preservar contexto
 gh pr merge --merge --delete-branch
 ```
 
-### **4. Documentation PR (Recomendado: Squash)**
+### **Documentation PR (Recomendado: Squash)**
 ```bash
-# Para documentación, usar squash
 gh pr merge --squash --delete-branch --subject "docs: Update API documentation"
 ```
 
-## 🔧 **Comandos de Limpieza**
+## 🔧 **Limpieza Después del Merge**
 
-### **1. Limpiar Ramas Después del Merge**
-```bash
-# Eliminar rama local después del merge
-git branch -d feature-branch
-
-# Eliminar rama remota (si no se eliminó automáticamente)
-git push origin --delete feature-branch
-```
-
-### **2. Sincronizar con Main**
+### **Sincronizar con Main**
 ```bash
 # Cambiar a main
 git checkout main
@@ -202,55 +87,33 @@ git checkout main
 # Pull de cambios
 git pull origin main
 
-# Limpiar ramas locales
+# Limpiar ramas locales (opcional)
 git branch --merged | grep -v main | xargs -n 1 git branch -d
 ```
 
-## 📊 **Verificar Merge Exitoso**
-
-### **1. Verificar que PR se Mergeó**
-```bash
-# Ver PRs mergeadas recientemente
-gh pr list --state merged --limit 5
-
-# Ver detalles de PR mergeada
-gh pr view --json mergedAt,mergeCommit
-```
-
-### **2. Verificar Commits en Main**
-```bash
-# Ver commits recientes en main
-git log --oneline -5
-
-# Ver commit de merge
-git show --stat HEAD
-```
-
-## 💡 **Mejores Prácticas**
+## 💡 **Tips Importantes**
 
 ### **1. Estrategia de Merge por Tipo**
 - **Features**: Squash (historial limpio)
 - **Bug Fixes**: Squash (historial limpio)
 - **Hotfixes**: Merge (preservar contexto)
 - **Documentation**: Squash (historial limpio)
-- **Dependencies**: Squash (historial limpio)
 
-### **2. Antes de Mergear**
-- ✅ Verificar que todos los checks pasan
-- ✅ Verificar que hay reviews aprobadas
-- ✅ Verificar que no hay conflictos
-- ✅ Verificar que la descripción es clara
-- ✅ Verificar que las etiquetas son correctas
+### **2. Problemas Comunes**
+- **Checks fallidos**: Verificar si son críticos antes de mergear
+- **Estado UNSTABLE**: Común en feature branches, se puede mergear
+- **Rama no se elimina**: Se elimina automáticamente con `--delete-branch`
 
-### **3. Después del Merge**
-- ✅ Verificar que la rama se eliminó
-- ✅ Sincronizar con main
-- ✅ Verificar que el deploy funciona
-- ✅ Limpiar ramas locales
+### **3. Verificación Rápida**
+```bash
+# Verificar que el merge fue exitoso
+gh pr list --state merged --limit 3
+git log --oneline -3
+```
 
 ## 🚨 **Solución de Problemas**
 
-### **1. PR No Se Puede Mergear**
+### **PR No Se Puede Mergear**
 ```bash
 # Verificar conflictos
 gh pr view --json mergeable
@@ -262,7 +125,7 @@ gh pr checks
 gh pr view --json reviewDecision
 ```
 
-### **2. Checks Fallidos**
+### **Checks Fallidos**
 ```bash
 # Ver logs de checks fallidos
 gh pr checks --log-failed
@@ -271,7 +134,7 @@ gh pr checks --log-failed
 gh pr checks --watch
 ```
 
-### **3. Conflictos de Merge**
+### **Conflictos de Merge**
 ```bash
 # Ver conflictos
 gh pr diff
