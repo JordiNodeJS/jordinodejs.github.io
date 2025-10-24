@@ -1,0 +1,12 @@
+# Ignore files that shouldn't be deployed to Vercel
+node_modules
+.git
+.gitignore
+README.md
+docs/
+scripts/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+Thumbs.db

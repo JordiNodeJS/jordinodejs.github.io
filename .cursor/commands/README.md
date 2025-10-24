@@ -49,6 +49,26 @@ Testing básico de página y UI en el navegador.
 - Validación responsive
 - Verificación de errores
 
+### **6. `/create-pr`**
+Crear Pull Requests automáticamente con GitHub CLI.
+
+**Incluye:**
+- Creación automática de PRs
+- Etiquetado contextual
+- Asignación automática
+- Templates de descripción
+- Verificación de estado
+
+### **7. `/merge-pr`**
+Mergear Pull Requests con diferentes estrategias.
+
+**Incluye:**
+- Squash and merge
+- Merge commit
+- Rebase and merge
+- Verificación de estado
+- Limpieza automática
+
 ## 🚀 **Cómo Usar**
 
 ### **Método 1: Comando Directo**
@@ -80,6 +100,11 @@ Testing básico de página y UI en el navegador.
 2. `/devtools-integration` - Análisis general
 3. `/performance-audit` - Validar performance
 4. `/mobile-test` - Probar en móvil
+
+### **Gestión de PRs**
+1. `/create-pr` - Crear PR con etiquetas contextuales
+2. `/merge-pr` - Mergear PR con squash/merge
+3. Verificar estado y limpiar ramas
 
 ### **Debugging**
 1. `/network-debug` - Identificar problemas de red
@@ -113,6 +138,11 @@ Testing básico de página y UI en el navegador.
 - Usa `/dev` para verificar funcionalidad básica
 - Aplica `/dev` antes de testing avanzado
 - Ejecuta `/dev` después de cambios en UI
+
+### **Para Gestión de PRs**
+- Usa `/create-pr` para crear PRs con contexto automático
+- Aplica `/merge-pr` para mergear con estrategia apropiada
+- Ejecuta verificación de estado antes de mergear
 
 ## 🎯 **Casos de Uso Específicos**
 

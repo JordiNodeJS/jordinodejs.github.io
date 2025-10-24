@@ -7,6 +7,14 @@ export default defineConfig({
   base: '/', // Always use root path for jordinodejs.github.io deployment
   build: {
     outDir: 'dist',
+    sourcemap: false, // Disable sourcemaps for production
+    minify: 'terser', // Use terser for better minification
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console.log in production
+        drop_debugger: true // Remove debugger statements
+      }
+    },
     rollupOptions: {
       output: {
         manualChunks: {
@@ -16,6 +24,10 @@ export default defineConfig({
         }
       }
     },
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 1000,
+    reportCompressedSize: false // Disable compressed size reporting to reduce warnings
+  },
+  esbuild: {
+    drop: ['console', 'debugger'] // Remove console and debugger in production
   }
 })
