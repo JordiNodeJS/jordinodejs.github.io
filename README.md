@@ -13,9 +13,8 @@ The `Article` component is used to display an article with a title, content, and
 - `imageUrl` (string, optional): The URL of the image to be displayed.
 
 ```jsx
-import Article from './components/Article'
-
-;<Article
+import Article from './components/Article';
+<Article
   title="Sample Article"
   content="This is the content of the sample article."
   imageUrl="https://example.com/image.jpg"
