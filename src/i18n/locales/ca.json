@@ -84,6 +84,10 @@
                 "title": "Directori IT Academy",
                 "description": "Treballant sota metodologies àgils com SCRUM, solucionant errors, provant, noves funcionalitats, documentació conjuntament amb el backend."
             },
+            "interior-design-landing": {
+                "title": "WebCode — Interior Design Landing",
+                "description": "Plantilla de landing corporativa per a un estudi d'interiorisme construïda amb Next.js i TypeScript. Mostra portafoli, blog i contacte; disseny responsive i components reutilitzables per a escalabilitat."
+            },
             "9b68cc3d": {
                 "title": "Ita-Game",
                 "description": "Gamificació d'una plataforma d'estudi utilitzant React i Tailwind."

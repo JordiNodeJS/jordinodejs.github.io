@@ -67,6 +67,15 @@ export const PROJECTS_DATA: ProjectData[] = [
     ],
     featured: true
   },
+  {
+    id: 'interior-design-landing',
+    status: 'done',
+    imgCover: 'img-project/interior-design-mockup.jpg',
+    link: 'https://github.com/JordiNodeJS/webcode-interior-design',
+    demo: 'https://interior-design.webcode.es/',
+    tags: ['nextjs', 'typescript', 'bootstrap', 'scss'],
+    featured: true
+  },
 
   // Proyectos en desarrollo
   {

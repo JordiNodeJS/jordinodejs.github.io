@@ -84,6 +84,10 @@
                 "title": "Répertoire IT Academy",
                 "description": "Travaillant sous des méthodologies agiles telles que SCRUM, corrigeant des bugs, testant, nouvelles fonctionnalités, documentation en conjonction avec le backend."
             },
+            "interior-design-landing": {
+                "title": "WebCode — Interior Design Landing",
+                "description": "Modèle de page d'accueil d'entreprise pour un studio de design d'intérieur construit avec Next.js et TypeScript. Présente portfolio, blog et contact ; design responsive et composants réutilisables pour l'évolutivité."
+            },
             "9b68cc3d": {
                 "title": "Ita-Game",
                 "description": "Gamification d'une plateforme d'étude utilisant React et Tailwind."
