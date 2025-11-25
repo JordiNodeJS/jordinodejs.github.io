@@ -30,18 +30,7 @@ const Hero = () => {
       breatheScale: 1.04,
       breatheDuration: 3000,
       glowOnHover: true,
-      glowColor:
-        theme === 'dark'
-          ? 'rgba(56, 189, 248, 0.6)' // Cyan for dark mode
-          : theme === 'light'
-          ? 'rgba(79, 70, 229, 0.5)' // Indigo for light mode
-          : theme === 'vintage'
-          ? 'rgba(227, 181, 5, 0.6)' // Dorado para vintage
-          : theme === 'retro-pastel'
-          ? 'rgba(229, 107, 129, 0.5)' // Rosa para retro-pastel
-          : theme === 'brutalism'
-          ? 'rgba(255, 107, 107, 0.7)' // Rojo brillante para brutalism
-          : 'rgba(79, 70, 229, 0.5)',
+      glowColor: 'var(--glow-color)',
       glowIntensity: theme === 'brutalism' ? 1 : 0.8
     }
   )
@@ -55,19 +44,10 @@ const Hero = () => {
       {' '}
       {/* Background gradient */}
       <div
-        className={`absolute inset-0 z-0 ${
-          theme === 'dark'
-            ? 'bg-gradient-to-br from-slate-900 to-slate-800'
-            : theme === 'light'
-            ? 'bg-gradient-to-br from-gray-50 to-white'
-            : theme === 'vintage'
-            ? 'bg-gradient-to-br from-[#6e4c30] to-[#543825]'
-            : theme === 'retro-pastel'
-            ? 'bg-gradient-to-br from-[#f9f1f0] to-[#fadcd9]'
-            : theme === 'brutalism'
-            ? 'bg-[#ffeaa7]' // Color sólido para brutalism
-            : 'bg-gradient-to-br from-gray-50 to-white'
-        }`}
+        className="absolute inset-0 z-0"
+        style={{
+          background: `linear-gradient(to bottom right, var(--bg-gradient-from), var(--bg-gradient-to))`
+        }}
       />
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
@@ -96,20 +76,11 @@ const Hero = () => {
               {' '}
               {/* Base circular with depth effect */}
               <motion.div
-                className={`absolute inset-0 rounded-full ${
-                  theme === 'dark'
-                    ? 'bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900'
-                    : theme === 'light'
-                    ? 'bg-gradient-to-br from-gray-100 via-white to-gray-200'
-                    : theme === 'vintage'
-                    ? 'bg-gradient-to-br from-[#a87e58] via-[#9b714c] to-[#8a6440]'
-                    : theme === 'retro-pastel'
-                    ? 'bg-gradient-to-br from-[#ffb5b5] via-[#ffaec0] to-[#f59cb0]'
-                    : theme === 'brutalism'
-                    ? 'bg-[#ff6b6b] border-4 border-black'
-                    : 'bg-gradient-to-br from-gray-100 via-white to-gray-200'
-                } shadow-inner transform-gpu transform-style-3d background-smooth`}
+                className={`absolute inset-0 rounded-full shadow-inner transform-gpu transform-style-3d background-smooth ${
+                  theme === 'brutalism' ? 'border-4 border-black' : ''
+                }`}
                 style={{
+                  background: `linear-gradient(to bottom right, var(--circle-gradient-from), var(--circle-gradient-via), var(--circle-gradient-to))`,
                   z: -20,
                   transform: `translateZ(-20px)`,
                   transition:
@@ -120,22 +91,8 @@ const Hero = () => {
               <motion.div
                 className="absolute -inset-4 rounded-full blur-md opacity-70 background-smooth"
                 style={{
-                  background:
-                    theme === 'dark'
-                      ? 'radial-gradient(circle, rgba(56,189,248,0.2) 0%, rgba(30,64,175,0.1) 70%, transparent 100%)'
-                      : theme === 'light'
-                      ? 'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(147,51,234,0.1) 70%, transparent 100%)'
-                      : theme === 'vintage'
-                      ? 'radial-gradient(circle, rgba(227,181,5,0.3) 0%, rgba(168,126,88,0.2) 70%, transparent 100%)'
-                      : theme === 'retro-pastel'
-                      ? 'radial-gradient(circle, rgba(229,107,129,0.25) 0%, rgba(248,177,149,0.15) 70%, transparent 100%)'
-                      : theme === 'brutalism'
-                      ? 'none' // Sin sombra para el tema brutalism
-                      : 'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(147,51,234,0.1) 70%, transparent 100%)',
-                  transform:
-                    theme === 'brutalism'
-                      ? 'translateZ(-10px)'
-                      : 'translateZ(-10px)',
+                  background: 'var(--hero-shadow-bg)',
+                  transform: 'translateZ(-10px)',
                   opacity: isHovered ? 0.9 : 0.7,
                   scale: isHovered ? 1.1 : 1.0,
                   boxShadow:
@@ -173,30 +130,9 @@ const Hero = () => {
                   theme === 'brutalism' ? 'border-4 border-black' : ''
                 }`}
                 style={{
-                  background:
-                    theme === 'dark'
-                      ? `conic-gradient(from ${
-                          Date.now() % 360
-                        }deg at 50% 50%, #60a5fa, #3b82f6, #2563eb, #1d4ed8, #1e40af, #1e3a8a, #1e3a8a, #1e40af, #1d4ed8, #2563eb, #3b82f6, #60a5fa)`
-                      : theme === 'light'
-                      ? `conic-gradient(from ${
-                          Date.now() % 360
-                        }deg at 50% 50%, #93c5fd, #60a5fa, #3b82f6, #2563eb, #1d4ed8, #1e40af, #1e40af, #1d4ed8, #2563eb, #3b82f6, #60a5fa, #93c5fd)`
-                      : theme === 'vintage'
-                      ? `conic-gradient(from ${
-                          Date.now() % 360
-                        }deg at 50% 50%, #e3b505, #c89e31, #a87e58, #967043, #826036, #6e4c30, #6e4c30, #826036, #967043, #a87e58, #c89e31, #e3b505)`
-                      : theme === 'retro-pastel'
-                      ? `conic-gradient(from ${
-                          Date.now() % 360
-                        }deg at 50% 50%, #ffb5b5, #ffaec0, #f59cb0, #e56b81, #cf6279, #b85671, #b85671, #cf6279, #e56b81, #f59cb0, #ffaec0, #ffb5b5)`
-                      : theme === 'brutalism'
-                      ? `conic-gradient(from ${
-                          Date.now() % 360
-                        }deg at 50% 50%, #4ecdc4, #45b7d1, #3b82f6, #ff6b6b, #ffeaa7, #ffeaa7, #ff6b6b, #3b82f6, #45b7d1, #4ecdc4)`
-                      : `conic-gradient(from ${
-                          Date.now() % 360
-                        }deg at 50% 50%, #93c5fd, #60a5fa, #3b82f6, #2563eb, #1d4ed8, #1e40af, #1e40af, #1d4ed8, #2563eb, #3b82f6, #60a5fa, #93c5fd)`,
+                  background: `conic-gradient(from ${
+                    Date.now() % 360
+                  }deg at 50% 50%, var(--hero-conic-stops))`,
                   filter:
                     theme === 'brutalism'
                       ? 'none'

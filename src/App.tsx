@@ -1,4 +1,5 @@
 import { useEffect, useCallback } from 'react'
+import { LazyMotion, domAnimation } from 'framer-motion'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
@@ -50,7 +51,7 @@ function App() {
   }, [handleSmoothScroll])
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <LoadingScreen />
 
       <div className="min-h-screen dark:bg-slate-900 light:bg-gray-50 transition-colors duration-300 overflow-x-hidden relative">
@@ -89,7 +90,7 @@ function App() {
         {/* Scroll to top button */}
         <ScrollToTop />
       </div>
-    </>
+    </LazyMotion>
   )
 }
 

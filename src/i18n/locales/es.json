@@ -106,6 +106,10 @@
         "viewMore": "Ver Más Proyectos",
         "more": "más",
         "items": {
+            "rss-reader-pro": {
+                "title": "Lector RSS Pro",
+                "description": "Lector RSS moderno y con capacidad offline construido con Next.js 16, React 19 y Tailwind CSS. Diseñado para velocidad, estética y una experiencia de usuario premium. Incluye soporte offline, scraping web y modo oscuro."
+            },
             "astro-5-agosto": {
                 "title": "Mudanzas Andy",
                 "description": "Diseñé la identidad visual y la experiencia de usuario de mudanzasandy.es, una web estática para empresa de mudanzas. Trabajo completo: diseño responsive, sistema de colores centralizado, maquetación accesible y optimización de imágenes y rendimiento."

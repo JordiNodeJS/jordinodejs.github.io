@@ -3,6 +3,114 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* Default variables (Dark theme) */
+    --bg-color: rgb(15 23 42);
+    --text-color: rgb(255 255 255);
+    --text-secondary: rgb(156 163 175);
+    --primary-color: rgb(56 189 248);
+    --primary-hover: rgb(14 165 233);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --glow-color: rgba(56, 189, 248, 0.6);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    
+    /* Gradients */
+    --bg-gradient-from: rgb(15 23 42); /* slate-900 */
+    --bg-gradient-to: rgb(30 41 59); /* slate-800 */
+    --circle-gradient-from: rgb(51 65 85); /* slate-700 */
+    --circle-gradient-via: rgb(30 41 59); /* slate-800 */
+    --circle-gradient-to: rgb(15 23 42); /* slate-900 */
+    --hero-conic-stops: #60a5fa, #3b82f6, #2563eb, #1d4ed8, #1e40af, #1e3a8a, #1e3a8a, #1e40af, #1d4ed8, #2563eb, #3b82f6, #60a5fa;
+    --hero-shadow-bg: radial-gradient(circle, rgba(56,189,248,0.2) 0%, rgba(30,64,175,0.1) 70%, transparent 100%);
+  }
+
+  .light {
+    --bg-color: rgb(249 250 251);
+    --text-color: rgb(17 24 39);
+    --text-secondary: rgb(75 85 99);
+    --primary-color: rgb(79 70 229);
+    --primary-hover: rgb(67 56 202);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --glow-color: rgba(79, 70 229, 0.5);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* Gradients */
+    --bg-gradient-from: rgb(249 250 251); /* gray-50 */
+    --bg-gradient-to: rgb(255 255 255); /* white */
+    --circle-gradient-from: rgb(243 244 246); /* gray-100 */
+    --circle-gradient-via: rgb(255 255 255); /* white */
+    --circle-gradient-to: rgb(229 231 235); /* gray-200 */
+    --hero-conic-stops: #93c5fd, #60a5fa, #3b82f6, #2563eb, #1d4ed8, #1e40af, #1e40af, #1d4ed8, #2563eb, #3b82f6, #60a5fa, #93c5fd;
+    --hero-shadow-bg: radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(147,51,234,0.1) 70%, transparent 100%);
+  }
+
+  [data-theme="vintage"] {
+    --bg-color: #f8f3e6;
+    --text-color: #4a3c2a;
+    --text-secondary: #5d4f3d;
+    --primary-color: #8b5e3c;
+    --primary-hover: #6e4c30;
+    --border-color: rgba(139, 94, 60, 0.3);
+    --card-bg: rgba(255, 253, 245, 0.9);
+    --glow-color: rgba(227, 181, 5, 0.6);
+    --shadow-color: rgba(74, 60, 42, 0.2);
+
+    /* Gradients */
+    --bg-gradient-from: #6e4c30;
+    --bg-gradient-to: #543825;
+    --circle-gradient-from: #a87e58;
+    --circle-gradient-via: #9b714c;
+    --circle-gradient-to: #8a6440;
+    --hero-conic-stops: #e3b505, #c89e31, #a87e58, #967043, #826036, #6e4c30, #6e4c30, #826036, #967043, #a87e58, #c89e31, #e3b505;
+    --hero-shadow-bg: radial-gradient(circle, rgba(227,181,5,0.3) 0%, rgba(168,126,88,0.2) 70%, transparent 100%);
+  }
+
+  [data-theme="retro-pastel"] {
+    --bg-color: #fffaf0;
+    --text-color: #3d2c2c;
+    --text-secondary: #665555;
+    --primary-color: #e56b81;
+    --primary-hover: #cf6279;
+    --border-color: rgba(229, 107, 129, 0.3);
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --glow-color: rgba(229, 107, 129, 0.5);
+    --shadow-color: rgba(61, 44, 44, 0.15);
+
+    /* Gradients */
+    --bg-gradient-from: #f9f1f0;
+    --bg-gradient-to: #fadcd9;
+    --circle-gradient-from: #ffb5b5;
+    --circle-gradient-via: #ffaec0;
+    --circle-gradient-to: #f59cb0;
+    --hero-conic-stops: #ffb5b5, #ffaec0, #f59cb0, #e56b81, #cf6279, #b85671, #b85671, #cf6279, #e56b81, #f59cb0, #ffaec0, #ffb5b5;
+    --hero-shadow-bg: radial-gradient(circle, rgba(229,107,129,0.25) 0%, rgba(248,177,149,0.15) 70%, transparent 100%);
+  }
+
+  [data-theme="brutalism"] {
+    --bg-color: #ffeaa7;
+    --text-color: #000000;
+    --text-secondary: #000000;
+    --primary-color: #ff6b6b;
+    --primary-hover: #ff5252;
+    --border-color: #000000;
+    --card-bg: #ffffff;
+    --glow-color: rgba(255, 107, 107, 0.7);
+    --shadow-color: #000000;
+
+    /* Gradients */
+    --bg-gradient-from: #ffeaa7;
+    --bg-gradient-to: #ffeaa7;
+    --circle-gradient-from: #ff6b6b;
+    --circle-gradient-via: #ff6b6b;
+    --circle-gradient-to: #ff6b6b;
+    --hero-conic-stops: #4ecdc4, #45b7d1, #3b82f6, #ff6b6b, #ffeaa7, #ffeaa7, #ff6b6b, #3b82f6, #45b7d1, #4ecdc4;
+    --hero-shadow-bg: none;
+  }
+}
+
 @layer utilities {
   /* 3D Transform Utilities */
   .perspective-500 {
@@ -1408,5 +1516,65 @@
 
   [data-theme="brutalism"] .nav-link-brutal:hover::before {
     transform: scaleX(1);
+  }
+
+  /* Project Slider Button */
+  .project-slider-button {
+    @apply bg-black/50 text-white border border-white/20 hover:bg-black/70 backdrop-blur-md rounded-full;
+  }
+
+  .light .project-slider-button {
+    @apply bg-white/90 text-gray-900 border border-gray-200 hover:bg-white shadow-md rounded-full;
+  }
+
+  [data-theme="vintage"] .project-slider-button {
+    @apply bg-[#f3ebd3] text-[#3a2e1f] border border-[#8b5e3c] hover:bg-[#e3b505] rounded-md shadow-sm;
+  }
+
+  [data-theme="retro-pastel"] .project-slider-button {
+    @apply bg-[#fffaf0] text-[#3d2c2c] border-2 border-[#3d2c2c] hover:bg-[#ff9eb5] rounded-xl;
+  }
+
+  [data-theme="brutalism"] .project-slider-button {
+    @apply bg-white text-black border-2 border-black rounded-none hover:bg-[#ffeaa7] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none opacity-100;
+  }
+
+  /* Projects Title */
+  .projects-title {
+    @apply text-4xl md:text-5xl mb-8 font-bold text-gray-900 dark:text-white transition-colors duration-300;
+  }
+
+  [data-theme="vintage"] .projects-title {
+    @apply text-[#e3b505] font-bold; /* vintage-mustard-light */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  [data-theme="retro-pastel"] .projects-title {
+    @apply text-[#e56b81] font-bold; /* retroPastel.pink.dark */
+  }
+
+  [data-theme="brutalism"] .projects-title {
+    @apply brutal-title;
+  }
+
+  /* Theme Toggle Button */
+  .theme-toggle-button {
+    @apply relative w-12 h-12 backdrop-blur-sm border transition-colors duration-300 flex items-center justify-center z-20 rounded-lg bg-slate-800/50 border-slate-700/50 text-slate-300 hover:text-blue-500;
+  }
+
+  .light .theme-toggle-button {
+    @apply rounded-lg bg-white/50 border-gray-200/50 text-gray-700 hover:text-blue-500;
+  }
+
+  [data-theme="vintage"] .theme-toggle-button {
+    @apply rounded-lg bg-amber-800/50 border-amber-900/50 text-amber-100 hover:text-amber-300;
+  }
+
+  [data-theme="retro-pastel"] .theme-toggle-button {
+    @apply rounded-lg bg-[#ffaec0]/30 border-[#e56b81]/30 text-[#3d2c2c] hover:text-[#e56b81];
+  }
+
+  [data-theme="brutalism"] .theme-toggle-button {
+    @apply brutalism-theme-toggle;
   }
 }

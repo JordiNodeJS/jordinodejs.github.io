@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Instrucciones para Codificar Mejor
 
 ````markdown

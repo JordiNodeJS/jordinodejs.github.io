@@ -21,6 +21,29 @@ export type { ProjectData, ExperienceData, EducationData, Achievement }
 export const PROJECTS_DATA: ProjectData[] = [
   // Proyectos destacados y más recientes
   {
+    id: 'rss-reader-pro',
+    status: 'done',
+    imgCover: 'img-project/rss-reader/home-populated-dark.webp',
+    screenshots: [
+      'img-project/rss-reader/home-populated-dark.webp',
+      'img-project/rss-reader/article-view-dark.webp',
+      'img-project/rss-reader/home-populated-light.webp',
+      'img-project/rss-reader/article-view-light.webp',
+      'img-project/rss-reader/home-empty.webp'
+    ],
+    link: 'https://github.com/JordiNodeJS/rss-reader',
+    demo: 'https://rss-reader-antigravity.vercel.app',
+    tags: [
+      'Next.js 16',
+      'React 19',
+      'Tailwind CSS',
+      'IndexedDB',
+      'Playwright',
+      'PWA'
+    ],
+    featured: true
+  },
+  {
     id: 'astro-5-agosto',
     status: 'done',
     imgCover: 'img-project/mudanzasandy-frame.webp',

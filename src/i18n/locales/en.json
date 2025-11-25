@@ -72,6 +72,10 @@
         "viewMore": "View More Projects",
         "more": "more",
         "items": {
+            "rss-reader-pro": {
+                "title": "RSS Reader Pro",
+                "description": "A modern, offline-capable RSS reader built with Next.js 16, React 19, and Tailwind CSS. Designed for speed, aesthetics, and a premium user experience. Features offline support, web scraping, and dark mode."
+            },
             "astro-5-agosto": {
                 "title": "Mudanzas Andy",
                 "description": "I designed the visual identity and user experience for mudanzasandy.es, a static website for a moving company. Complete work: responsive design, centralized color system, accessible layout and image and performance optimization."
