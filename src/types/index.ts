@@ -16,6 +16,7 @@ export interface ProjectData {
   status: 'in production' | 'done' | 'retired'
   imgCover: string
   screenshots?: string[]
+  video?: string
   link: string
   demo?: string
   tags: string[]
@@ -33,6 +34,7 @@ export interface Project {
   status: 'in production' | 'done' | 'retired'
   imgCover: string
   screenshots?: string[]
+  video?: string
   link: string
   demo?: string
   tags: string[]

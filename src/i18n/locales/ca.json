@@ -72,6 +72,10 @@
         "viewMore": "Veure Més Projectes",
         "more": "més",
         "items": {
+            "interactive-scenes-three": {
+                "title": "Interactive Scenes Three",
+                "description": "Sistema de partícules 3D interactiu controlat per gestos de mà en temps real construït amb React 19, Three.js i MediaPipe Hands. Transforma 20.000 partícules entre 9 formes geomètriques mitjançant shaders personalitzats."
+            },
             "rss-reader-pro": {
                 "title": "Lector RSS Pro",
                 "description": "Lector RSS modern i amb capacitat offline construït amb Next.js 16, React 19 i Tailwind CSS. Dissenyat per a velocitat, estètica i una experiència d'usuari premium. Inclou suport offline, scraping web i mode fosc."

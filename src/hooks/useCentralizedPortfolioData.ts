@@ -37,6 +37,7 @@ export const useCentralizedPortfolioData = () => {
         status: projectData.status,
         imgCover: projectData.imgCover,
         screenshots: projectData.screenshots,
+        video: projectData.video,
         link: projectData.link,
         demo: projectData.demo,
         tags: projectData.tags,

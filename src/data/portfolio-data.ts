@@ -21,6 +21,23 @@ export type { ProjectData, ExperienceData, EducationData, Achievement }
 export const PROJECTS_DATA: ProjectData[] = [
   // Proyectos destacados y más recientes
   {
+    id: 'interactive-scenes-three',
+    status: 'done',
+    imgCover: 'img-project/interactive-scenes-three/capture.webm',
+    video: 'img-project/interactive-scenes-three/capture.webm',
+    link: 'https://github.com/JordiNodeJS/interactive-scenes-three',
+    tags: [
+      'React 19',
+      'Three.js',
+      'MediaPipe',
+      'Zustand',
+      'TypeScript',
+      'Vite',
+      'WebGL'
+    ],
+    featured: true
+  },
+  {
     id: 'rss-reader-pro',
     status: 'done',
     imgCover: 'img-project/rss-reader/home-populated-dark.webp',

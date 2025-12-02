@@ -25,6 +25,16 @@ const ProjectCard = ({
 }) => {
   const { theme } = useTheme()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [videoError, setVideoError] = useState(false)
+  
+  // Debug: Log video info
+  if (project.id === 'interactive-scenes-three') {
+    console.log('Interactive Scenes Three project:', {
+      hasVideo: !!project.video,
+      videoPath: project.video,
+      imgCover: project.imgCover
+    })
+  }
   
   // Use screenshots if available, otherwise fallback to imgCover
   const images = project.screenshots && project.screenshots.length > 0 
@@ -55,14 +65,42 @@ const ProjectCard = ({
       whileHover={{ y: -10 }}
       className="group relative glass-effect rounded-2xl overflow-hidden card-hover"
     >
-      {/* Image Container */}
+      {/* Image/Video Container */}
       <div className="relative h-48 sm:h-56 overflow-hidden group/slider">
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.6 }}
           className="w-full h-full bg-gradient-to-br from-primary-500/20 to-purple-500/20 flex items-center justify-center"
         >
-          {images.length > 0 ? (
+          {project.video && !videoError ? (
+            <video
+              src={`/${project.video}`}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover transition-opacity duration-300"
+              onError={(e) => {
+                console.error('Error loading video:', project.video, e)
+                setVideoError(true)
+              }}
+              onLoadedData={() => {
+                console.log('Video loaded successfully:', project.video)
+              }}
+              onCanPlay={() => {
+                console.log('Video can play:', project.video)
+              }}
+            >
+              Tu navegador no soporta el elemento de video.
+            </video>
+          ) : videoError && project.imgCover ? (
+            <img
+              src={`${import.meta.env.BASE_URL}${project.imgCover}`}
+              alt={project.title}
+              className="w-full h-full object-cover transition-opacity duration-300"
+            />
+          ) : images.length > 0 ? (
             <img
               key={currentImageIndex} // Force re-render on image change
               src={`${import.meta.env.BASE_URL}${images[currentImageIndex]}`}
@@ -75,7 +113,7 @@ const ProjectCard = ({
         </motion.div>
 
         {/* Slider Controls */}
-        {images.length > 1 && (
+        {!project.video && images.length > 1 && (
           <>
             <button
               onClick={prevImage}
