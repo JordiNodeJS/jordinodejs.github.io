@@ -5,7 +5,7 @@ import {
   useCallback,
   type ReactNode
 } from 'react'
-import { ThemeContext, type Theme } from './ThemeContextDef'
+import { ThemeContext, type Theme, type DesignMode } from './ThemeContextDef'
 
 interface ThemeProviderProps {
   children: ReactNode
@@ -46,6 +46,21 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   }
 
   const [theme, setThemeState] = useState<Theme>(() => getInitialTheme())
+  
+  // Initialize design mode from localStorage or default to 'zen-minimalist'
+  const [designMode, setDesignModeState] = useState<DesignMode>(() => {
+    try {
+      const savedMode = localStorage.getItem('designMode') as DesignMode
+      const validModes: DesignMode[] = [
+        'zen-minimalist', 'interactive-3d', 'bento-grid', 'neo-brutalist', 
+        'glassmorphism', 'scrollytelling', 'terminal', 'organic-nature', 
+        'magazine', 'immersive-gamer'
+      ]
+      return (savedMode && validModes.includes(savedMode)) ? savedMode : 'zen-minimalist'
+    } catch {
+      return 'zen-minimalist'
+    }
+  })
 
   useEffect(() => {
     // Apply theme to document and save to localStorage with error handling
@@ -71,6 +86,16 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     }
   }, [theme])
 
+  // Persist design mode
+  useEffect(() => {
+    try {
+      localStorage.setItem('designMode', designMode)
+      document.documentElement.setAttribute('data-design-mode', designMode)
+    } catch (error) {
+      console.warn('Error saving design mode preference:', error)
+    }
+  }, [designMode])
+
   // Listen for system theme changes
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return
@@ -92,6 +117,10 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     setThemeState(newTheme)
   }, [])
 
+  const setDesignMode = useCallback((newMode: DesignMode) => {
+    setDesignModeState(newMode)
+  }, [])
+
   const toggleTheme = useCallback(() => {
     setThemeState((prevTheme: Theme) => {
       const themeOrder: Theme[] = [
@@ -110,10 +139,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const contextValue = useMemo(
     () => ({
       theme,
+      designMode,
       toggleTheme,
-      setTheme
+      setTheme,
+      setDesignMode
     }),
-    [theme, toggleTheme, setTheme]
+    [theme, designMode, toggleTheme, setTheme, setDesignMode]
   )
 
   return (
