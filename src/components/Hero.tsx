@@ -15,6 +15,7 @@ const Hero = () => {
       border: 'border-black',
       shadow: 'shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]',
       secondary: 'bg-[#4ecdc4]',
+      badgeHover: 'hover:bg-white hover:text-black',
       buttonHover: 'hover:bg-white hover:text-black',
       marqueeText: 'text-black',
       buttonBg: 'bg-black',
@@ -27,6 +28,7 @@ const Hero = () => {
       border: 'border-white',
       shadow: 'shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]',
       secondary: 'bg-cyan-500',
+      badgeHover: 'hover:bg-black hover:text-white',
       buttonHover: 'hover:bg-white hover:text-black',
       marqueeText: 'text-white',
       buttonBg: 'bg-white',
@@ -39,6 +41,7 @@ const Hero = () => {
       border: 'border-[#5b4636]',
       shadow: 'shadow-[8px_8px_0px_0px_#5b4636]',
       secondary: 'bg-[#859900]',
+      badgeHover: 'hover:bg-[#eee8d5] hover:text-[#5b4636]',
       buttonHover: 'hover:bg-[#eee8d5] hover:text-[#5b4636]',
       marqueeText: 'text-[#93a1a1]',
       buttonBg: 'bg-[#5b4636]',
@@ -51,6 +54,7 @@ const Hero = () => {
       border: 'border-[#001858]',
       shadow: 'shadow-[8px_8px_0px_0px_#001858]',
       secondary: 'bg-[#8bd3dd]',
+      badgeHover: 'hover:bg-[#fffffe] hover:text-[#001858]',
       buttonHover: 'hover:bg-[#fffffe] hover:text-[#001858]',
       marqueeText: 'text-[#172c66]',
       buttonBg: 'bg-[#001858]',
@@ -63,6 +67,7 @@ const Hero = () => {
       border: 'border-black',
       shadow: 'shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]',
       secondary: 'bg-[#4ecdc4]',
+      badgeHover: 'hover:bg-[#ff6b6b] hover:text-[#ffffff]',
       buttonHover: 'hover:bg-[#ff6b6b] hover:text-black',
       marqueeText: 'text-black',
       buttonBg: 'bg-black',
@@ -83,10 +88,10 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className={`min-h-screen ${currentStyle.bg} ${currentStyle.text} overflow-hidden relative font-mono transition-colors duration-500`}
+      className={`min-h-screen pb-20 md:pb-6 ${currentStyle.bg} ${currentStyle.text} overflow-hidden relative font-mono transition-colors duration-500`}
     >
       {/* Marquee Background */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden flex flex-col justify-between py-10">
+      <div className="absolute inset-0 flex flex-col justify-between py-10 overflow-hidden pointer-events-none opacity-10">
         {[...Array(5)].map((_, i) => (
           <div
             key={i}
@@ -105,7 +110,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 pt-40 flex flex-col items-center justify-center gap-12 min-h-screen">
+      <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen gap-12 px-6 pt-40 mx-auto">
         <motion.div
           initial={{ scale: 0.8, rotate: -5, opacity: 0 }}
           animate={{ scale: 1, rotate: 0, opacity: 1 }}
@@ -121,10 +126,17 @@ const Hero = () => {
             <img
               src="/assets/neo-portrait-user.png"
               alt="Brutalist Portrait"
-              className="w-full h-full object-cover"
+              className="object-cover w-full h-full"
             />
-            <div
-              className={`absolute -top-6 -right-6 ${currentStyle.secondary} border-4 ${currentStyle.border} rounded-full w-24 h-24 flex items-center justify-center font-black animate-bounce text-center text-xs leading-tight p-2`}
+            <a
+              href="https://webcode.es"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`absolute -top-6 -right-6 ${currentStyle.secondary} ${
+                currentStyle.badgeHover || ''
+              } border-4 ${
+                currentStyle.border
+              } rounded-full w-24 h-24 flex items-center justify-center font-black animate-bounce text-center text-xs leading-tight p-2 transition-colors duration-200`}
             >
               {t('hero.neoBadge', 'WEB CODE')
                 .split(' ')
@@ -134,7 +146,7 @@ const Hero = () => {
                     <br />
                   </span>
                 ))}
-            </div>
+            </a>
           </div>
         </motion.div>
 
@@ -143,7 +155,7 @@ const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           className={`bg-white border-4 ${currentStyle.border} p-8 ${currentStyle.shadow} max-w-2xl text-center relative z-10`}
         >
-          <h1 className="text-5xl md:text-7xl font-black leading-none mb-4 text-black">
+          <h1 className="mb-4 text-5xl font-black leading-none text-black md:text-7xl">
             {titleMain}
             <span className="text-[#ff6b6b]">{titleExt}</span>
           </h1>
