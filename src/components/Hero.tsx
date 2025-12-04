@@ -1,10 +1,15 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useTheme } from '../hooks/useTheme'
 import { useTranslation } from 'react-i18next'
+import HeroBackground from './HeroBackground'
 
 const Hero = () => {
   const { theme } = useTheme()
   const { t } = useTranslation()
+  const shouldReduceMotion = useReducedMotion()
+  // Spin configuration for the badge (turntable effect)
+  const spinTurns = 8 // number of full rotations
+  const spinDuration = 3 // seconds
 
   // Define theme-specific styles for the brutalist layout
   const themeStyles = {
@@ -91,24 +96,7 @@ const Hero = () => {
       className={`min-h-screen pb-20 md:pb-6 ${currentStyle.bg} ${currentStyle.text} overflow-hidden relative font-mono transition-colors duration-500`}
     >
       {/* Marquee Background */}
-      <div className="absolute inset-0 flex flex-col justify-between py-10 overflow-hidden pointer-events-none opacity-10">
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className={`whitespace-nowrap text-9xl font-black ${
-              currentStyle.marqueeText
-            } ${
-              i % 2 === 0
-                ? 'animate-[marquee_20s_linear_infinite]'
-                : 'animate-[marquee_20s_linear_infinite_reverse]'
-            }`}
-          >
-            {t('hero.neoTitle', 'WEBCODE.ES')}{' '}
-            {t('hero.neoTitle', 'WEBCODE.ES')}{' '}
-            {t('hero.neoTitle', 'WEBCODE.ES')}
-          </div>
-        ))}
-      </div>
+      <HeroBackground themeStyle={currentStyle} />
 
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen gap-12 px-6 pt-40 mx-auto">
         <motion.div
@@ -128,7 +116,7 @@ const Hero = () => {
               alt="Brutalist Portrait"
               className="object-cover w-full h-full"
             />
-            <a
+            <motion.a
               href="https://webcode.es"
               target="_blank"
               rel="noopener noreferrer"
@@ -136,7 +124,16 @@ const Hero = () => {
                 currentStyle.badgeHover || ''
               } border-4 ${
                 currentStyle.border
-              } rounded-full w-24 h-24 flex items-center justify-center font-black animate-bounce text-center text-xs leading-tight p-2 transition-colors duration-200`}
+              } rounded-full w-24 h-24 flex items-center justify-center font-black text-center text-xs leading-tight p-2 transition-colors duration-200 transform-gpu will-change-transform origin-center`}
+              initial={shouldReduceMotion ? undefined : { rotate: 0 }}
+              animate={
+                shouldReduceMotion ? undefined : { rotate: 360 * spinTurns }
+              }
+              transition={
+                shouldReduceMotion
+                  ? undefined
+                  : { duration: spinDuration, ease: 'easeOut' }
+              }
             >
               {t('hero.neoBadge', 'WEB CODE')
                 .split(' ')
@@ -146,7 +143,7 @@ const Hero = () => {
                     <br />
                   </span>
                 ))}
-            </a>
+            </motion.a>
           </div>
         </motion.div>
 
