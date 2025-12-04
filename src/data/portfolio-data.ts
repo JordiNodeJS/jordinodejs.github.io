@@ -26,6 +26,7 @@ export const PROJECTS_DATA: ProjectData[] = [
     imgCover: 'img-project/interactive-scenes-three/capture.webm',
     video: 'img-project/interactive-scenes-three/capture.webm',
     link: 'https://github.com/JordiNodeJS/interactive-scenes-three',
+    demo: 'https://interactive-scenes-three.vercel.app',
     tags: [
       'React 19',
       'Three.js',

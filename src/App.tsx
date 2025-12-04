@@ -10,7 +10,6 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 // import FloatingParticles from './components/FloatingParticles' // TEMPORARILY DISABLED FOR PERFORMANCE
 import LoadingScreen from './components/LoadingScreen'
-import DesignSwitcher from './components/DesignSwitcher'
 
 import { useScrollToSection } from './hooks/useScrollToSection'
 
@@ -88,8 +87,7 @@ function App() {
         {/* Modern Footer */}
         <Footer />
 
-        {/* Design Switcher */}
-        <DesignSwitcher />
+
 
         {/* Scroll to top button */}
         <ScrollToTop />

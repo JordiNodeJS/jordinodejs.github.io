@@ -15,7 +15,11 @@
         "subtitle": "Desarrollador Frontend especializado en React con experiencia en crear interfaces modernas y funcionales",
         "cta": "Ver mi trabajo",
         "downloadCV": "Descargar CV",
-        "viewProjects": "Ver Proyectos"
+        "viewProjects": "Ver Proyectos",
+        "neoTitle": "WEBCODE.ES",
+        "neoSubtitle": "CREANDO CAOS Y ORDEN DIGITAL",
+        "neoCta": "VER PROYECTOS",
+        "neoBadge": "WEB CODE"
     },
     "experience": {
         "title": "Experiencia Profesional",
