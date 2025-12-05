@@ -51,11 +51,6 @@ Build / test / debug flows (commands to run)
   pnpm exec playwright test
   ```
 
-Deploy / CI notes
-
-- CI uses GitHub Actions: `.github/workflows/deploy.yml`. The workflow performs `npm ci` then `npm run build` — locally prefer `pnpm` but CI uses `npm ci` in the current workflow.
-- Do not rely on `package.json` `deploy` script for production; prefer the CI workflow or the specialized scripts under `scripts/` (`build-vercel.js`, `deploy-to-github-pages.js`).
-
 Project-specific conventions & examples
 
 - React components: PascalCase filenames in `src/components/` (e.g. `Hero.tsx`, `Skills.tsx`). Vite handles automatic JSX runtime — do not add redundant `import React from 'react'`.
