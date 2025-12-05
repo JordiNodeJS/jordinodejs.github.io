@@ -108,14 +108,32 @@ const Hero = () => {
           <div
             className={`absolute inset-0 ${currentStyle.accent} border-4 ${currentStyle.border} translate-x-4 translate-y-4`}
           />
-          <div
+          <motion.div
             className={`relative border-4 ${currentStyle.border} bg-white p-2 w-64 h-64 md:w-80 md:h-80 hover:rotate-2 transition-transform duration-300`}
+            initial="rest"
+            whileHover="hover"
           >
-            <img
-              src="/assets/neo-portrait-user.png"
-              alt="Brutalist Portrait"
-              className="object-cover w-full h-full"
-            />
+            <div className="relative w-full h-full overflow-hidden">
+              <img
+                src="/assets/neo-portrait-user.png"
+                alt="Brutalist Portrait Front"
+                className="absolute inset-0 object-cover w-full h-full"
+              />
+              <motion.div
+                className="absolute inset-0 w-full h-full bg-white"
+                variants={{
+                  rest: { x: 0 },
+                  hover: { x: '100%' }
+                }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+              >
+                <img
+                  src="/assets/neo-portrait-profile.png"
+                  alt="Brutalist Portrait Profile"
+                  className="object-cover w-full h-full"
+                />
+              </motion.div>
+            </div>
             <motion.a
               href="https://webcode.es"
               target="_blank"
@@ -144,7 +162,7 @@ const Hero = () => {
                   </span>
                 ))}
             </motion.a>
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
