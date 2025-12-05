@@ -15,7 +15,11 @@
         "subtitle": "Frontend Developer specialized in React with experience in creating modern and functional interfaces",
         "cta": "View my work",
         "downloadCV": "Download CV",
-        "viewProjects": "View Projects"
+        "viewProjects": "View Projects",
+        "neoTitle": "WEBCODE.ES",
+        "neoSubtitle": "CREATING DIGITAL CHAOS & ORDER",
+        "neoCta": "VIEW PROJECTS",
+        "neoBadge": "WEB CODE"
     },
     "experience": {
         "title": "Professional Experience",

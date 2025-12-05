@@ -1,356 +1,201 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useTheme } from '../hooks/useTheme'
-import { useRef } from 'react'
-import useMotion3DEffect from '../hooks/useMotion3DEffect'
-import { TextRevealAnimation } from './TextRevealAnimation'
-import ProgressiveTextReveal from './ProgressiveTextReveal'
+import { useTranslation } from 'react-i18next'
+import HeroBackground from './HeroBackground'
 
 const Hero = () => {
   const { theme } = useTheme()
-  const portfolioData = {
-    presentation: {
-      title: 'Frontend React Engineer',
-      name: 'JORGE'
+  const { t } = useTranslation()
+  const shouldReduceMotion = useReducedMotion()
+  // Spin configuration for the badge (turntable effect)
+  const spinTurns = 8 // number of full rotations
+  const spinDuration = 3 // seconds
+
+  // Define theme-specific styles for the brutalist layout
+  const themeStyles = {
+    light: {
+      bg: 'bg-[#ffeaa7]',
+      text: 'text-black',
+      accent: 'bg-[#ff6b6b]',
+      border: 'border-black',
+      shadow: 'shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]',
+      secondary: 'bg-[#4ecdc4]',
+      badgeHover: 'hover:bg-white hover:text-black',
+      buttonHover: 'hover:bg-white hover:text-black',
+      marqueeText: 'text-black',
+      buttonBg: 'bg-black',
+      buttonText: 'text-slate-50'
+    },
+    dark: {
+      bg: 'bg-slate-900',
+      text: 'text-white',
+      accent: 'bg-purple-600',
+      border: 'border-white',
+      shadow: 'shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]',
+      secondary: 'bg-cyan-500',
+      badgeHover: 'hover:bg-black hover:text-white',
+      buttonHover: 'hover:bg-white hover:text-black',
+      marqueeText: 'text-white',
+      buttonBg: 'bg-white',
+      buttonText: 'text-black'
+    },
+    vintage: {
+      bg: 'bg-[#fdf6e3]',
+      text: 'text-[#5b4636]',
+      accent: 'bg-[#cb4b16]',
+      border: 'border-[#5b4636]',
+      shadow: 'shadow-[8px_8px_0px_0px_#5b4636]',
+      secondary: 'bg-[#859900]',
+      badgeHover: 'hover:bg-[#eee8d5] hover:text-[#5b4636]',
+      buttonHover: 'hover:bg-[#eee8d5] hover:text-[#5b4636]',
+      marqueeText: 'text-[#93a1a1]',
+      buttonBg: 'bg-[#5b4636]',
+      buttonText: 'text-[#fdf6e3]'
+    },
+    'retro-pastel': {
+      bg: 'bg-[#fef6e4]',
+      text: 'text-[#001858]',
+      accent: 'bg-[#f582ae]',
+      border: 'border-[#001858]',
+      shadow: 'shadow-[8px_8px_0px_0px_#001858]',
+      secondary: 'bg-[#8bd3dd]',
+      badgeHover: 'hover:bg-[#fffffe] hover:text-[#001858]',
+      buttonHover: 'hover:bg-[#fffffe] hover:text-[#001858]',
+      marqueeText: 'text-[#172c66]',
+      buttonBg: 'bg-[#001858]',
+      buttonText: 'text-[#fffffe]'
+    },
+    brutalism: {
+      bg: 'bg-[#ffeaa7]',
+      text: 'text-black',
+      accent: 'bg-[#ff6b6b]',
+      border: 'border-black',
+      shadow: 'shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]',
+      secondary: 'bg-[#4ecdc4]',
+      badgeHover: 'hover:bg-[#ff6b6b] hover:text-[#ffffff]',
+      buttonHover: 'hover:bg-[#ff6b6b] hover:text-black',
+      marqueeText: 'text-black',
+      buttonBg: 'bg-black',
+      buttonText: 'text-[#ffffff]'
     }
   }
-  const profileContainerRef = useRef<HTMLDivElement>(null)
 
-  // Using our enhanced 3D effect hook for better physics-based animations
-  const { springProps, isHovered, config } = useMotion3DEffect(
-    profileContainerRef as React.RefObject<HTMLElement>,
-    {
-      strength: 25,
-      rotateLimit: 15,
-      scaleFactor: 1.08,
-      zAxisMovement: 50,
-      tiltReverse: false,
-      resetOnLeave: true,
+  const currentStyle = themeStyles[theme] || themeStyles.light
 
-      breatheAnimation: false, // Disable breathing animation for specific themes
-      breatheScale: 1.04,
-      breatheDuration: 3000,
-      glowOnHover: true,
-      glowColor: 'var(--glow-color)',
-      glowIntensity: theme === 'brutalism' ? 1 : 0.8
-    }
-  )
+  const titleText = t('hero.neoTitle', 'WEBCODE.ES')
+  const titleMain = titleText.includes('.')
+    ? titleText.substring(0, titleText.lastIndexOf('.'))
+    : titleText
+  const titleExt = titleText.includes('.')
+    ? titleText.substring(titleText.lastIndexOf('.'))
+    : ''
+
   return (
     <section
       id="hero"
-      className={`relative py-20 ${
-        theme === 'brutalism' ? 'overflow-visible' : 'overflow-hidden'
-      }`}
+      className={`min-h-screen pb-20 md:pb-6 ${currentStyle.bg} ${currentStyle.text} overflow-hidden relative font-mono transition-colors duration-500`}
     >
-      {' '}
-      {/* Background gradient */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background: `linear-gradient(to bottom right, var(--bg-gradient-from), var(--bg-gradient-to))`
-        }}
-      />
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4">
-        <div className="flex flex-col items-center">
-          {/* Profile image with 3D effect */}
+      {/* Marquee Background */}
+      <HeroBackground themeStyle={currentStyle} />
+
+      <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen gap-12 px-6 pt-40 mx-auto">
+        <motion.div
+          initial={{ scale: 0.8, rotate: -5, opacity: 0 }}
+          animate={{ scale: 1, rotate: 0, opacity: 1 }}
+          transition={{ type: 'spring', bounce: 0.5 }}
+          className="relative z-20"
+        >
           <div
-            className="perspective-1000 mb-12 mt-12 cursor-pointer profile-image-container hover-smooth"
-            ref={profileContainerRef}
-          >
-            {' '}
-            <motion.div
-              className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-visible shadow-2xl transform-style-3d scale-smooth"
-              style={{
-                // Apply transform directly from spring props
-                rotateX: springProps.rotateX,
-                rotateY: springProps.rotateY,
-                scale: springProps.scale,
-                z: springProps.zIndex,
-                // Use CSS custom property for perspective
-                transform: `perspective(1000px)`,
-                // Add smooth transitions for all transformations
-                transition:
-                  'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease'
-              }}
-            >
-              {' '}
-              {/* Base circular with depth effect */}
-              <motion.div
-                className={`absolute inset-0 rounded-full shadow-inner transform-gpu transform-style-3d background-smooth ${
-                  theme === 'brutalism' ? 'border-4 border-black' : ''
-                }`}
-                style={{
-                  background: `linear-gradient(to bottom right, var(--circle-gradient-from), var(--circle-gradient-via), var(--circle-gradient-to))`,
-                  z: -20,
-                  transform: `translateZ(-20px)`,
-                  transition:
-                    'transform 0.8s cubic-bezier(0.23, 1, 0.320, 1), background 0.6s ease-out'
-                }}
-              />{' '}
-              {/* Dynamic shadow effect */}
-              <motion.div
-                className="absolute -inset-4 rounded-full blur-md opacity-70 background-smooth"
-                style={{
-                  background: 'var(--hero-shadow-bg)',
-                  transform: 'translateZ(-10px)',
-                  opacity: isHovered ? 0.9 : 0.7,
-                  scale: isHovered ? 1.1 : 1.0,
-                  boxShadow:
-                    theme === 'brutalism' ? '5px 5px 0px #000' : 'none',
-                  transition:
-                    'transform 0.8s cubic-bezier(0.23, 1, 0.320, 1), opacity 0.6s ease-out, scale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                }}
-              />{' '}
-              {/* Container for the image with clip-path for the "popping out of circle" effect */}
-              <motion.div
-                className="absolute inset-0 overflow-visible transform-style-3d"
-                style={{
-                  z: springProps.zIndex
-                }}
-              >
-                {' '}
-                {/* 3D Image that "pops out" of the circle */}
-                <motion.img
-                  src={`${import.meta.env.BASE_URL}assets/developer.png`}
-                  alt="Profile"
-                  className="w-full h-full object-cover rounded-full transform-gpu transform-style-3d scale-smooth"
-                  style={{
-                    scale: springProps.scale,
-                    filter: isHovered
-                      ? `drop-shadow(0 0 20px ${config.glowColor})`
-                      : 'none',
-                    transition:
-                      'filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), scale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                  }}
-                />{' '}
-              </motion.div>{' '}
-              {/* Border glow effect */}
-              <motion.div
-                className={`absolute -inset-1 rounded-full pointer-events-none transform-style-3d background-smooth ${
-                  theme === 'brutalism' ? 'border-4 border-black' : ''
-                }`}
-                style={{
-                  background: `conic-gradient(from ${
-                    Date.now() % 360
-                  }deg at 50% 50%, var(--hero-conic-stops))`,
-                  filter:
-                    theme === 'brutalism'
-                      ? 'none'
-                      : isHovered
-                      ? 'blur(12px)'
-                      : 'blur(8px)',
-                  transform:
-                    theme === 'brutalism'
-                      ? 'translateZ(5px) skew(-3deg)'
-                      : 'translateZ(5px)',
-                  zIndex: 5,
-                  opacity: isHovered ? 0.9 : 0.6,
-                  scale: isHovered ? 1.05 : 1.0,
-                  // animation: "rotate 10s linear infinite", // DISABLED FOR PERFORMANCE
-                  transition:
-                    'filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s ease-out, scale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                  boxShadow: theme === 'brutalism' ? '4px 4px 0px #000' : 'none'
-                }}
-              />
-            </motion.div>
-          </div>
-
-          {/* Text content with animations */}
+            className={`absolute inset-0 ${currentStyle.accent} border-4 ${currentStyle.border} translate-x-4 translate-y-4`}
+          />
           <motion.div
-            className="text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            style={{
-              // Ensure text container doesn't clip content
-              overflow: 'visible',
-              ...(theme === 'brutalism' && {
-                minWidth: '100%',
-                width: 'auto'
-              })
-            }}
+            className={`relative border-4 ${currentStyle.border} bg-white p-2 w-64 h-64 md:w-80 md:h-80 hover:rotate-2 transition-transform duration-300`}
+            initial="rest"
+            whileHover="hover"
           >
-            {/* Progressive text reveal for dark, light, retro-pastel themes */}
-            {theme === 'dark' ||
-            theme === 'light' ||
-            theme === 'retro-pastel' ? (
-              <ProgressiveTextReveal
-                text={portfolioData?.presentation?.name || 'JORGE'}
-                duration={4000}
-                className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent ${
-                  theme === 'dark'
-                    ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600'
-                    : theme === 'light'
-                    ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600'
-                    : theme === 'retro-pastel'
-                    ? 'bg-gradient-to-r from-pink-300 via-rose-200 to-orange-200'
-                    : ''
-                }`}
-                style={{
-                  fontSize: '4.5rem',
-                  lineHeight: '1.1',
-                  ...(theme === 'retro-pastel' && {
-                    fontFamily: '"Comfortaa", cursive, sans-serif',
-                    fontWeight: '600',
-                    letterSpacing: '0.02em'
-                  })
-                }}
+            <div className="relative w-full h-full overflow-hidden">
+              <img
+                src="/assets/neo-portrait-user.png"
+                alt="Brutalist Portrait Front"
+                className="absolute inset-0 object-cover w-full h-full"
               />
-            ) : (
-              /* Regular text for brutalism and vintage themes */
-              <div
-                className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${
-                  theme === 'brutalism'
-                    ? 'text-black'
-                    : theme === 'vintage'
-                    ? 'bg-clip-text text-transparent'
-                    : 'bg-clip-text text-transparent'
-                } ${
-                  theme === 'vintage'
-                    ? 'bg-gradient-to-r from-yellow-600 via-amber-500 to-orange-600'
-                    : theme === 'brutalism'
-                    ? ''
-                    : 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600'
-                }`}
-                style={{
-                  fontSize: '4.5rem',
-                  lineHeight: '1.1',
-                  // Ensure proper display for brutalism theme
-                  ...(theme === 'brutalism' && {
-                    color: '#ef7574',
-                    textShadow:
-                      '2px 2px 0 #000, ' +
-                      '-1px -1px 0 #f8d7da, ' +
-                      '-1px -2px 0 #f5b5b5, ' +
-                      '1px -1px 0 #000, ' +
-                      '-1px 1px 0 #000, ' +
-                      '1px 1px 0 #000',
-                    WebkitTextStroke: '0.5px #000',
-                    overflow: 'visible', // Ensure text is not clipped
-                    whiteSpace: 'nowrap' // Prevent text wrapping that might cause issues
-                  }),
-                  ...(theme === 'vintage' && {
-                    textShadow:
-                      '2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(251, 191, 36, 0.5)',
-                    fontFamily: '"Playfair Display", serif',
-                    fontWeight: '700',
-                    letterSpacing: '0.05em',
-                    filter: 'drop-shadow(0 4px 8px rgba(139, 94, 60, 0.4))'
-                  })
+              <motion.div
+                className="absolute inset-0 w-full h-full bg-white"
+                variants={{
+                  rest: { x: 0 },
+                  hover: { x: '100%' }
                 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
               >
-                <TextRevealAnimation
-                  text={portfolioData?.presentation?.name || "JORGe's web"}
-                  charDelay={theme === 'brutalism' ? 0.12 : 0.08} // Slower animation for brutalism to ensure all chars appear
-                  animationStyle="scale"
-                  once={false}
-                  replay={false}
+                <img
+                  src="/assets/neo-portrait-profile.png"
+                  alt="Brutalist Portrait Profile"
+                  className="object-cover w-full h-full"
                 />
-              </div>
-            )}
-
-            <div
-              className={`text-xl md:text-2xl lg:text-3xl font-medium mb-6 ${
-                theme === 'dark'
-                  ? 'text-slate-200'
-                  : theme === 'brutalism'
-                  ? 'text-black font-bold'
-                  : theme === 'vintage'
-                  ? 'text-amber-700 font-medium'
-                  : theme === 'retro-pastel'
-                  ? 'text-rose-400 font-light'
-                  : theme === 'light'
-                  ? 'text-gray-700'
-                  : 'text-gray-700'
-              }`}
-              style={{
-                // Force absolute centering - override any conflicting styles
-                textAlign: 'center' as const,
-                display: 'flex' as const,
-                justifyContent: 'center' as const,
-                alignItems: 'center' as const,
-                width: '100%' as const,
-                margin: '0 auto' as const,
-                position: 'relative',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                ...(theme === 'dark' && {
-                  textShadow: '0 2px 8px rgba(0,0,0,0.4)'
-                }),
-                ...(theme === 'brutalism' && {
-                  textShadow:
-                    '1px 1px 0 #000, -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #000',
-                  WebkitTextStroke: '0.3px #000'
-                }),
-                ...(theme === 'vintage' && {
-                  textShadow:
-                    '1px 1px 2px rgba(0, 0, 0, 0.2), 0 0 10px rgba(251, 191, 36, 0.3)',
-                  fontFamily: '"Playfair Display", serif',
-                  fontStyle: 'italic',
-                  letterSpacing: '0.02em'
-                }),
-                ...(theme === 'retro-pastel' && {
-                  textShadow:
-                    '0 2px 4px rgba(255, 182, 193, 0.3), 0 0 8px rgba(255, 218, 185, 0.2)',
-                  fontFamily: '"Comfortaa", cursive, sans-serif',
-                  letterSpacing: '0.01em',
-                  fontWeight: '300'
-                }),
-                ...(theme === 'light' && {
-                  textShadow: '0 1px 4px rgba(0,0,0,0.1)'
-                })
-              }}
-            >
-              <div
-                style={{
-                  textAlign: 'center',
-                  width: '100%',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                {/* Simple text without animation to ensure centering */}
-                <span style={{ textAlign: 'center', display: 'inline-block' }}>
-                  {portfolioData?.presentation?.title ||
-                    'Frontend React Engineer'}
-                </span>
-              </div>
+              </motion.div>
             </div>
-
-            <motion.div
-              className={`w-24 h-1 mx-auto rounded-full mt-4 ${
-                theme === 'dark'
-                  ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600'
-                  : theme === 'light'
-                  ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'
-                  : theme === 'vintage'
-                  ? 'bg-gradient-to-r from-yellow-500 via-amber-400 to-orange-500 shadow-lg shadow-amber-400/50'
-                  : theme === 'retro-pastel'
-                  ? 'bg-gradient-to-r from-pink-200 via-rose-100 to-orange-100 shadow-md shadow-pink-200/60'
-                  : theme === 'brutalism'
-                  ? 'bg-black border-2 border-white shadow-[2px_2px_0px_#ff6b6b]'
-                  : 'bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'
-              }`}
-              style={{
-                // Additional spacing from subtitle
-                marginTop: '1rem',
-                ...(theme === 'vintage' && {
-                  filter: 'drop-shadow(0 2px 4px rgba(251, 191, 36, 0.6))',
-                  height: '3px'
-                }),
-                ...(theme === 'retro-pastel' && {
-                  filter: 'drop-shadow(0 1px 3px rgba(255, 182, 193, 0.4))',
-                  height: '2px',
-                  borderRadius: '1px'
-                })
-              }}
-              initial={{ width: 0 }}
-              animate={{ width: 96 }}
-              transition={{ duration: 1, delay: 0.6 }}
-            />
+            <motion.a
+              href="https://webcode.es"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`absolute -top-6 -right-6 ${currentStyle.secondary} ${
+                currentStyle.badgeHover || ''
+              } border-4 ${
+                currentStyle.border
+              } rounded-full w-24 h-24 flex items-center justify-center font-black text-center text-xs leading-tight p-2 transition-colors duration-200 transform-gpu will-change-transform origin-center`}
+              initial={shouldReduceMotion ? undefined : { rotate: 0 }}
+              animate={
+                shouldReduceMotion ? undefined : { rotate: 360 * spinTurns }
+              }
+              transition={
+                shouldReduceMotion
+                  ? undefined
+                  : { duration: spinDuration, ease: 'easeOut' }
+              }
+            >
+              {t('hero.neoBadge', 'WEB CODE')
+                .split(' ')
+                .map((word, i) => (
+                  <span key={i}>
+                    {word}
+                    <br />
+                  </span>
+                ))}
+            </motion.a>
           </motion.div>
-        </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className={`bg-white border-4 ${currentStyle.border} p-8 ${currentStyle.shadow} max-w-2xl text-center relative z-10`}
+        >
+          <h1 className="mb-4 text-5xl font-black leading-none text-black md:text-7xl">
+            {titleMain}
+            <span className="text-[#ff6b6b]">{titleExt}</span>
+          </h1>
+          <p
+            className={`text-xl font-bold ${currentStyle.secondary} text-black inline-block px-4 py-2 mb-6 border-2 ${currentStyle.border} transform -rotate-1`}
+          >
+            {t('hero.neoSubtitle', 'CREATING DIGITAL CHAOS & ORDER')}
+          </p>
+          <div className="flex justify-center gap-4">
+            <a
+              href="#projects"
+              className={`block ${currentStyle.buttonBg} ${
+                currentStyle.buttonText
+              } font-bold py-4 px-8 border-2 border-transparent ${
+                currentStyle.buttonHover
+              } ${
+                currentStyle.buttonHover.includes('border')
+                  ? ''
+                  : 'hover:border-black'
+              } transition-all shadow-[4px_4px_0px_0px_#4ecdc4] hover:shadow-[8px_8px_0px_0px_#4ecdc4] hover:-translate-y-1`}
+            >
+              {t('hero.neoCta', 'VIEW PROJECTS')}
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

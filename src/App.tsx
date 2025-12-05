@@ -87,6 +87,8 @@ function App() {
         {/* Modern Footer */}
         <Footer />
 
+
+
         {/* Scroll to top button */}
         <ScrollToTop />
       </div>
