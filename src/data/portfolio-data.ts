@@ -75,7 +75,7 @@ export const PROJECTS_DATA: ProjectData[] = [
     status: 'in production',
     imgCover: 'img-project/remove-bg.png',
     link: 'https://github.com/JordiNodeJS/remove-background',
-    demo: 'http://ec2-3-254-74-19.eu-west-1.compute.amazonaws.com:3000/',
+    demo: 'http://ec2-52-214-1-144.eu-west-1.compute.amazonaws.com/',
     tags: [
       'typescript',
       'nextjs',
